@@ -9,7 +9,7 @@ const fs = require('fs'); //Node內建的檔案工具，用來讀取JSON檔
 const app = express();
 
 //設定伺服器port
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; //要部署在render上執行，所以不寫死3000
 
 //讓express能讀取前端送來的JSON資料
 app.use(express.json());
@@ -54,7 +54,7 @@ app.post('/api/login', (req, res) => {
 
     } catch (error) {
         console.error(error);
-        
+
         res.status(500).json({
             success: false,
             message: "伺服器登入處理發生錯誤"
@@ -65,7 +65,7 @@ app.post('/api/login', (req, res) => {
 //註冊API
 app.post("/api/register", (req, res) => {
     try {
-        const { name, email, password} = req.body; //取得使用者註冊輸入的姓名、信箱、密碼
+        const { name, email, password } = req.body; //取得使用者註冊輸入的姓名、信箱、密碼
 
         const usersData = fs.readFileSync(path.join(__dirname, "data", "users.json"), "utf-8");
 
@@ -116,11 +116,11 @@ app.post("/api/register", (req, res) => {
             success: false,
             message: "伺服器註冊處理發生錯誤"
         });
-        
+
     }
 });
 
 //啟動伺服器
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
     console.log(`Noctra is running at http://localhost:${PORT}`);
 });
