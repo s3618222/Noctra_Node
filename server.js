@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000; //要部署在render上執行，所以不
 app.use(express.json());
 
 //開放public資料夾，讓瀏覽器可以讀取Noctra的網頁內容
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "docs")));
 
 
 app.get("/", (req, res) => { //首頁API測試路由
