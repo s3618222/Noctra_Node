@@ -1,0 +1,880 @@
+/* ====== 登入後介面共用CSS ====== */
+/* ==== CSS Reset ==== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==== header and footer ==== */
+body {
+    padding-top: 72px;
+    /* 對應導覽bar的設定高度 */
+    background-color: #f3f1ec;
+
+    /* 字體套用 */
+    font-family: "Noto Sans TC", "Segoe UI", sans-serif;
+}
+
+/* Noctra logo */
+.logo {
+    width: 200px;
+}
+
+/* ====== Top-bar ====== */
+/* 網頁起始header導覽按鈕 */
+/* 先隱藏手機介面下的訂閱方案與user-menu連結 */
+.mobile-user-menu {
+    display: none;
+}
+
+.mobile-subscribe {
+    display: none;
+}
+
+.top-bar {
+    height: 72px;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f3f1ec;
+    z-index: 9999;
+
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 0 8px;
+}
+
+.nav-wrap {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* 預設讓JS控制下滾後才會出現的白底色 */
+.top-bar.solid {
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    align-items: center;
+}
+
+header nav ul li {
+    list-style: none;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #6b7280;
+    cursor: pointer;
+
+    transition: color 0.18s ease, transform 0.23s ease;
+}
+
+/* 幫目前所在分頁的nav導覽鈕，加設差異化的狀態 */
+#currentPage {
+    color: #1f2937;
+}
+
+/* 導覽列hover動畫設定 */
+header nav li a {
+    position: relative;
+}
+
+header nav li a::after {
+    display: inline-block;
+    content: "";
+    width: 100%;
+    height: 2.2px;
+    background-color: #314158;
+
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    transform: scaleX(0);
+    /* 先隱藏起來 */
+    transform-origin: left center;
+    /* 動畫從左下開始跑 */
+    transition: transform 0.3s ease;
+}
+
+header nav li a:hover::after {
+    transform: scaleX(1);
+}
+
+header nav ul li:hover {
+    transform: translateY(-3px);
+    color: #314158;
+}
+
+header nav ul li:active {
+    transform: translateY(0px);
+}
+
+/* 把連結a的預設樣式去除，讓它繼承父層li設定好的樣式 */
+header nav ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* hb的隱藏感應按鈕 */
+#menu-control {
+    display: none;
+}
+
+/* 先將漢堡在專機狀態下隱藏 */
+.hb {
+    display: none;
+}
+
+/* 使用者圖示、訂閱按鈕 */
+.member-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+#user-info {
+    padding: 0;
+    border: none;
+    background: transparent;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+#user-icon:hover {
+    filter: brightness(1.3);
+    transform: translateY(-1.5px);
+}
+
+.member-buttons a {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        transform 0.14s ease;
+}
+
+#subscribe {
+    background-color: #b4c1d4;
+    color: #0b1224;
+    border-color: rgba(180, 193, 212, 0.85);
+}
+
+#subscribe:hover {
+    background-color: #c3cee0;
+    transform: translateY(-1px);
+}
+
+#subscribe:active {
+    transform: translateY(0px);
+}
+
+/* Noctra logo圖案連結 */
+.logo-link,
+.footer-logo-link {
+    display: block;
+    width: fit-content;
+    cursor: pointer;
+}
+
+/* 使用者下拉選單 */
+.user-menu {
+    position: relative;
+    display: flex;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    padding: 10px 10px;
+
+    display: none;
+    z-index: 10000;
+    backdrop-filter: blur(12px);
+}
+
+/* 利用js的toggle來開關選單 */
+.user-dropdown.show {
+    display: block;
+}
+
+.dropdownSelect {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 48px;
+    border-radius: 12px;
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    cursor: pointer;
+
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.dropdownSelect span {
+    margin: 0;
+    font-size: 16px;
+    color: #314158;
+    font-weight: 500;
+}
+
+.dropdownSelect:hover {
+    background-color: #e7edf5;
+}
+
+.dropdownSelect:active {
+    background-color: #d8e1ec;
+}
+
+.menu-icon {
+    width: 35px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* 課程卡片 */
+.courseCards {
+    color: inherit;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    width: clamp(210px, 22vw, 250px);
+
+    min-height: clamp(320px, 32vw, 400px);
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+
+    transition: transform 0.18s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.courseCards .cardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #243247;
+    padding: 0 18px;
+    margin: 0 0 8px;
+    line-height: 1.35;
+    min-height: 54px;
+}
+
+.courseCards p {
+    font-size: 16px;
+    color: rgba(17, 24, 39, 0.64);
+}
+
+.courseCards:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(31, 42, 68, 0.3);
+    background: rgba(255, 255, 255, 0.88);
+
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+
+.courseCards:active {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.courseImg {
+    display: block;
+    padding-top: 10px;
+    margin: 0 auto;
+
+    height: clamp(145px, 15vw, 180px);
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.courseCards:hover .courseImg {
+    transform: scale(1.04);
+}
+
+/* 課程level標籤 */
+.courseCards i {
+    display: inline-block;
+    margin-top: auto;
+
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    background: rgba(31, 42, 68, 0.12);
+    color: rgba(17, 24, 39, 0.78);
+
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+/* 課程卡片進度狀態標籤 */
+.courseStatusWrap {
+    margin-top: auto;
+    padding: 0 10px 14px;
+}
+
+.courseStatus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 72px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    box-sizing: border-box;
+
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}
+
+/* 未開始狀態標籤 */
+.courseStatus.notStarted {
+    background: rgba(107, 114, 128, 0.1);
+    color: rgba(55, 65, 81, 0.82);
+    border-color: rgba(107, 114, 128, 0.16);
+}
+
+/* 進行中狀態標籤 */
+.courseStatus.inProgress {
+    background: rgba(180, 193, 212, 0.22);
+    color: #314158;
+    border-color: rgba(88, 120, 168, 0.24);
+}
+
+/* 已完成狀態標籤 */
+.courseStatus.completed {
+    background: rgba(129, 163, 146, 0.18);
+    color: #41584a;
+    border-color: rgba(129, 163, 146, 0.28);
+}
+
+/* 進度條UI */
+.courseProgressBar {
+    width: 90%;
+    margin-inline: auto;
+    box-sizing: border-box;
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(17, 24, 39, 0.08);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.courseProgressFill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.35s ease;
+}
+
+/* 未開始進度條 */
+.courseProgressFill.notStarted {
+    background: transparent;
+}
+
+/* 進行中進度條 */
+.courseProgressFill.inProgress {
+    background: linear-gradient(90deg, #9fb0c8 0%, #b4c1d4 100%);
+    box-shadow: 0 0 10px rgba(180, 193, 212, 0.28);
+}
+
+/* 已完成進度條 */
+.courseProgressFill.completed {
+    background: linear-gradient(90deg, #8aa595 0%, #a7bdae 100%);
+    box-shadow: 0 0 10px rgba(138, 165, 149, 0.24);
+}
+
+/* 頁尾footer */
+footer {
+    width: 100%;
+    background: #0b1224;
+    /* 與header對齊背景顏色 */
+    color: #e5e7eb;
+    padding: 60px 0 30px;
+}
+
+.footerDiv {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    align-items: start;
+}
+
+.footerLogo {
+    width: 200px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-slogan {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(229, 231, 235, 0.9);
+}
+
+.footerLinks p,
+.footerContact p {
+    margin: 0 0 18px;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+    color: rgba(229, 231, 235, 1);
+}
+
+/* footer區塊分頁連結 */
+.footerLinks a {
+    display: block;
+    text-decoration-color: rgba(229, 231, 235, 0.18);
+    text-underline-offset: 3px;
+    color: rgba(229, 231, 235, 0.7);
+    margin: 10px 0;
+    font-size: 20px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footerLinks a:hover {
+    color: #e0e7ff;
+    transform: translateX(4px);
+}
+
+/* 聯絡資訊 */
+.footerContact a {
+    display: inline-block;
+    text-decoration-color: rgba(229, 231, 235, 0.18);
+    color: rgba(229, 231, 235, 0.7);
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.footerContact a:hover {
+    color: #e0e7ff;
+}
+
+.footerNote small {
+    margin: 10px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(229, 231, 235, 0.8);
+}
+
+/* footer底線 */
+.footerBottom {
+    width: min(1100px, 92vw);
+    margin: 34px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(229, 231, 235, 0.14);
+    text-align: center;
+}
+
+.footerBottom small {
+    font-size: 16px;
+    color: rgba(229, 231, 235, 0.8);
+}
+
+
+
+
+/* ==========共用header與footer RWD CSS設定========== */
+@media (max-width: 1280px) {
+
+    /* header setting */
+    .logo {
+        width: 170px;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    header nav ul li {
+        font-size: 18px;
+    }
+
+    .member-buttons {
+        gap: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .top-bar {
+        gap: 20px;
+    }
+
+    .nav-wrap {
+        gap: 18px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    header nav ul li {
+        font-size: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .footerDiv {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footerBottom {
+        text-align: left;
+    }
+}
+
+/* 將header的訂閱方案按鈕隱藏，秀出漢堡選單，且開啟手機備用的nav訂閱方案 */
+@media screen and (max-width: 768px) {
+    #subscribe {
+        display: none;
+    }
+
+    .mobile-subscribe {
+        display: block;
+    }
+
+    .hb {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hb .bar {
+        width: 70%;
+        height: 4px;
+        position: absolute;
+        background-color: #314158;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        border-radius: 999px;
+    }
+
+    .hb .bar:nth-child(1) {
+        top: 10px;
+
+        transition: top 0.35s ease, transform 0.35s ease;
+    }
+
+    .hb .bar:nth-child(2) {
+        top: 18px;
+        opacity: 1;
+
+        transition: width 0.35s ease, height 0.35s ease, top 0.35s ease,
+            border 0.35s ease, background-color 0.2s ease;
+    }
+
+    .hb .bar:nth-child(3) {
+        top: 26px;
+        transition: top 0.35s ease, transform 0.35s ease;
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(1) {
+        top: 18px;
+        transform: rotate(45deg) scaleX(0.72);
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(2) {
+        width: 32px;
+        height: 32px;
+        top: 4px;
+        background-color: transparent;
+        border: 2px solid #314158;
+        border-radius: 50%;
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(3) {
+        top: 18px;
+        transform: rotate(-45deg) scaleX(0.72);
+    }
+
+    .top-bar {
+        background-color: #f3f1ec;
+        backdrop-filter: blur(12px);
+    }
+
+    .top-bar.solid {
+        background-color: #ffffff;
+    }
+
+    /* 漢堡選單下，nav選單的樣式設定 */
+    .nav-wrap nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+
+        background-color: rgba(11, 18, 36, 0.96);
+        backdrop-filter: blur(14px);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 35px rgba(15, 23, 42, 0.22);
+
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
+    .top-bar:has(#menu-control:checked) .nav-wrap nav {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* 將原先的所在分頁差異化拿掉 */
+    #currentPage {
+        color: #6b7280;
+    }
+
+    .nav-wrap nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 16px 0 20px;
+    }
+
+    .nav-wrap nav ul li {
+        padding: 2px 0;
+        width: 100vw;
+        text-align: center;
+    }
+
+    .nav-wrap nav ul li:hover {
+        transform: none;
+        color: inherit;
+    }
+
+    /* 手機漢堡選單下，取消桌機版的底線動畫 */
+    .nav-wrap nav ul li a::after {
+        display: none;
+    }
+
+    .nav-wrap nav ul li a {
+        display: block;
+        width: 35%;
+        margin-inline: auto;
+        padding: 12px 24px;
+        border-radius: 14px;
+
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+
+        transition: background-color 0.18s ease, color 0.18s ease,
+            transform 0.14s ease;
+    }
+
+    .nav-wrap nav ul li:not(.mobile-subscribe) a:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        transform: translateY(-1px);
+    }
+
+    .nav-wrap nav ul li:not(.mobile-subscribe) a:active {
+        background-color: rgba(255, 255, 255, 0.18);
+        transform: translateY(0);
+    }
+
+    /* 手機版 nav 裡的訂閱方案：維持 CTA 樣式 */
+    .mobile-subscribe a {
+        margin-top: 8px;
+
+        background-color: #b4c1d4;
+        color: #0b1224 !important;
+        font-weight: 700;
+
+        border: 1px solid rgba(180, 193, 212, 0.85);
+        border-radius: 999px;
+    }
+
+    .mobile-subscribe a:hover {
+        background-color: #c3cee0;
+        color: #0b1224;
+        transform: translateY(-1px);
+    }
+
+    .mobile-subscribe a:active {
+        background-color: #aebccd;
+        transform: translateY(0);
+    }
+
+    #currentPage {
+        color: inherit;
+    }
+}
+
+/* 手機介面下，將user-menu圖示隱藏，改秀nav中的備用手機連結 */
+@media screen and (max-width: 480px) {
+    #user-info {
+        display: none;
+    }
+
+    .mobile-user-menu {
+        display: block;
+        width: 100vw;
+        padding: 14px 0;
+        cursor: default;
+    }
+
+    /*   將icon亮度設0後，會顯示黑色，再透過invert反轉為白色 */
+    .menu-icon {
+        filter: brightness(0) invert(1);
+    }
+
+    .nav-wrap nav ul .mobile-user-menu>ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+
+        width: 100%;
+        padding: 0 16px 14px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .nav-wrap nav ul .mobile-user-menu>ul>li {
+        width: 30%;
+        /* 每個icon導覽連結都抓30%寬度 */
+        padding: 0;
+    }
+
+    .nav-wrap nav ul .mobile-user-menu>ul>li a {
+        width: auto;
+        padding: 8px 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.86);
+        border-radius: 12px;
+    }
+
+    .nav-wrap nav ul .mobile-user-menu>ul>li a:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-wrap nav ul .mobile-user-menu .menu-icon {
+        width: 28px;
+    }
+
+    /* 手機狀態下，每個分頁導覽按鈕的寬度較大，較容易點擊 */
+    .nav-wrap nav ul li a {
+        width: 40%;
+    }
+}

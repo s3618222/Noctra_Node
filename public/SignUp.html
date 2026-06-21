@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 註冊｜建立你的英語學習帳戶</title>
+    <link rel="stylesheet" href="CSS/Pre-member.css">
+    <link rel="stylesheet" href="CSS/SignUp.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--註冊區塊-->
+    <div class="signUpArea">
+        <!--頂端logo-->
+        <div class="logoArea">
+            <a href="index.html">
+                <img id="logoImg"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                    alt="Noctra logo">
+            </a>
+            <p class="logoWrd">註冊<span>Noctra</span></p>
+            <div class="subWordArea">
+                <p class="logoSubWord">建立帳戶，開啟屬於你的學習時段</p>
+                <p class="logoSubWord">Grow at your own pace.</p>
+            </div>
+        </div>
+        <div class="signIn">
+            <p>已經有帳戶？</p>
+            <a id="signInLink" href="SignIn.html">按此登入</a>
+        </div>
+        <hr>
+        <!--註冊資訊-->
+        <h1 id="signUpTitle">註冊資訊</h1>
+        <div class="userInfo">
+            <label for="user-name"> 會員名稱
+                <input id="user-name" type="text" placeholder="輸入平台顯示名稱">
+            </label>
+        </div>
+        <div class="userInfo">
+            <label for="user-email"> 電子郵件地址
+                <input id="user-email" type="email" placeholder="輸入電子郵件地址">
+            </label>
+        </div>
+        <div class="userInfo">
+            <label for="user-password"> 密碼
+                <input id="user-password" type="password" placeholder="設定密碼">
+            </label>
+        </div>
+        <div class="userInfo">
+            <label for="user-password2"> 確認密碼
+                <input id="user-password2" type="password" placeholder="再次輸入密碼">
+            </label>
+        </div>
+        <p id="errorMsg"></p>
+        <button type='button' id="signUpButton">建立帳戶</button>
+    </div>
+    <p class="legal">
+        Noctra © 2026 · Prototype Project
+    </p>
+    <script src="JS/SignUp.js"></script>
+</body>
+
+</html>

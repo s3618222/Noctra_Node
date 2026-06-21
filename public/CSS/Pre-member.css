@@ -1,0 +1,561 @@
+/* ===== Noctra Base Reset ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    font-family:
+        "Noto Sans TC",
+        "Segoe UI",
+        sans-serif;
+}
+
+/* 共用導覽列大小、間距設定 */
+:root {
+    --header-height: 72px;
+    --header-bg: rgba(11, 18, 36, 0.98);
+    --header-text: rgba(255, 255, 255, 0.85);
+    --header-text-hover: #ffffff;
+
+    --nav-gap: 32px;
+    --btn-gap: 25px;
+}
+
+/* ===== Top Bar ===== */
+
+/* 先隱藏起來手機漢堡選單的登入/註冊按鈕 */
+.mobile-auth {
+    display: none;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 16px;
+    z-index: 9999;
+
+    transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+/* style1:透明式背景（首頁/Roadmap共用） */
+.top-bar--transparent {
+    background: transparent;
+}
+
+/* style:2固定深色背景（tutor/course共用） */
+.top-bar--solid {
+    background: var(--header-bg);
+}
+
+/* 下拉後背景色改變 */
+.top-bar.is-solid {
+    background: var(--header-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+}
+
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ===== Logo ===== */
+.logo {
+    height: 42px;
+    width: auto;
+    display: block;
+}
+
+/* ===== Nav ===== */
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-gap);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--header-text);
+    cursor: default;
+
+    transition: color .18s ease, transform .23s ease;
+}
+
+nav ul li:hover {
+    color: var(--header-text-hover);
+    transform: translateY(-3px);
+}
+
+nav ul li:active {
+    transform: translateY(0);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* hb的隱藏感應按鈕 */
+#menu-control {
+    display: none;
+}
+
+/* 先將漢堡在專機狀態下隱藏 */
+.hb {
+    display: none;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+/* ===== 導覽列右側會員按鈕 ===== */
+.member-buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--btn-gap);
+}
+
+.member-buttons a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 999px;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition: background-color .18s ease, border-color .18s ease, transform .14s ease;
+}
+
+/* login */
+#logIn {
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.86);
+}
+
+#logIn:hover {
+    background: rgba(224, 231, 255, 0.10);
+    transform: translateY(-1px);
+}
+
+/* signup */
+#signUp {
+    background: #B4C1D4;
+    color: #0b1224;
+}
+
+#signUp:hover {
+    background: #c3cee0;
+    transform: translateY(-1px);
+}
+
+.member-buttons a:active {
+    transform: translateY(0);
+}
+
+/* link reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.courseCards .cardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #243247;
+    padding: 0 18px;
+    margin: 0 0 8px;
+    line-height: 1.35;
+    min-height: 54px;
+
+    text-align: left;
+}
+
+
+/* 頁尾footer */
+footer {
+    width: 100%;
+    background: #0b1224;
+    /* 與header對齊背景顏色 */
+    color: #e5e7eb;
+    padding: 60px 0 30px;
+}
+
+.footerDiv {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    align-items: start;
+}
+
+.footerLogo {
+    width: 200px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-slogan {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(229, 231, 235, 0.9);
+}
+
+.footerLinks p,
+.footerContact p {
+    margin: 0 0 18px;
+    font-size: 25px;
+    letter-spacing: 0.02em;
+    color: rgba(229, 231, 235, 1);
+}
+
+/* footer區塊分頁連結 */
+.footerLinks a {
+    display: block;
+    text-decoration: none;
+    color: rgba(229, 231, 235, 0.70);
+    margin: 10px 0;
+    font-size: 20px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footerLinks a:hover {
+    color: #e0e7ff;
+    transform: translateX(4px);
+}
+
+/* 聯絡資訊 */
+.footerContact a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(229, 231, 235, 0.70);
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+
+.footerContact a:hover {
+    color: #e0e7ff;
+}
+
+.footerNote small {
+    margin: 10px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(229, 231, 235, 0.8);
+}
+
+/* footer底線 */
+.footerBottom {
+    width: min(1100px, 92vw);
+    margin: 34px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(229, 231, 235, 0.14);
+    text-align: center;
+}
+
+.footerBottom small {
+    font-size: 16px;
+    color: rgba(229, 231, 235, 0.8);
+}
+
+/* ===== Responsive ===== */
+/* ===== 共用header與footer的RWD調整 ===== */
+@media (max-width: 1280px) {
+
+    /* header setting */
+    .logo {
+        width: 170px;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    header nav ul li {
+        font-size: 18px;
+    }
+
+    .member-buttons {
+        gap: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+
+}
+
+
+@media (max-width: 1100px) {
+    .top-bar {
+        gap: 20px;
+    }
+
+    .nav-wrap {
+        gap: 18px;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    header nav ul li {
+        font-size: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+
+}
+
+@media (max-width: 860px) {
+
+    /* footer setting */
+    .footerDiv {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .footerBottom {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .hb {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hb .bar {
+        width: 70%;
+        height: 4px;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.8);
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        border-radius: 999px;
+    }
+
+    .hb .bar:nth-child(1) {
+        top: 10px;
+
+        transition: top .35s ease, transform .35s ease;
+    }
+
+    .hb .bar:nth-child(2) {
+        top: 18px;
+        opacity: 1;
+
+        transition:
+            width .35s ease,
+            height .35s ease,
+            top .35s ease,
+            border .35s ease,
+            background-color .2s ease;
+
+    }
+
+    .hb .bar:nth-child(3) {
+        top: 26px;
+        transition: top .35s ease, transform .35s ease;
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(1) {
+        top: 18px;
+        transform: rotate(45deg) scaleX(.72);
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(2) {
+        width: 32px;
+        height: 32px;
+        top: 4px;
+        background-color: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.72);
+        border-radius: 50%;
+    }
+
+    .top-bar:has(#menu-control:checked) .hb .bar:nth-child(3) {
+        top: 18px;
+        transform: rotate(-45deg) scaleX(.72);
+    }
+
+    .top-bar {
+        background-color: rgba(11, 18, 36, 0.98);
+        backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+
+        background-color: rgba(11, 18, 36, 0.92);
+        backdrop-filter: blur(14px);
+
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .35s ease, opacity .25s ease;
+    }
+
+    .top-bar:has(#menu-control:checked) .nav-wrap nav {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-wrap nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .nav-wrap nav ul li {
+        padding: 10px;
+        width: 100vw;
+        text-align: center;
+    }
+
+    .nav-wrap nav ul li a {
+        display: block;
+        width: 40%;
+        /* 原先設定28%的寬度在手機上會太窄，改用40%讓按鈕更好點擊 */
+        height: fit-content;
+        margin-inline: auto;
+        padding: 10px 25px;
+        border-radius: 10px;
+    }
+
+    .nav-wrap nav ul li:hover {
+        transform: none;
+        /* 取消掉原先桌機設定的上升位移效果 */
+    }
+
+    .nav-wrap nav ul li:not(.mobile-auth) a:hover {
+        background-color: rgba(180, 193, 212, 0.16);
+        color: #ffffff;
+    }
+
+    .mobile-auth-login a:hover {
+        background: rgba(224, 231, 255, 0.10);
+        color: rgba(255, 255, 255, 0.86);
+    }
+
+    .mobile-auth-signup a:hover {
+        background: #c3cee0;
+        color: #0b1224;
+
+    }
+}
+
+
+/*   避免原先置頂列的會員按鈕擠壓logo，將其隱藏 */
+@media screen and (max-width: 600px) {
+
+    .member-buttons>#logIn,
+    .member-buttons>#signUp {
+        display: none;
+    }
+
+    .top-bar {
+        padding-inline: 18px;
+    }
+
+    .logo {
+        max-width: 170px;
+        height: auto;
+    }
+
+    /* 改用原先藏在nav裡備用的手機組按鈕 */
+    .mobile-auth {
+        display: block;
+    }
+
+    .mobile-auth a {
+        width: min(220px, 80vw);
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .mobile-auth-login a {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .mobile-auth-signup a {
+        background: #B4C1D4;
+        color: #0b1224;
+    }
+
+
+}

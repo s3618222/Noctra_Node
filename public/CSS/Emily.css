@@ -1,0 +1,808 @@
+/* ====== Noctra Design starts ====== */
+/* 教師頭像 Hero-section區塊 */
+.hero-welcome {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    padding: 50px 0;
+    background: radial-gradient(circle at 20% 18%,
+            rgba(255, 255, 255, 0.38),
+            transparent 42%),
+        linear-gradient(180deg, #eee9df 0%, #e9e5dc 55%, #d6cfbf 100%);
+}
+
+.photoContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 40%;
+    max-width: 520px;
+    overflow: hidden;
+
+    /* 讓圖片左側邊界弱化，製造漸層過渡效果 */
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.15) 5%,
+            rgba(0, 0, 0, 1) 10%);
+
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.15) 5%,
+            rgba(0, 0, 0, 1) 10%);
+}
+
+.tutorLifePhoto {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    filter: brightness(0.95) contrast(0.9) saturate(0.9);
+}
+
+.tutorHero {
+    width: 60%;
+    /* 即約60vw */
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #2f2a24;
+}
+
+#tutorHeroName {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #2f2a24;
+    margin: 0;
+}
+
+/* 頭像 */
+#tutorHeroHead {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* 口音、評價、授課數分類資訊 */
+.infoTags {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    align-items: flex-start;
+    margin-top: 16px;
+}
+
+.accent,
+.goodRate,
+.teachingLessons,
+.levels {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 0px;
+}
+
+.accent p,
+.goodRate p,
+.teachingLessons p,
+.levels p {
+    margin: 0;
+    font-size: 18px;
+    color: #475569;
+}
+
+.accent p,
+.goodRate p,
+.teachingLessons span,
+.levels span {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.infoIcon {
+    width: 45px;
+    flex-shrink: 0;
+}
+
+/* 教師自介與預約表單區 */
+.outerContainer {
+    width: 100%;
+    display: grid;
+    gap: 40px;
+    /*   grid-template-columns: 3fr 2.5fr; */
+    grid-template-columns: 1.2fr 1fr;
+}
+
+/* 課程預約申請表單 */
+.directRequestForm {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: start;
+    width: 100%;
+    max-height: calc(100vh - 130px);
+    margin-block: 40px;
+    /* 對齊旁邊介紹文字水平位置 */
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+    position: sticky;
+    top: 90px;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+}
+
+.directRequestForm.show {
+    display: block;
+}
+
+.requestTutorInfo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 14px;
+
+    padding: 14px 18px;
+    background: linear-gradient(180deg, #d7e0eb 0%, #c7d2df 100%);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* 預約表單教師照片 */
+.tutorPhoto {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 5px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.requestTutorName {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.requestDetails {
+    padding: 6px 24px 20px;
+}
+
+.requestDetails label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.requestDetails input,
+.requestDetails select {
+    width: 50%;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #f8fafc;
+    color: #1e293b;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    transition: border-color 0.18s ease, box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.requestDetails input:focus,
+.requestDetails select:focus {
+    border-color: rgba(180, 193, 212, 0.95);
+    box-shadow: 0 0 0 4px rgba(180, 193, 212, 0.22);
+    background: #ffffff;
+}
+
+.remainingText {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+#remainingQuota {
+    font-weight: 700;
+}
+
+/* 日期與時段偏好欄位 */
+.dateChoice,
+.timeChoice {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin: 18px 0 20px;
+}
+
+/* 需求備註欄位 */
+.noteDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.noteDiv textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 14px 16px;
+    box-sizing: border-box;
+
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #f8fafc;
+    color: #1e293b;
+    outline: none;
+
+    transition: border-color 0.18s ease, box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.noteDiv textarea:focus {
+    border-color: rgba(180, 193, 212, 0.95);
+    box-shadow: 0 0 0 4px rgba(180, 193, 212, 0.22);
+    background: #ffffff;
+}
+
+/* 需求欄位在送出申請後的不可編輯狀態設定 */
+textarea[readonly] {
+    background-color: #f8fafc;
+    cursor: not-allowed;
+}
+
+.requestBtnDiv {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.requestBtns {
+    border-radius: 22px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+#makeRequestBtn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(180, 193, 212, 0.9);
+    background: #c9d3df;
+    color: #0f172a;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+
+    transition: background-color 0.18s ease, transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+#makeRequestBtn:hover {
+    background: #b9c6d6;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14);
+}
+
+#makeRequestBtn:active,
+#cancelBtn:active {
+    transform: translateY(0);
+}
+
+/* 取消申請按鈕，控制js block打開 */
+#cancelBtn {
+    display: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: #ffffff;
+    color: #475569;
+    cursor: pointer;
+
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+#cancelBtn:hover {
+    background: #f8fafc;
+    border-color: rgba(15, 23, 42, 0.16);
+}
+
+/* 預約課程按鈕，在已送出申請後的樣式設定 */
+#makeRequestBtn:disabled {
+    background-color: #d6d9de;
+    color: #6b7280;
+    border-color: #c9ced6;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+#makeRequestBtn:disabled:hover {
+    background-color: #d6d9de;
+    color: #6b7280;
+    border-color: #c9ced6;
+    transform: none;
+}
+
+/* 教師自我介紹區塊 */
+.tutorSelfIntro {
+    /*   width: 60%;  */
+    /* 即60vw */
+    width: min(1020px, calc(100vw - 64px));
+
+    margin: 60px auto 40px;
+}
+
+.introContainer {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    margin: 40px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 返回教師列表連結 */
+.backToTutorsBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+
+    color: #5f564d;
+    background: #f3f1ec;
+    border: 1px solid transparent;
+    border-radius: 999px;
+
+    padding: 9px 16px;
+
+    transition: transform 0.18s ease, background-color 0.18s ease,
+        color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* 先隱藏手機介面下的返回鈕 */
+.backToTutorsBtn.mobile {
+    display: none;
+}
+
+.backToTutorsBtn:hover {
+    color: #2f2a24;
+    background: rgba(255, 253, 248, 0.95);
+    transform: translateX(-2px);
+    box-shadow: 0 10px 22px rgba(87, 83, 78, 0.1);
+}
+
+.backToTutorsBtn:active {
+    transform: translateX(0);
+}
+
+.introDiv {
+    background: rgba(255, 253, 248, 0.72);
+    border: 1px solid rgba(120, 113, 108, 0.12);
+    border-radius: 18px;
+    padding: 24px 26px;
+
+    box-shadow: 0 12px 28px rgba(87, 83, 78, 0.08);
+}
+
+.introDiv h2 {
+    /* 考慮調整成像是膠囊tag的樣式 */
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 20px;
+
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 999px;
+    background: rgba(222, 210, 189, 0.4);
+}
+
+.introDiv p {
+    white-space: pre-line;
+    text-indent: 2em each-line;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #4b453f;
+}
+
+.experience-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+.experience-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #64748b;
+}
+
+
+
+
+/* ============ 教師獨立分頁-RWD設定 ============ */
+/* 寬度1200以下，保持二欄排位，欄位寬度縮小 */
+@media screen and (max-width: 1200px) {
+
+    .tutorSelfIntro,
+    .tutorHero {
+        width: min(960px, calc(100vw - 48px));
+    }
+
+    .outerContainer {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 32px;
+    }
+
+    .introDiv p {
+        font-size: 18px;
+    }
+
+    .directRequestForm {
+        top: 88px;
+        max-height: calc(100vh - 120px);
+    }
+}
+
+/* 1024以下，調整為單欄，先放文字介紹，再表單 */
+@media screen and (max-width: 1024px) {
+
+    .tutorSelfIntro,
+    .tutorHero {
+        width: min(680px, calc(100vw - 72px));
+    }
+
+    .outerContainer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .introContainer {
+        grid-column: 1;
+        grid-row: 1;
+        margin: 40px 0 0;
+    }
+
+    .directRequestForm {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: min(520px, 100%);
+        justify-self: center;
+
+        position: static;
+        max-height: none;
+        overflow: visible;
+
+        margin-block: 0 40px;
+    }
+
+    .requestTutorInfo {
+        border-radius: 24px 24px 0 0;
+    }
+}
+
+/* 768以下，內部欄位變寬、按鈕變大，方便操作 */
+/* 教師生活照單獨拉出 */
+@media screen and (max-width: 768px) {
+    .hero-welcome {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0 0 48px;
+    }
+
+    .photoContainer {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        height: clamp(260px, 46vw, 360px);
+
+        /* 教師生活照改為正常顯示 */
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .tutorLifePhoto {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 35%;
+        opacity: 1;
+        filter: brightness(1) contrast(1) saturate(1);
+    }
+
+    .tutorHero {
+        width: min(680px, calc(100% - 48px));
+        margin: 28px auto 0;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .tutorHero-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #tutorHeroHead {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0;
+    }
+
+    #tutorHeroName {
+        font-size: 28px;
+    }
+
+    .infoTags {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 0;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+    .accent p,
+    .teachingLessons p,
+    .levels p {
+        font-size: 15px;
+        line-height: 1.45;
+    }
+
+    .infoIcon {
+        width: 34px;
+        flex-shrink: 0;
+    }
+
+    /* 自介內容區與表單 */
+    .introDiv p {
+        font-size: 17px;
+    }
+
+    .requestTutorInfo {
+        align-items: center;
+    }
+
+    .requestBtnDiv {
+        flex-direction: column;
+    }
+
+    #makeRequestBtn,
+    #cancelBtn {
+        width: min(250px, 40%);
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Hero區生活照 */
+    .hero-welcome {
+        padding-bottom: 40px;
+    }
+
+    .photoContainer {
+        height: 250px;
+    }
+
+    .tutorLifePhoto {
+        object-position: center 35%;
+    }
+
+    /* Hero教師資訊 */
+    .tutorHero {
+        width: calc(100% - 32px);
+        margin-top: 24px;
+        gap: 18px;
+    }
+
+    .tutorHero-title {
+        gap: 12px;
+    }
+
+    #tutorHeroHead {
+        width: 52px;
+        height: 52px;
+    }
+
+    #tutorHeroName {
+        font-size: 24px;
+    }
+
+    /* infoTags：不做膠囊，改成乾淨直向資訊列 */
+    .infoTags {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .accent,
+    .teachingLessons,
+    .levels {
+        width: 100%;
+        gap: 2px;
+    }
+
+    .infoIcon {
+        width: 32px;
+    }
+
+    .accent p,
+    .teachingLessons p,
+    .levels p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* 自介主區塊 */
+    .tutorSelfIntro {
+        width: calc(100% - 32px);
+        margin: 44px auto 36px;
+    }
+
+    .backToTutorsBtn {
+        font-size: 16px;
+        padding: 8px 14px;
+    }
+
+    .outerContainer {
+        gap: 24px;
+    }
+
+    .introContainer {
+        margin-top: 28px;
+        gap: 20px;
+    }
+
+    .introDiv {
+        padding: 20px 18px;
+        border-radius: 16px;
+    }
+
+    .introDiv h2 {
+        font-size: 18px;
+        padding: 8px 14px;
+        margin-bottom: 16px;
+    }
+
+    .introDiv p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .experience-list li {
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 12px;
+    }
+
+    /* 預約表單 */
+    .directRequestForm {
+        width: 100%;
+        border-radius: 20px;
+        margin-bottom: 28px;
+    }
+
+    .requestTutorInfo {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 18px 16px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .tutorPhoto {
+        width: 86px;
+        height: 86px;
+    }
+
+    .requestTutorName {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .requestDetails {
+        padding: 8px 18px 22px;
+    }
+
+    .requestDetails label {
+        font-size: 15px;
+    }
+
+    .requestDetails input,
+    .requestDetails select {
+        width: 90%;
+        font-size: 16px;
+        padding: 11px 14px;
+    }
+
+    .dateChoice,
+    .timeChoice {
+        margin: 16px 0 18px;
+    }
+
+    .noteDiv textarea {
+        min-height: 130px;
+        font-size: 15px;
+        padding: 13px 14px;
+    }
+
+    .remainingText {
+        font-size: 14px;
+        margin: 18px 0 22px;
+    }
+
+    .requestBtnDiv {
+        gap: 10px;
+    }
+
+    #makeRequestBtn,
+    #cancelBtn {
+        width: 90%;
+        padding: 11px 18px;
+        font-size: 16px;
+    }
+
+
+    .introContainer {
+        margin: 0 0 40px;
+    }
+
+
+    /* 打開手機介面下的返回鈕 */
+    .backToTutorsBtn.mobile {
+        display: block;
+        width: fit-content;
+        margin-inline: auto;
+    }
+
+    .backToTutorsBtn.desktop {
+        display: none;
+    }
+
+}

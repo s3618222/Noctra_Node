@@ -1,0 +1,573 @@
+/* ========== Noctra Design Starts =========== */
+body {
+    background-color: #f5f6f4;
+}
+
+/* 標題搭配Hero區塊 */
+.titleHeroDiv {
+    margin: 120px auto;
+    width: 70%;
+}
+
+.titleArea {
+    display: flex;
+    align-items: baseline;
+    /* 文字基線對齊 */
+    gap: 25px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.titleArea p {
+    font-size: 20px;
+}
+
+#topLine {
+    height: 1px;
+    background: black;
+    width: min(540px, 100%);
+    margin-left: 0;
+    margin-top: -20px;
+}
+
+#bottomLine {
+    height: 1px;
+    background: black;
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Hero區塊圖片與文字 */
+.heroArea {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 50px auto;
+
+    background: #efe7d7;
+    border: 1px rgba(17, 24, 39, 0.06);
+    border-radius: 28px;
+    padding: 25px;
+
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+
+    overflow: hidden;
+    /* 讓三格圓角乾淨 */
+}
+
+.heroImg {
+    width: 100%;
+    height: 300px;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    filter: saturate(0.95) contrast(0.98);
+    transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease;
+}
+
+.heroImg:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    filter: saturate(1.05) contrast(1.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+}
+
+#hero1 {
+    background: linear-gradient(rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1)),
+        url("https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/TutorHeroImg1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 25px 0 0 25px;
+}
+
+#hero2 {
+    background: linear-gradient(rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1)),
+        url("https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/TutorHeroImg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hero3 {
+    background: linear-gradient(rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.2)),
+        url("https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/TutorHeroImg3ed.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    border-radius: 0 25px 25px 0;
+}
+
+.heroWord {
+    font-size: 20px;
+    opacity: 0.8;
+
+    letter-spacing: 0.2px;
+}
+
+.heroImg .heroWord:last-child {
+    margin-bottom: 4px;
+    text-align: center;
+    padding: 4px;
+    font-size: clamp(16px, 1.3vw, 18px);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.heroImg:hover .heroWord {
+    opacity: 1;
+}
+
+/* 教師卡片區塊 */
+.tutorsDiv {
+    width: 70%;
+    margin: -20px auto 80px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 38px 32px;
+    /* row / col gap */
+}
+
+.tutorImgFrame {
+    position: relative;
+    width: 350px;
+    /* 卡片寬度設定跟教師圖一樣大 */
+
+    border-radius: 18px;
+    overflow: hidden;
+    /* 重要：讓 info 與圓角一致 */
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(17, 24, 39, 0.1);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    transform: translateY(0);
+    transition: transform 0.18s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease, filter 0.22s ease;
+    cursor: pointer;
+}
+
+.tutorImgFrame:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 42, 68, 0.2);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.12);
+    filter: saturate(1.02);
+}
+
+.tutorCards {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    /* 圓角交給外層 tutorImgFrame */
+}
+
+.tutor-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+
+    padding: 14px 14px 12px;
+    background: linear-gradient(to top,
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 255, 255, 0.62));
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(17, 24, 39, 0.08);
+
+    transform: translateY(14px);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.tutor-info p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 18px;
+    color: rgba(17, 24, 39, 0.78);
+}
+
+.tutorImgFrame:hover .tutor-info {
+    opacity: 0.85;
+    transform: translateY(0);
+}
+
+/* CTA按鈕 */
+#signInforTutor {
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    text-align: center;
+
+    margin: auto;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(31, 42, 68, 0.28);
+
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(31, 42, 68, 0.86);
+    /* Noctra calm deep navy */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    transition: transform 0.14s ease, background-color 0.18s ease,
+        border-color 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+#signInforTutor:hover {
+    background: rgba(31, 42, 68, 0.94);
+    border-color: rgba(31, 42, 68, 0.4);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+    filter: saturate(1.02);
+}
+
+#signInforTutor:active {
+    transform: translateY(0);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* 先將手機板要使用的說明文字、按鈕隱藏 */
+#signInforTutorMobile {
+    display: none;
+}
+
+.mobileText {
+    display: none;
+}
+
+
+
+
+/* ========== 教師瀏覽分頁獨立Responsive ========== */
+/* ===== Desktop RWD ===== */
+@media (max-width: 1440px) {
+
+    .titleHeroDiv,
+    .tutorsDiv {
+        width: 78%;
+    }
+
+    .tutorImgFrame {
+        width: 320px;
+    }
+
+    .heroImg {
+        height: 280px;
+    }
+}
+
+@media (max-width: 1280px) {
+
+    .titleHeroDiv,
+    .tutorsDiv {
+        width: 86%;
+    }
+
+    .heroArea {
+        width: 100%;
+    }
+
+    .tutorImgFrame {
+        width: 300px;
+    }
+
+    .tutorsDiv {
+        gap: 34px 24px;
+    }
+
+    .logo {
+        width: 170px;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    .member-buttons {
+        gap: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .tutorsDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tutorImgFrame {
+        width: min(360px, 100%);
+    }
+
+    #signInforTutor {
+        grid-column: 1 / -1;
+        margin-top: 12px;
+    }
+
+    .heroImg {
+        height: 250px;
+    }
+
+    .titleHeroDiv {
+        margin: 110px auto 90px;
+    }
+}
+
+/* 並排hero區的三張圖，改成直立式單欄呈現 */
+@media screen and (max-width: 768px) {
+
+    /* 教師頁標題 */
+    .titleHeroDiv {
+        width: min(90%, 680px);
+        margin: 105px auto 70px;
+    }
+
+    /* 標題改上下排列 */
+    .titleArea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .titleArea h1 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    .titleArea p {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    #topLine {
+        margin-top: 18px;
+    }
+
+    /* Hero區3張圖改成直向 */
+    .heroArea {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 18px 32px;
+        gap: 14px;
+        margin: 38px auto;
+    }
+
+    .heroImg {
+        height: 220px;
+        border-radius: 22px;
+        margin-block: 8px;
+    }
+
+    /* Hero圖左右圓角重設 (原1、3圖有特別設定，將其重置) */
+    #hero1,
+    #hero2,
+    #hero3 {
+        border-radius: 22px;
+        width: 70%;
+    }
+
+    #hero1,
+    #hero3 {
+        margin-right: auto;
+    }
+
+    #hero2 {
+        margin-left: auto;
+    }
+
+    #hero3 {
+        background-position: center 70%;
+    }
+
+    .heroWord {
+        font-size: 18px;
+    }
+
+    /* 教師卡片區 */
+    .tutorsDiv {
+        width: min(90%, 680px);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+        margin: -30px auto 70px;
+    }
+
+    .tutorImgFrame {
+        width: 100%;
+    }
+
+    .tutor-info p {
+        font-size: 15px;
+    }
+
+    #signInforTutor {
+        grid-column: 1 / -1;
+        white-space: normal;
+        font-size: 18px;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .titleHeroDiv {
+        width: 90%;
+        margin: 100px auto 55px;
+    }
+
+    .titleArea h1 {
+        font-size: 26px;
+    }
+
+    .titleArea p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .heroArea {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    #hero1,
+    #hero2,
+    #hero3 {
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .heroImg {
+        height: 190px;
+    }
+
+    .heroWord {
+        font-size: 16px;
+    }
+
+    .heroImg .heroWord:last-child {
+        font-size: 14px;
+    }
+
+    /*   教師卡片設定 */
+    .tutorsDiv {
+        width: 100%;
+        margin: -20px auto 60px;
+
+        display: flex;
+        overflow-x: auto;
+        gap: 18px;
+
+        padding: 0 24px 24px;
+
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 24px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tutorImgFrame {
+        flex: 0 0 82%;
+        max-width: 320px;
+
+        scroll-snap-align: center;
+    }
+
+    /* 將教師卡文字改透過js加入class後，秀出 */
+    .tutor-info {
+        opacity: 0;
+        transform: translateY(100%);
+        pointer-events: none;
+    }
+
+    .tutorImgFrame.show .tutor-info {
+        opacity: 0.9;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    /*   關閉原先桌機版時的卡片hover效果 */
+    .tutorImgFrame:hover .tutor-info {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .tutorImgFrame.show:hover .tutor-info {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+
+    /* 隱藏原先桌機CTA按鈕 */
+    #signInforTutor {
+        display: none;
+    }
+
+    /*  顯示手機按鈕 */
+    #signInforTutorMobile {
+        display: block;
+        width: fit-content;
+        max-width: calc(100% - 48px);
+
+        margin: 0 auto 60px;
+        padding: 12px 18px;
+        border-radius: 999px;
+
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0.2px;
+        white-space: normal;
+
+        color: rgba(255, 255, 255, 0.92);
+        background: rgba(31, 42, 68, 0.86);
+        border: 1px solid rgba(31, 42, 68, 0.28);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    #signInforTutorMobile:hover {
+        background: rgba(31, 42, 68, 0.94);
+        border-color: rgba(31, 42, 68, 0.4);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+        transform: translateY(-1px);
+        filter: saturate(1.02);
+    }
+
+    #signInforTutorMobile:active {
+        transform: translateY(0);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    /* 顯示手機文字 */
+    .mobileText {
+        display: block;
+        width: fit-content;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 12px auto 40px;
+
+        letter-spacing: 0.04em;
+        color: #475569;
+    }
+}

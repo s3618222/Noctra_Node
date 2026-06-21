@@ -1,0 +1,796 @@
+/* ===== Noctra Base Reset ===== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    background: #1f2937;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===== Noctra Desgin Starts ===== */
+
+/* 測驗卡片 */
+.testCard {
+    width: min(920px, calc(100% - 48px));
+    margin: 90px auto;
+    padding: 40px 44px;
+    border: 1px solid black;
+    border-radius: 15px;
+
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset,
+        0 14px 26px rgba(17, 24, 39, 0.08);
+
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.questionDiv,
+.results {
+    background: transparent;
+}
+
+#noctraLogo {
+    width: 250px;
+}
+
+.explainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.explainDiv .text,
+.explainDiv .title {
+    width: min(520px, 100%);
+    /*  等同 width: 100%, max-width: 520px; */
+}
+
+.explainDiv h1 {
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 8px 0 8px;
+    font-size: 32px;
+}
+
+.title #subWord {
+    text-align: center;
+}
+
+#subWord {
+    font-size: 20px;
+    color: var(--muted);
+    margin: 10px 0 25px;
+}
+
+.text {
+    text-align: justify;
+}
+
+#introWord {
+    font-size: 18px;
+    line-height: 1.85;
+    color: #4b5563;
+}
+
+/* 按鈕通用設定 */
+#startBtn,
+.buttons,
+#startNoctra {
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-size: 18px;
+
+    background: rgba(214, 154, 82, 0.14);
+    border: 1px solid rgba(214, 154, 82, 0.34);
+    color: black;
+
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+}
+
+#startBtn {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+    padding: 14px 28px;
+    border-radius: 15px;
+
+    cursor: pointer;
+}
+
+#startBtn:hover,
+.buttons:hover,
+#startNoctra:hover {
+    background: rgba(214, 154, 82, 0.2);
+    border-color: rgba(214, 154, 82, 0.44);
+}
+
+#startBtn:active,
+.buttons:active,
+#startNoctra:active {
+    transform: translateY(1px);
+}
+
+/* 題目區 */
+.questionDiv {
+    width: min(720px, 92%);
+    margin: 24px auto 0;
+}
+
+/* js控制題目顯示  display none or block */
+.questions {
+    display: none;
+
+    padding: 16px;
+    border-radius: var(--r-lg);
+
+    background: #ffffff;
+    border: 1px solid rgba(31, 42, 68, 0.18);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+.questionTitles {
+    font-size: 20px;
+    text-align: center;
+    margin: 0px 0 12px;
+
+    line-height: 1.6;
+}
+
+.questionTitles span {
+    display: inline-block;
+    padding: 4px 15px;
+    border-radius: 999px;
+    margin-right: 8px;
+
+    background: rgba(31, 42, 68, 0.08);
+    border: 1px solid rgba(31, 42, 68, 0.18);
+    color: var(--brand);
+    font-weight: 800;
+}
+
+.questionImg {
+    display: block;
+    width: min(220px, 70%);
+    margin: 16px auto 24px;
+    border-radius: 14px;
+    border: 1px solid #efe3d5;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-left: 20px;
+    /* 讓選項不要太往左靠 */
+
+    font-size: 18px;
+}
+
+.options label {
+    width: min(560px, 75%);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 8px 12px;
+    border-radius: 14px;
+
+    background: #ffffff;
+    border: 1px solid #efe3d5;
+
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.options label:hover {
+    border-color: rgba(31, 42, 68, 0.25);
+    background: rgba(31, 42, 68, 0.04);
+}
+
+.options label:has(input[type="radio"]:checked) {
+    border-color: rgba(31, 42, 68, 0.45);
+    background: rgba(31, 42, 68, 0.08);
+}
+
+input[type="radio"] {
+    /*   radio input點擊後的圓點顏色 */
+    accent-color: #41584a;
+}
+
+.progress {
+    margin: 12px 0 0;
+    text-align: right;
+    font-size: 20px;
+    color: #9ca3af;
+}
+
+/* 按鈕區-翻頁按鈕  flex or none */
+.buttonsDiv {
+    width: min(720px, 92%);
+    margin: 10px auto 0;
+    display: none;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.buttons {
+    font-size: 20px;
+    margin-top: 30px;
+    padding: 8px 16px;
+    border-radius: 15px;
+
+    cursor: pointer;
+}
+
+/* 作答完成  先設定none  js用block打開 */
+#finishBtn {
+    display: none;
+
+    background: rgba(214, 154, 82, 0.26);
+    border: 1px solid rgba(214, 154, 82, 0.58);
+    color: #5a3c14;
+
+    font-weight: 800;
+    box-shadow: 0 10px 18px rgba(214, 154, 82, 0.18);
+}
+
+#finishBtn:hover {
+    background: rgba(214, 154, 82, 0.32);
+    border-color: rgba(214, 154, 82, 0.7);
+    box-shadow: 0 12px 22px rgba(214, 154, 82, 0.22);
+}
+
+/* 測驗結果顯示區 */
+
+/* js控制結果顯示開關 block or none */
+.results {
+    display: none;
+    width: min(760px, 92%);
+    margin: 10px auto 0;
+    text-align: center;
+}
+
+.resultInfo {
+    margin-bottom: 20px;
+
+    padding: 18px 16px;
+    border-radius: var(--r-lg);
+
+    background: var(--warm-box);
+    border: 1px solid var(--warm-line);
+}
+
+.results h2 {
+    letter-spacing: 1px;
+    margin: 20px 0 20px;
+    font-size: 28px;
+}
+
+.resultInfo p {
+    font-size: 18px;
+    color: #4b5563;
+}
+
+.abilityInfo {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.abilityInfo p {
+    text-align: left;
+}
+
+.titles {
+    font-size: 22px;
+    font-weight: 800;
+    color: #374151;
+}
+
+#levelDescription,
+#direction {
+    margin-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    text-align: left;
+    color: #4b5563;
+}
+
+.results hr {
+    border: none;
+    height: 1px;
+    background: #eadfce;
+    margin: 18px 0;
+}
+
+/* 課程推薦區 */
+.results h3 {
+    margin: 12px 0 30px;
+    text-align: left;
+    font-size: 22px;
+}
+
+/* 課程卡片格式 */
+/* JS控制打開對應卡片組別 flex or none */
+.cards {
+    display: none;
+    justify-content: space-around;
+}
+
+.courseCards {
+    text-align: justify;
+    cursor: pointer;
+    width: 250px;
+    min-height: 400px;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+
+    transition: transform 0.18s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.courseCards:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(31, 42, 68, 0.3);
+    background: rgba(255, 255, 255, 0.88);
+
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
+}
+
+.courseCards:active {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.courseImg {
+    display: block;
+    padding-top: 10px;
+    margin: 0 auto;
+    height: 180px;
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.courseCards:hover .courseImg {
+    transform: scale(1.04);
+}
+
+.courseCards p {
+    padding: 0 18px;
+}
+
+.courseCards .cardTitle {
+    font-size: 20px;
+    text-align: left;
+}
+
+.courseCards p {
+    font-size: 16px;
+    color: rgba(17, 24, 39, 0.64);
+}
+
+/* 課程level標籤 */
+.courseCards i {
+    display: inline-block;
+    margin-top: auto;
+
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+
+    background: rgba(31, 42, 68, 0.12);
+    color: rgba(17, 24, 39, 0.78);
+
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+/* 跳轉進入Noctra按鈕 */
+#startNoctra {
+    display: inline-block;
+    width: fit-content;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+/* ===配色基底=== */
+:root {
+    --bg2: #f4f7fc;
+
+    /* Warm card (像傍晚室內燈光) */
+    --card: #fff7ee;
+    --card2: #ffffff;
+    --line: #eadfce;
+
+    /* Text */
+    --text: #1f2937;
+    --muted: #6b7280;
+
+    /* Noctra brand blue (偏深藍灰，做“功能焦點”) */
+    --brand: #1f2a44;
+    --brand-soft: rgba(31, 42, 68, 0.12);
+    --brand-line: rgba(31, 42, 68, 0.35);
+
+    /* Result warm emphasis */
+    --warm-box: #fff2e2;
+    --warm-line: #e9d6bf;
+
+    /* Radius & shadow (清楚不糊) */
+    --r-xl: 22px;
+    --r-lg: 16px;
+}
+
+
+/* =========== 英語測驗獨立RWD設定調整 =========== */
+/* ===== Desktop RWD ===== */
+
+/* 中大型桌機：1440px 以下 */
+@media (max-width: 1440px) {
+    .testCard {
+        width: min(900px, calc(100% - 64px));
+        margin: 72px auto;
+    }
+}
+
+/* 一般桌機 / 小型筆電：1200px 以下 */
+@media (max-width: 1200px) {
+    .testCard {
+        width: min(860px, calc(100% - 56px));
+        padding: 36px 40px;
+    }
+
+    .questionDiv,
+    .buttonsDiv {
+        width: min(700px, 100%);
+    }
+
+    .results {
+        width: min(740px, 100%);
+    }
+
+    .questionTitles {
+        font-size: 22px;
+    }
+
+    .options {
+        font-size: 20px;
+    }
+
+    .courseCards {
+        width: 240px;
+    }
+}
+
+/* 窄桌機 / 平板橫向：1024px 以下 */
+@media (max-width: 1024px) {
+    .testCard {
+        width: min(800px, calc(100% - 48px));
+        padding: 34px 32px;
+    }
+
+    #noctraLogo {
+        width: 220px;
+    }
+
+    #subWord,
+    #introWord {
+        font-size: 18px;
+    }
+
+    .questionDiv,
+    .buttonsDiv,
+    .results {
+        width: 100%;
+    }
+
+    .questionImg {
+        width: min(220px, 70%);
+        margin: 24px auto 40px;
+    }
+
+    .cards {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .courseCards {
+        width: 230px;
+    }
+}
+
+/* 很窄的桌機寬度：900px 以下 */
+@media (max-width: 900px) {
+    .testCard {
+        width: min(760px, calc(100% - 40px));
+        padding: 32px 28px;
+    }
+
+    .questionTitles {
+        font-size: 20px;
+    }
+
+    .options {
+        font-size: 18px;
+        gap: 16px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .courseCards {
+        width: min(300px, 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .testCard {
+        width: min(680px, calc(100% - 32px));
+        margin: 88px auto 56px;
+        padding: 30px 24px;
+    }
+
+    /*  logo圖案稍微縮小 */
+    #noctraLogo {
+        width: 200px;
+    }
+
+    .explainDiv h1 {
+        font-size: 28px;
+    }
+
+    #subWord {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    #introWord {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .questionDiv,
+    .buttonsDiv,
+    .results {
+        width: 100%;
+    }
+
+    .questions {
+        padding: 18px 16px;
+    }
+
+    .questionTitles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-size: 20px;
+    }
+
+    .questionTitles span {
+        width: fit-content;
+        align-self: flex-start;
+        margin-bottom: 8px;
+    }
+
+    .questionImg {
+        width: min(220px, 78%);
+        margin: 18px auto 24px;
+    }
+
+    .options {
+        align-items: center;
+        padding-left: 0;
+        font-size: 18px;
+    }
+
+    .options label {
+        width: 80%;
+        padding: 12px 14px;
+    }
+
+    .buttonsDiv {
+        margin-top: 16px;
+    }
+
+    .buttons {
+        font-size: 18px;
+        margin-top: 24px;
+    }
+
+    .results h2 {
+        font-size: 26px;
+    }
+
+    .resultInfo p {
+        font-size: 18px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .courseCards {
+        width: min(300px, 100%);
+    }
+}
+
+@media (max-width: 480px) {
+    .testCard {
+        width: calc(100% - 24px);
+        margin: 80px auto 40px;
+        padding: 24px 16px;
+    }
+
+    #noctraLogo {
+        width: 170px;
+    }
+
+    .explainDiv h1 {
+        font-size: 24px;
+    }
+
+    #subWord {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    #introWord {
+        font-size: 16px;
+        line-height: 1.75;
+        text-align: left;
+    }
+
+    .questions {
+        padding: 16px 12px;
+    }
+
+    .questionTitles {
+        font-size: 18px;
+        line-height: 1.55;
+    }
+
+    .questionTitles span {
+        align-self: flex-start;
+        margin-bottom: 8px;
+    }
+
+    .questionImg {
+        width: min(200px, 85%);
+        margin: 16px auto 22px;
+    }
+
+    .options {
+        align-items: stretch;
+        font-size: 16px;
+        gap: 12px;
+    }
+
+    .options label {
+        width: 100%;
+        padding: 11px 12px;
+    }
+
+    .buttonsDiv {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .buttons,
+    #startBtn,
+    #startNoctra {
+        font-size: 16px;
+    }
+
+    .buttons {
+        padding: 8px 14px;
+        margin-top: 20px;
+    }
+
+    .results h2 {
+        font-size: 23px;
+    }
+
+    .resultInfo {
+        padding: 16px 14px;
+    }
+
+    .resultInfo p {
+        font-size: 16px;
+    }
+
+    .abilityInfo {
+        margin-top: 32px;
+        margin-bottom: 24px;
+    }
+
+    .titles {
+        font-size: 20px;
+    }
+
+    #levelDescription,
+    #direction {
+        padding-left: 0;
+        margin-top: 18px;
+    }
+
+    .results h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .courseCards {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    #startNoctra {
+        display: inline-block;
+        margin-inline: auto;
+        margin-bottom: 12px;
+    }
+}

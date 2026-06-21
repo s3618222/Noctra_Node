@@ -1,0 +1,1100 @@
+/* ===== Noctra Design Starts ===== */
+
+/* 讓hero輪播區塊以斜切結合的寬度 */
+:root {
+    --cut: 7vw;
+    /* 輪播區塊斜切寬度，可調 5vw~9vw */
+    --overlap: 2px;
+    /* 吃掉 anti-alias 縫用的微重疊 */
+
+    --hero-bg: #efe7d7;
+    --hero-bg-2: #e3d6bf;
+    --hero-ink: #111827;
+    --hero-muted: rgba(17, 24, 39, 0.64);
+
+    --bar-solid: rgba(17, 24, 39, 0.92);
+    /* 深墨，不是藍 */
+}
+
+/* 最底層背景顏色先設定跟首頁一樣，後續再調整!!! */
+body {
+    background-color: #f5f6f4;
+}
+
+/* Hero Section區塊 */
+.hero-roadmap {
+    width: 100%;
+    height: 50vh;
+    min-height: 480px;
+    position: relative;
+    overflow: hidden;
+
+    background-color: #0b1224;
+
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+}
+
+/* 雙背景圖層重疊，讓圖片出現時可以有漸入漸出效果 */
+.hero-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 420ms ease;
+}
+
+.hero-bg-layer.is-active {
+    opacity: 1;
+}
+
+/* 背景上加些微遮色罩，方便讓置頂列文字突出 */
+.hero-bg-layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(90deg,
+            rgba(11, 18, 36, 0.35) 0%,
+            rgba(11, 18, 36, 0.1) 45%,
+            rgba(11, 18, 36, 0) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content,
+.hero-img {
+    height: 100%;
+}
+
+/* 顯示中的背景 */
+.hero-img-layer.is-active {
+    opacity: 1;
+}
+
+/* Hero Sec文字區域 */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: min(620px, 86vw);
+    height: 100%;
+    margin-inline: auto;
+    padding-top: var(--header-height);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    margin: 0 0 24px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1.1;
+}
+
+.imgContent {
+    min-height: 110px;
+}
+
+.heroImg-slogan {
+    margin: 0 0 12px;
+
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.heroImg-sub {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.6;
+}
+
+.heroImg-slogan,
+.heroImg-sub {
+    padding-inline: 0;
+}
+
+/* 圖片切換按鈕 */
+.hero-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.change-button {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    box-shadow: none;
+
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.change-button:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+.change-button:active {
+    transform: translateY(0);
+}
+
+.arrow-icon {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+.arrow-icon path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 中間點點 */
+.hero-dots {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.72);
+
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-dot.is-active {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+/* 課程分級介紹區域 */
+.cerf-classification {
+    position: relative;
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.contentInfo {
+    color: var(--hero-muted);
+    font-size: 20px;
+    text-align: center;
+}
+
+.classification-ladder {
+    width: min(1100px, 92vw);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    column-gap: 20px;
+    margin: 50px auto 15px auto;
+}
+
+.wordWithImg {
+    color: var(--hero-muted);
+    text-align: center;
+    font-size: 16px;
+}
+
+.levelBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.levelBlock hr {
+    width: 80%;
+    height: 1px;
+    background-color: rgba(17, 24, 39, 0.2);
+    border: none;
+    margin: 24px auto 10px;
+}
+
+.block {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    gap: 15px;
+}
+
+.ladderStep {
+    width: 45%;
+    height: calc(120px + var(--level) * 40px);
+    /* 設定讓每一階依序越來越高 */
+    border-radius: 15px;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: transform 0.16s ease, box-shadow 0.18s ease,
+        border-color 0.18s ease, background-color 0.18s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+.ladderStep:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 42, 68, 0.38);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+/* 課程分級文字設定 */
+.ladderStep p {
+    margin: 0;
+}
+
+.level {
+    font-size: 20px;
+    color: rgba(17, 24, 39, 0.86);
+    letter-spacing: 0.2px;
+    text-align: left;
+    font-weight: 700;
+
+    position: absolute;
+    top: 10px;
+    left: 5%;
+}
+
+.levelContent.eng {
+    font-weight: 700;
+    color: rgba(17, 24, 39, 0.88);
+    letter-spacing: 0.15px;
+}
+
+.levelContent {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 0 10px;
+    color: rgba(17, 24, 39, 0.72);
+}
+
+.ladderStep:hover .level {
+    color: #1f2a44;
+}
+
+.ladderStep:hover {
+    transform: translateY(-3px);
+    border-color: rgba(31, 42, 68, 0.38);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+}
+
+.levelRole {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: rgba(17, 24, 39, 0.78);
+}
+
+.levelBlock hr {
+    background-color: rgba(17, 24, 39, 0.14);
+}
+
+
+
+/* 階梯調色 */
+#block1 .ladderStep {
+    background: #f6f5f1;
+}
+
+#block2 .ladderStep {
+    background: #f1f2f2;
+}
+
+#block3 .ladderStep {
+    background: #edeff1;
+}
+
+/* 各級情境輪播圖 */
+.stageViewport {
+    padding: clamp(70px, 7vw, 110px) 0;
+    position: relative;
+    margin-inline: auto;
+    border-top: 1px solid rgba(17, 24, 39, 0.08);
+    overflow: hidden;
+    background-color: #f3f1ec;
+}
+
+.stageWindow {
+    width: min(1180px, 78vw);
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+.stageCarousel {
+    padding: 20px;
+    display: flex;
+    gap: 24px;
+    transition: transform 0.45s ease;
+}
+
+.cards {
+    flex: 0 0 calc((100% - 48px) / 3);
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(31, 42, 68, 0.12);
+
+    transition: transform 0.22s ease, box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.cards:hover {
+    transform: translateY(-6px);
+    border-color: rgba(31, 42, 68, 0.26);
+    box-shadow: 0 28px 64px rgba(11, 18, 36, 0.16);
+}
+
+.stageTags {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    margin: 0;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    background: #0b1224;
+    color: white;
+    border: white 0.5px solid;
+
+    z-index: 5;
+}
+
+/* 不同級別的標籤些微色差 */
+.A1Card .stageTags,
+.A2Card .stageTags {
+    background: #b4c1d4;
+    color: #0b1224;
+}
+
+.B1Card .stageTags,
+.B2Card .stageTags {
+    background: #314158;
+}
+
+.C1Card .stageTags,
+.C2Card .stageTags {
+    background: #0b1224;
+}
+
+.stageImg {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.stageImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.45s ease;
+}
+
+.cards:hover .stageImg img {
+    transform: scale(1.07);
+}
+
+.stageText {
+    text-align: left;
+    min-height: 180px;
+    padding: 12px 12px 20px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: rgba(17, 24, 39, 0.74);
+}
+
+.stageText p:last-child {
+    margin-bottom: 0;
+}
+
+.stageWindow .wordWithImg {
+    text-align: center;
+}
+
+/* 區塊切換按鈕 */
+.stageNavBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(17, 24, 39, 0.14);
+    color: rgba(17, 24, 39, 0.82);
+
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.14s ease, background-color 0.18s ease,
+        border-color 0.18s ease, box-shadow 0.18s ease;
+
+    font-size: clamp(18px, 1.6vw, 24px);
+    padding: clamp(8px, 0.9vw, 12px) clamp(12px, 1.3vw, 18px);
+}
+
+.stageNavBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(31, 42, 68, 0.28);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+    transform: translateY(-50%) translateY(-1px);
+}
+
+.stageNavBtn:active {
+    transform: translateY(-50%);
+}
+
+.stageNavBtn:focus-visible {
+    outline: 3px solid rgba(31, 42, 68, 0.3);
+    outline-offset: 2px;
+}
+
+#previousStage {
+    font-size: 24px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(17, 24, 39, 0.12);
+    color: rgba(17, 24, 39, 0.74);
+    top: 50%;
+    left: clamp(24px, 5vw, 8%);
+}
+
+#previousStage:hover {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(17, 24, 39, 0.35);
+}
+
+#nextStage {
+    font-size: 24px;
+    position: absolute;
+    background: rgba(31, 42, 68, 0.18);
+    /* 墨藍玻璃 */
+    border-color: rgba(31, 42, 68, 0.26);
+    color: rgba(255, 255, 255, 0.88);
+    top: 50%;
+    right: clamp(24px, 5vw, 8%);
+}
+
+#nextStage:hover {
+    background: rgba(31, 42, 68, 0.25);
+    border-color: rgba(31, 42, 68, 0.34);
+}
+
+/* 課程設計邏輯的說明區塊 */
+.classLogic {
+    background: #f5f6f4;
+}
+
+#classLogicImg1 {
+    display: block;
+    margin: 50px auto;
+    width: 70%;
+    border-radius: 20px;
+}
+
+.logicPhoto {
+    /*   width: min(1280px, 92vw); */
+    width: 70%;
+    margin: 60px auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#classLogicImg2 {
+    width: min(620px, 48vw);
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+#classLogicImg3 {
+    width: min(540px, 42vw);
+    border-radius: 24px;
+
+    transform: translateY(70px);
+    margin-left: -70px;
+
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.16);
+}
+
+.logicContent {
+    width: min(980px, 88vw);
+    margin: 92px auto 40px;
+
+    color: var(--hero-muted);
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* 學習歷程視覺化介紹區塊 */
+.visualIntro {
+    background: #f3f1ec;
+    border-top: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+.visualImgDiv div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.visualImgDiv div p {
+    text-align: left;
+}
+
+.visualImgDiv {
+    margin-top: 100px;
+    padding-inline: 20px;
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+}
+
+.visualImg {
+    width: 700px;
+}
+
+.visualImg2 {
+    width: 600px;
+}
+
+.visualImg,
+.visualImg2 {
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+    border-radius: 18px;
+}
+
+
+
+/* 學習地圖獨立Responsive */
+/* ===== Desktop / Laptop Responsive ===== */
+
+@media screen and (max-width: 1280px) {
+    .logo {
+        width: 170px;
+    }
+
+    nav ul {
+        gap: 22px;
+    }
+
+    header nav ul li {
+        font-size: 18px;
+    }
+
+    .member-buttons {
+        gap: 16px;
+    }
+
+    .member-buttons a {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .heroImg-slogan {
+        font-size: 20px;
+    }
+
+    .heroImg-sub {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .contentInfo {
+        font-size: 18px;
+    }
+
+    .classification-ladder {
+        width: min(1000px, 92vw);
+        column-gap: 16px;
+    }
+
+    .levelContent {
+        font-size: 16px;
+    }
+
+    .levelRole {
+        font-size: 20px;
+    }
+
+    .stageViewport .stageImgs {
+        width: min(1080px, 78vw);
+    }
+
+    #beginnerStage,
+    #advancedStage {
+        width: min(640px, 43vw);
+    }
+
+    #intermediateStage {
+        width: min(680px, 45vw);
+    }
+
+    .stageUser {
+        width: min(330px, 25vw);
+    }
+
+    .logicPhoto {
+        width: 78%;
+    }
+
+    #classLogicImg1 {
+        width: 78%;
+    }
+
+    .visualImgDiv {
+        width: min(1180px, 92vw);
+        margin: 90px auto 0;
+        gap: clamp(40px, 6vw, 90px);
+    }
+
+    .visualImgDiv>div {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .visualImg {
+        width: 100%;
+        max-width: 640px;
+    }
+
+    .visualImg2 {
+        width: 100%;
+        max-width: 540px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+
+    /*   情境輪播塗改顯示2張  */
+    .stageWindow {
+        width: min(900px, 82vw);
+    }
+
+    .cards {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+
+    .hero-roadmap {
+        min-height: 460px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .heroImg-slogan {
+        font-size: 16px;
+        padding-inline: 48px;
+    }
+
+    .heroImg-sub {
+        font-size: 16px;
+        padding-inline: 24px;
+    }
+
+    .change-button {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    .classification-ladder {
+        width: min(900px, 92vw);
+        column-gap: 14px;
+    }
+
+    .ladderStep {
+        height: calc(110px + var(--level) * 34px);
+    }
+
+    .level {
+        font-size: 18px;
+    }
+
+    .levelContent {
+        font-size: 14px;
+    }
+
+    .levelRole {
+        font-size: 20px;
+    }
+
+    .stageViewport {
+        margin-top: 80px;
+        min-height: clamp(520px, 50vw, 680px);
+    }
+
+    .stageViewport .stageImgs {
+        width: min(920px, 74vw);
+        gap: clamp(14px, 2vw, 32px);
+    }
+
+    #beginnerStage,
+    #advancedStage {
+        width: min(560px, 42vw);
+    }
+
+    #intermediateStage {
+        width: min(600px, 44vw);
+    }
+
+    .stageUser {
+        width: min(280px, 24vw);
+    }
+
+    #beginnerContent,
+    #intermediateContent,
+    #advancedContent {
+        font-size: clamp(13px, 1.15vw, 17px);
+    }
+
+    #previousStage {
+        left: 24px;
+    }
+
+    #nextStage {
+        right: 24px;
+    }
+
+    .classLogic h2,
+    .visualIntro h2 {
+        font-size: 24px;
+    }
+
+    .logicPhoto {
+        width: 82%;
+    }
+
+    #classLogicImg2 {
+        width: min(540px, 48vw);
+    }
+
+    #classLogicImg3 {
+        width: min(460px, 42vw);
+        margin-left: -50px;
+        transform: translateY(55px);
+    }
+
+    .logicContent {
+        font-size: 18px;
+        margin-top: 80px;
+    }
+
+    .visualImgDiv {
+        width: min(960px, 92vw);
+        gap: 40px;
+    }
+
+    .visualImg {
+        max-width: 520px;
+    }
+
+    .visualImg2 {
+        max-width: 460px;
+    }
+
+    .visualImgDiv div p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    /* 層級階梯圖一上二下調整 */
+    .classification-ladder {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+        width: min(760px, 92vw);
+
+        align-items: end;
+    }
+
+    .classification-ladder .levelBlock:first-child {
+        grid-column: 1 / -1;
+        width: min(480px, 100%);
+        margin-inline: auto;
+    }
+
+    .block {
+        gap: 12px;
+    }
+
+    .ladderStep {
+        height: calc(170px + var(--level) * 24px);
+    }
+
+    .levelContent {
+        font-size: 16px;
+    }
+
+    .levelRole {
+        order: -1;
+    }
+}
+
+/* 階梯圖改成單組排列 */
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .classification-ladder {
+        grid-template-columns: 1fr;
+        width: min(480px, 88vw);
+        row-gap: 48px;
+    }
+
+    .classification-ladder .levelBlock:first-child {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .levelBlock {
+        width: 100%;
+    }
+
+    .block {
+        gap: 16px;
+    }
+
+    .ladderStep {
+        width: 50%;
+        height: calc(170px + var(--level) * 20px);
+    }
+
+    .levelContent {
+        font-size: 16px;
+    }
+
+    .levelRole {
+        order: -1;
+        margin-bottom: 14px;
+    }
+
+    /* 通用文字避免太貼邊 */
+    .contentInfo,
+    .wordWithImg,
+    .logicContent {
+        width: min(520px, 88vw);
+        margin-inline: auto;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .contentInfo br {
+        display: none;
+    }
+
+    /* visualIntro：改成上下排列，不硬塞成左右雙欄 */
+    .visualImgDiv {
+        width: min(560px, 88vw);
+        margin: 60px auto 0;
+        padding-inline: 0;
+        padding-bottom: 80px;
+
+        flex-direction: column;
+        gap: 56px;
+    }
+
+    .visualImgDiv>div {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .visualImg,
+    .visualImg2 {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+
+    .visualImgDiv div p {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .visualImgDiv>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .visualImgDiv>div:nth-child(2) p {
+        order: 2;
+    }
+
+    .visualImgDiv>div:nth-child(2) img {
+        order: 1;
+    }
+
+    /* 情境輪播圖改單張播放調整，按鈕跟著調至圖片下方 */
+    .stageViewport {
+        padding: 60px 0 120px;
+    }
+
+    .stageWindow {
+        width: min(420px, 82vw);
+    }
+
+    .cards {
+        flex: 0 0 100%;
+    }
+
+    .stageText {
+        min-height: auto;
+        font-size: 16px;
+    }
+
+    .stageNavBtn {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        font-size: 20px;
+    }
+
+    #previousStage,
+    #nextStage {
+        top: auto;
+        bottom: 72px;
+        right: auto;
+        left: 50%;
+    }
+
+    #previousStage {
+        transform: translateX(-120%);
+    }
+
+    #nextStage {
+        transform: translateX(20%);
+    }
+
+    #previousStage:hover {
+        transform: translateX(-120%) translateY(-2px);
+    }
+
+    #nextStage:hover {
+        transform: translateX(20%) translateY(-2px);
+    }
+
+    #previousStage:active {
+        transform: translateX(-120%);
+    }
+
+    #nextStage:active {
+        transform: translateX(20%);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2,
+    .classLogic h2,
+    .visualIntro h2 {
+        font-size: 22px;
+    }
+
+    .classification-ladder {
+        width: min(360px, 88vw);
+    }
+
+    .ladderStep {
+        height: 210px;
+    }
+
+    .levelContent {
+        font-size: 14px;
+    }
+
+    .visualImgDiv {
+        width: 88vw;
+        gap: 48px;
+    }
+
+    .stageText {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,549 @@
+/* ====== Noctra Design starts ====== */
+/* 課程檢索、分類區塊 */
+.labelDiv {
+    margin: 40px auto;
+    /*   width: 70%; */
+    width: min(1000px, 88vw);
+    padding: 22px 28px 0px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.42);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(10px);
+}
+
+.labelWord {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    align-items: baseline;
+    /* 文字基線對齊 */
+    gap: 25px;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: left;
+}
+
+.labelWord p {
+    font-size: 18px;
+}
+
+#topLine {
+    height: 1px;
+    background: black;
+    width: 100%;
+    max-width: 560px;
+    margin-left: 0;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+#bottomLine {
+    height: 1px;
+    background: black;
+    width: 100%;
+    margin-left: 0;
+    margin-top: -20px;
+}
+
+.filterGroup {
+    margin-bottom: 28px;
+}
+
+.filterTitle {
+    margin: 0 0 16px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(17, 24, 39, 0.56);
+}
+
+/* 課程分類按鈕 */
+/* 進度分類 */
+.progressButtons {
+    cursor: pointer;
+
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(129, 163, 146, 0.16);
+
+    background: rgba(255, 255, 255, 0.72);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78);
+
+    transition: transform 0.14s ease, background-color 0.18s ease,
+        border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.progressButtons p:first-of-type {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: rgba(65, 88, 74, 0.88);
+}
+
+.progressButtons p:last-of-type {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.3;
+
+    color: rgba(65, 88, 74, 0.48);
+}
+
+.progressButtons:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07),
+        0 0 0 1px rgba(180, 193, 212, 0.1);
+}
+
+.progressButtons:active {
+    transform: translateY(0);
+}
+
+.progressButtons.highlight {
+    background: rgba(129, 163, 146, 0.22);
+
+    border-color: rgba(129, 163, 146, 0.42);
+
+    box-shadow: 0 10px 24px rgba(129, 163, 146, 0.1),
+        0 0 0 1px rgba(129, 163, 146, 0.12);
+}
+
+.progressButtons.highlight:hover {
+    background: rgba(129, 163, 146, 0.28);
+    border-color: rgba(129, 163, 146, 0.54);
+
+    box-shadow: 0 10px 24px rgba(129, 163, 146, 0.12),
+        0 0 0 1px rgba(129, 163, 146, 0.14);
+}
+
+.progressButtons.highlight p:first-of-type {
+    color: #41584a;
+}
+
+.progressButtons.highlight p:last-of-type {
+    color: rgba(65, 88, 74, 0.62);
+}
+
+/* 等級分類 */
+.labelButtonDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.progressGroup {
+    gap: 20px;
+}
+
+.levelGroup {
+    gap: 26px;
+}
+
+.labelButtons {
+    cursor: pointer;
+
+    padding: 10px 20px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(180, 193, 212, 0.16);
+
+    background: rgba(255, 255, 255, 0.72);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.78);
+
+    transition: transform 0.14s ease, background-color 0.18s ease,
+        border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* 等級主文字 */
+.labelButtons p:first-of-type {
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: rgba(17, 24, 39, 0.9);
+}
+
+/* subword */
+.labelButtons p:last-of-type {
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+
+    color: rgba(17, 24, 39, 0.46);
+}
+
+/* hover */
+.labelButtons:hover {
+    transform: translateY(-1px);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-color: rgba(180, 193, 212, 0.55);
+
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07),
+        0 0 0 1px rgba(180, 193, 212, 0.1);
+}
+
+/* active */
+.labelButtons:active {
+    transform: translateY(0);
+}
+
+/* highlight */
+.labelButtons.highlight {
+    background: rgba(180, 193, 212, 0.24);
+
+    border-color: rgba(180, 193, 212, 0.48);
+
+    box-shadow: 0 10px 24px rgba(31, 42, 68, 0.08),
+        0 0 0 1px rgba(180, 193, 212, 0.12);
+}
+
+/* highlight hover */
+.labelButtons.highlight:hover {
+    background: rgba(180, 193, 212, 0.3);
+
+    border-color: rgba(180, 193, 212, 0.58);
+}
+
+/* highlight text */
+.labelButtons.highlight p:first-of-type {
+    color: rgba(17, 24, 39, 0.92);
+}
+
+.labelButtons.highlight p:last-of-type {
+    color: rgba(17, 24, 39, 0.58);
+}
+
+/* 課程卡片區塊 */
+.courseIntro {
+    margin-top: 0px;
+    padding-bottom: 80px;
+}
+
+.courseDiv {
+    width: min(1120px, 92vw);
+    margin: 80px auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    justify-content: center;
+    justify-items: center;
+    column-gap: 40px;
+    row-gap: 80px;
+}
+
+.courseCards {
+    display: flex;
+    flex-direction: column;
+}
+
+.courseCards h2,
+.courseCards p {
+    padding: 0 18px;
+}
+
+.courseCards h2 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    line-height: 1.35;
+    min-height: 54px;
+}
+
+.courseDesc {
+    font-size: 16px;
+    color: rgba(17, 24, 39, 0.64);
+    padding: 0 10px;
+    line-height: 1.5;
+    min-height: 72px;
+    margin: 0;
+}
+
+/* 篩選條件無結果時的設定 */
+.emptyState {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(17, 24, 39, 0.08);
+    color: rgba(17, 24, 39, 0.72);
+    font-size: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ======== 課程瀏覽分頁RWD設定 ======== */
+@media screen and (max-width: 1280px) {
+    .courseDiv {
+        width: min(880px, 92vw);
+        grid-template-columns: repeat(3, 250px);
+        column-gap: 36px;
+        row-gap: 64px;
+    }
+
+    .labelDiv {
+        width: min(920px, 88vw);
+    }
+
+    .progressButtons p:first-of-type,
+    .labelButtons p:first-of-type {
+        font-size: 16px;
+    }
+
+    .progressButtons p:last-of-type,
+    .labelButtons p:last-of-type {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .labelDiv {
+        margin-top: 40px;
+        padding: 20px 24px 4px;
+    }
+
+    .labelWord h1 {
+        font-size: 36px;
+    }
+
+    .labelWord p {
+        font-size: 18px;
+    }
+
+    .progressGroup,
+    .levelGroup {
+        gap: 16px;
+    }
+
+    .progressButtons,
+    .labelButtons {
+        padding: 9px 16px;
+    }
+}
+
+/* 900px 以下：3 欄改 2 欄 */
+@media screen and (max-width: 900px) {
+    .courseDiv {
+        width: min(720px, 92vw);
+        grid-template-columns: repeat(2, minmax(0, 250px));
+        column-gap: 40px;
+        row-gap: 52px;
+    }
+
+    .courseCards {
+        width: 100%;
+    }
+
+    .labelDiv {
+        width: min(760px, 88vw);
+    }
+
+    .labelWord {
+        display: block;
+    }
+
+    .labelWord h1 {
+        margin: 0 0 8px;
+    }
+
+    .labelWord p {
+        margin: 0 0 22px;
+    }
+
+    #topLine {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .labelDiv {
+        width: min(680px, 92vw);
+        padding: 22px 22px 6px;
+        margin: 36px auto;
+    }
+
+    .labelWord h1 {
+        font-size: 30px;
+    }
+
+    .labelWord p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .filterGroup {
+        margin-bottom: 26px;
+    }
+
+    .filterTitle {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .progressGroup,
+    .levelGroup {
+        gap: 14px;
+    }
+
+    .progressButtons,
+    .labelButtons {
+        padding: 9px 15px;
+    }
+
+    .courseDiv {
+        width: min(680px, 92vw);
+        margin: 56px auto;
+        column-gap: 28px;
+        row-gap: 44px;
+    }
+
+    .courseCards {
+        width: 100%;
+        min-height: 390px;
+    }
+
+    .courseImg {
+        height: 165px;
+    }
+
+    .courseCards .cardTitle {
+        font-size: 18px;
+        min-height: 50px;
+    }
+
+    .courseDesc {
+        font-size: 16px;
+        min-height: 68px;
+    }
+}
+
+/* 手機介面下，課程卡片改單張加水平卷軸呈現 */
+@media screen and (max-width: 480px) {
+
+    /* ===== 篩選標籤區 ===== */
+
+    .labelDiv {
+        width: 92%;
+        padding: 20px 16px 4px;
+        margin: 28px auto;
+        border-radius: 20px;
+    }
+
+    .labelWord h1 {
+        font-size: 28px;
+    }
+
+    .labelWord p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    #topLine {
+        margin-bottom: 18px;
+    }
+
+    .filterTitle {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    /* ===== 篩選按鈕 ===== */
+
+    .progressGroup,
+    .levelGroup {
+        gap: 10px;
+    }
+
+    .progressButtons,
+    .labelButtons {
+        padding: 8px 14px;
+    }
+
+    .progressButtons p:first-of-type,
+    .labelButtons p:first-of-type {
+        font-size: 15px;
+    }
+
+    .progressButtons p:last-of-type,
+    .labelButtons p:last-of-type {
+        font-size: 11px;
+    }
+
+    /* ===== 課程區 ===== */
+
+    .courseDiv {
+
+        width: 90%;
+
+        display: flex;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+
+        gap: 18px;
+
+        padding: 0 0 12px;
+
+        margin: 60px auto 0px;
+
+        justify-content: flex-start;
+    }
+
+    .courseCards {
+
+        width: 250px;
+        min-height: 380px;
+
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+
+    .courseImg {
+        height: 165px;
+    }
+
+    /* 無資料提示 */
+
+    .emptyState {
+        font-size: 16px;
+        padding: 40px 20px;
+        margin-inline: auto;
+    }
+}

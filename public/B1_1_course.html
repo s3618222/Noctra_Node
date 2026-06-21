@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra B1 課程｜Expressing Opinions at Work</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-AllCourses.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li id="currentPage"><a href="Post-course.html">課程</a></li>
+                    <li><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--獨立課程內容區-->
+    <section class="classWrap">
+        <div class="classTitle">
+            <p class="levelTag">B1</p>
+            <h1>Expressing Opinions at Work</h1>
+        </div>
+        <p id="sub-classTitle">在會議與討論中，清楚表達意見與想法。</p>
+        <div class="classContent">
+            <!--課程影音預覽-->
+            <div class="classVideo">
+                <div class="classPreview" id="classPreview">
+                    <img class="previewCoverImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/b1-1(0604).png"
+                        alt="B1 English course cover">
+                    <p class="classTag">在職場討論中清楚表達觀點的實用溝通技巧</p>
+                    <!--播放按鈕 未訂閱狀態下 可以改顯示 "訂閱Noctra"-->
+                    <!--若未訂閱 可以設定按下撥放時 跳出訂閱提示-->
+                    <button id="startClassBtn">開始課程</button>
+                </div>
+                <!--已完成過該課程的UI狀態-->
+                <div class="classComplete" id="classComplete">
+                    <p class="statusInfo">已完成此課程</p>
+                    <img class="previewCoverImg" id="courseCompleteImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/b1-1(0604).png"
+                        alt="B1 English course cover">
+                    <p class="classTag">在職場討論中清楚表達觀點的實用溝通技巧</p>
+                    <button id="reWatchBtn">重新觀看課程</button>
+                </div>
+                <!--實際影片區-->
+                <div class="videoPlayer" id="videoPlayer">
+                    <iframe id="courseIframe" title="Noctra course video"
+                        src="https://www.youtube.com/embed/Xko5lBXpkXo?enablejsapi=1" frameborder="0"
+                        allow="autoplay; fullscreen" allowfullscreen>
+                    </iframe>
+                    <button id="postTestBtn">課後練習</button>
+                </div>
+                <!--課後練習區-->
+                <div class="postTest" id="postTest">
+                    <p class="postTestLabel">課後練習題</p>
+                    <img id="testImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/IndieCoursePage/B1-posttest.png"
+                        alt="Team meeting discussion in a workplace setting">
+                    <p class="question">You are in a team meeting discussing a new project timeline. You want to suggest
+                        a different approach in a polite and professional way. Which sentence is the most appropriate?
+                    </p>
+                    <!--提示文字-->
+                    <p class="hint">Think about the tone. Which sentence sounds more polite and professional in a
+                        meeting?</p>
+                    <!--題目選項-->
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="b1-test" value="A">
+                            A. We should change this plan.
+                        </label>
+                        <label>
+                            <input type="radio" name="b1-test" value="B">
+                            B. I think we should try a different approach.
+                        </label>
+                        <label>
+                            <input type="radio" name="b1-test" value="C">
+                            C. This plan is wrong.
+                        </label>
+                        <label>
+                            <input type="radio" name="b1-test" value="D">
+                            D. Maybe... I don't know... it's fine.
+                        </label>
+                    </div>
+                    <button id="answerBtn">送出</button>
+                </div>
+                <!--答對題目，獎勵視窗-->
+                <div id="shadowCover"></div><!--畫面遮罩-->
+                <div class="rewards">
+                    <div class="rewardIntro">
+                        <p class="rewardTitle">順利完成課程，獲得 <strong>30枚</strong> 學習幣獎勵！</p>
+                    </div>
+                    <!--avatar腳色-->
+                    <div class="rewardAvatar">
+                        <div class="avatarContainer">
+                            <div class="reward-headItem">
+                                <img id="rewardHeadSlot" src="">
+                            </div>
+                            <div class="reward-bodyItem">
+                                <img id="rewardBodySlot" src="">
+                            </div>
+                            <div class="reward-bottomItem">
+                                <img id="rewardBottomSlot" src="">
+                            </div>
+                            <img id="avatar-reward"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/baseAvatar1.png"
+                                alt="Noctra companion avatar celebrating lesson completion">
+                        </div>
+                    </div>
+                    <button id="confirmBtn">確認</button>
+                </div>
+            </div>
+            <!--課程資訊-->
+            <div class="classInfo">
+                <div class="purpose">
+                    <h2>課程目的</h2>
+                    <p>在工作會議與日常討論中，能清楚、有條理地表達自己的意見，是建立專業形象的重要能力。本課程將幫助你學會如何在不同情境下提出觀點、回應他人意見，並以自然且有說服力的方式參與討論。</p>
+                </div>
+                <div class="focus">
+                    <h2>學習重點</h2>
+                    <p>- 使用常見句型表達個人意見</p>
+                    <p>- 在會議中回應他人觀點</p>
+                    <p>- 練習在討論中提出建議與解決方案</p>
+                    <p>- 提升語氣自然度，避免過於直接或過於模糊</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--其他課程卡片區-->
+    <section class="otherCoursesLink">
+        <div class="checkOtherCourses">
+            <div>
+                <p class="other-title">其他課程</p>
+                <p class="continue-learning">Continue your learning journey</p>
+            </div>
+            <!--連結至全部課程介紹分頁-->
+            <a id="checkAllBtn">查看全部</a>
+        </div>
+        <!--查看課程卡片卷軸-->
+        <div class="courseWrap">
+            <div class="courseTrack">
+                <!--A1課程-->
+                <a href="A1_1_course.html" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a1-1%20cover.png"
+                        alt="English course cover">
+                    <p><i>A1</i></p>
+                    <p class="cardTitle">Introducing Yourself & Small Talk</p>
+                    <p>學會基本自我介紹與寒暄，建立用英文開口的第一步。</p>
+                </a>
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a1-22%20cover.png"
+                        alt="English course cover">
+                    <p><i>A1</i></p>
+                    <p class="cardTitle">Everyday Needs & Simple Requests</p>
+                    <p>在旅遊與生活情境中，用英文完成簡單需求表達。</p>
+                </a>
+                <!--A2課程-->
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a2-1ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>A2</i></p>
+                    <p class="cardTitle">Talking About Daily Life & Plans</p>
+                    <p>練習描述生活經驗、行程安排與個人需求。</p>
+                </a>
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a2-2ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>A2</i></p>
+                    <p class="cardTitle">Handling Everyday Services</p>
+                    <p>應對常見服務與旅遊情境，讓日常溝通更順暢。</p>
+                </a>
+                <!--B1課程-->
+                <a href="B1_1_course.html" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b1-2ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>B1</i></p>
+                    <p class="cardTitle">Workplace Conversations & Short Presentations</p>
+                    <p>處理日常職場溝通，並完成簡單的英文簡報。</p>
+                </a>
+                <!--B2課程-->
+                <a href="B1_2_course.html" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b2-1ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>B2</i></p>
+                    <p class="cardTitle">Professional Presentations & Explanations</p>
+                    <p>進行完整的專業說明，讓你的觀點更有說服力。</p>
+                </a>
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b2-2ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>B2</i></p>
+                    <p class="cardTitle">Cross-Cultural Communication</p>
+                    <p>練習跨文化溝通，在雙語環境中自在互動。</p>
+                </a>
+                <!--C1課程-->
+                <a href="C1_1_course.html" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c1-1ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>C1</i></p>
+                    <p class="cardTitle">Strategic Discussions & Decision-Making</p>
+                    <p>在專業場合中進行策略性討論與觀點辯證。</p>
+                </a>
+                <div class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c1-2ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>C1</i></p>
+                    <p class="cardTitle">Adjusting Tone for Different Audiences</p>
+                    <p>依對象與情境調整語氣，精準傳達複雜想法。</p>
+                </div>
+                <!--C2課程-->
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c2-1ed%20cover.png"
+                        alt="English course cover">
+                    <p><i>C2</i></p>
+                    <p class="cardTitle">Advanced Professional Communication</p>
+                    <p>在高階專業與國際場合中，進行深入而自然的交流。</p>
+                </a>
+                <a href="#" class="courseCards">
+                    <img class="courseImg"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c2-22ED%20cover.png"
+                        alt="English course cover">
+                    <p><i>C2</i></p>
+                    <p class="cardTitle">Nuance, Implicit Meaning & Cultural Context</p>
+                    <p>理解隱含語意與文化脈絡，讓表達更細膩精準。</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/B1_1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra｜以真實情境為核心的線上英語學習平台</title>
+    <link rel="stylesheet" href="CSS/Pre-member.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!-- 開頭轉場動畫 -->
+    <div class="animeContainer">
+        <div id="lettersPanel">
+            <span class="letters">N</span>
+            <span class="letters">O</span>
+            <span class="letters">C</span>
+            <span class="letters">T</span>
+            <span class="letters">R</span>
+            <span class="letters">A</span>
+        </div>
+        <div class="sloganPanel">
+            <span class='animeSlogan'>English, after hours</span>
+        </div>
+    </div>
+
+    <!-- 首頁內容 -->
+    <main id="pageContent">
+        <!--網頁導覽按鈕連結-->
+        <header class="top-bar top-bar--transparent" id="header">
+            <div class='nav-wrap'>
+                <a class="logo-link" href="#">
+                    <img id="logo" class="logo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="./Roadmap.html">學習地圖</a></li>
+                        <li><a href="./Course.html">課程內容</a></li>
+                        <li><a href="./Tutor.html">真人教師</a></li>
+                        <!-- 手機版備用按鈕 -->
+                        <li class="mobile-auth mobile-auth-login">
+                            <a href="./SignIn.html">登入</a>
+                        </li>
+                        <li class="mobile-auth mobile-auth-signup">
+                            <a href="./SignUp.html">註冊</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="member-buttons">
+                <a href="./SignIn.html" id="logIn">登入</a>
+                <a href="./SignUp.html" id="signUp">註冊</a>
+                <!-- 手機用漢堡選單 -->
+                <input type="checkbox" id="menu-control">
+                <label for="menu-control" class="hb">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+            </div>
+        </header>
+        <!--背景大圖與品牌slogan-->
+        <section class="hero-sec">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+                <source
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/main/images/HeaderVideoUpdated.mp4"
+                    type="video/mp4" />
+            </video>
+            <div class="hero-content">
+                <h1 class="slogan slogan1">Noctra — A calm place to grow your English.</h1>
+                <p class="slogan slogan2">用自己的節奏，培養可實際運用的英語能力</p>
+                <a class="hero-btn" id="signUp2" href="SignUp.html">開啟你的英文時刻</a>
+            </div>
+        </section>
+        <!--平台特點介紹bar-->
+        <section class="feature-bar">
+            <div class="feature-cube">
+                <img class="icon"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/icon1.3.png"
+                    alt="progress icon">
+                <p>依照國際 CEFR 能力分級，清楚掌握學習方向</p>
+            </div>
+            <div class="feature-cube">
+                <img class="icon"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/icon2.png"
+                    alt="communication icon">
+                <p>聚焦真實溝通情境，培養實際可運用的英語能力</p>
+            </div>
+            <div class="feature-cube">
+                <img class="icon"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/icon3.png"
+                    alt=" steady circle icon">
+                <p>掌控自己的節奏，安心學習</p>
+            </div>
+        </section>
+        <!--Roadmap介紹-->
+        <section class="method-intro">
+            <h2>A clear roadmap for real progress</h2>
+            <p>將語言能力拆解為清楚的學習階段，
+                為每一步設定可達成的溝通目標，
+                讓學習穩定向前，不再迷路。</p>
+            <a class="landing-CTA-btn" id="roadmap-btn" href="Roadmap.html">查看學習地圖</a>
+            <div class="methodDiv">
+                <div class="methodImgFrame">
+                    <p>清楚的課程分級</p>
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/roadmapPic1.png"
+                        alt="Noctra learning roadmap interface" loading="lazy">
+                </div>
+                <div class="methodImgFrame">
+                    <p>結構化的學習英語</p>
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/roadMapPair2.png"
+                        alt="Structured English learning roadmap" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!--Course介紹-->
+        <section class="course-intro">
+            <h2>Courses for real-world English</h2>
+            <p>課程內容對應不同溝通情境設計，
+                從日常交流到工作場合，
+                協助你在需要時，自然地使用英語應對各種狀況。</p>
+            <a class="landing-CTA-btn" id="course-btn" href="Course.html">探索課程內容</a>
+            <div class="courseDiv">
+                <div class="courseImgFrame">
+                    <p>實用的英語表達</p>
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/CoursePic4.png"
+                        alt="English course focused on practical communication" loading="lazy">
+                </div>
+                <div class="courseImgFrame">
+                    <p>對應真實會話情境</p>
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/CoursePic2.png"
+                        alt="Real-world English conversation learning scenarios" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!--Tutor介紹-->
+        <section class="tutor-intro">
+            <h2>Personal guidance, when you need it</h2>
+            <p>當你需要更個人化的回饋時，可以透過一對一線上指導，針對自己的學習狀況進行補強。</p>
+            <a class="landing-CTA-btn" id="tutor-btn" href="Tutor.html">查看更多教師</a>
+            <div class="tutorDiv">
+                <!--第1位Tutor-->
+                <div class="tutorImgFrame">
+                    <div class="tutor-info">
+                        <p>協助需要職場英文溝通的人，
+                            在會議、簡報與工作情境中，更自然地使用英文表達想法。</p>
+                    </div>
+                    <img class="tutorImgFront" id="tutor1-1"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor2-1.png"
+                        alt="English tutor Emily portrait" loading="lazy">
+                    <img class="tutorImgBack" id="tutor1-2"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor2-2.png"
+                        alt="" loading="lazy">
+                </div>
+                <!--第2位Tutor-->
+                <div class="tutorImgFrame">
+                    <div class="tutor-info">
+                        <p>透過大量生活情境對話練習，
+                            幫助學員逐步建立口說流暢度，
+                            與用英文開口的自信。</p>
+                    </div>
+                    <img class="tutorImgFront" id="tutor2-1"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor3-1.png"
+                        alt="English tutor David portrait" loading="lazy">
+                    <img class="tutorImgBack" id="tutor2-2"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor3-2.png"
+                        alt="" loading="lazy">
+                </div>
+                <!--第3位Tutor-->
+                <div class="tutorImgFrame">
+                    <div class="tutor-info">
+                        <p>針對需要較多說明與表達的情境，
+                            協助整理英文表達的重點，
+                            讓溝通更加清楚有條理。</p>
+                    </div>
+                    <img class="tutorImgFront" id="tutor3-1"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor4-1.png"
+                        alt="English tutor Lindsey portrait" loading="lazy">
+                    <img class="tutorImgBack" id="tutor3-2"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/tutor4-2.png"
+                        alt="" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!--學習歷程紀錄介紹-->
+        <section class="progress-intro">
+            <h2>See where you are. Know what's next.</h2>
+            <p>學習歷程與所處能力階段將被清楚記錄，讓你隨時掌握學習狀況，與下一階段的學習方向。</p>
+            <a class="landing-CTA-btn" id="progress-btn" href="SignUp.html">開始你的學習旅程</a>
+            <div class="progressContainer">
+                <div class="progressDiv">
+                    <div class="progressImgFrame">
+                        <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/ProgressImg1.png"
+                            alt="Noctra learning progress dashboard" loading="lazy">
+                    </div>
+                    <div class="progressImgFrame">
+                        <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/ProgressImg2.png"
+                            alt="English learning milestone tracking interface" loading="lazy">
+                    </div>
+                </div>
+                <p class="progressContent">視覺化學習進展，幫助你逐步達成各階段的語言學習目標</p>
+            </div>
+        </section>
+
+        <!--學員心得感想-->
+        <section class="feedback-intro">
+            <h2>You can open it too</h2>
+            <div class="feedbackDiv">
+                <!--第1位學員-->
+                <div class="feedbackImgFrame feedbackFrame1">
+                    <div class="feedbackCard">
+                        <img class="feedbackImg" id="student1Img"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/student1.png"
+                            alt="Jess sharing English learning experience" loading="lazy">
+                        <div class="feedback-info" id="feedback1">
+                            <strong>
+                                <p class="studentName">Jess</p>
+                            </strong>
+                            <p class="studentSituation">去加拿大獨旅，參加國際書展</p>
+                            <p class="studentFeedback">「我不是突然變得很厲害，只是終於敢用英文說出自己的想法。」</p>
+                        </div>
+                    </div>
+                </div>
+                <!--第2位學員-->
+                <div class="feedbackImgFrame feedbackFrame2">
+                    <div class="feedbackCard">
+                        <img class="feedbackImg" id="student2Img"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/student2.png"
+                            alt="Irene sharing English learning experience" loading="lazy">
+                        <div class="feedback-info" id="feedback2">
+                            <strong>
+                                <p class="studentName">Irene</p>
+                            </strong>
+                            <p class="studentSituation">旅居澳洲，於當地零售品牌擔任行銷經理</p>
+                            <p class="studentFeedback">「當英文不再是障礙，我開始認真思考自己想走哪一條路。」</p>
+                        </div>
+                    </div>
+                </div>
+                <!--第3位學員-->
+                <div class="feedbackImgFrame feedbackFrame3">
+                    <div class="feedbackCard">
+                        <img class="feedbackImg" id="student3Img"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/student3.png"
+                            alt="Chien sharing English learning experience" loading="lazy">
+                        <div class="feedback-info" id="feedback3">
+                            <strong>
+                                <p class="studentName">Chien</p>
+                            </strong>
+                            <p class="studentSituation">於新創公司任職國際專員</p>
+                            <p class="studentFeedback">「我一直以為自己學不好英文，後來才發現，我只是需要對的方法。」</p>
+                        </div>
+                    </div>
+                    <a class="landing-CTA-btn" id="feedback-btn" href="SignUp.html">探索更多可能</a>
+                </div>
+            </div>
+        </section>
+
+        <!--訂閱方案介紹-->
+        <section class="subscribe-intro">
+            <h2>Choose a plan that fits your path.</h2>
+            <div class="subscribeDiv">
+                <!--core基礎方案-->
+                <div class="subscribePlan">
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan1.2Icon.png"
+                        alt="Noctra core plan icon" loading="lazy">
+                    <h3>Core 基礎方案</h3>
+                    <p class="fees"><strong>NT$590 / 月</strong></p>
+                    <p><em>For steady, self-paced learning</em></p>
+                    <p>以自己的節奏，穩定建立英語能力</p>
+                    <p>適合穩定、自主學習的你</p>
+                    <hr>
+                    </hr>
+                    <p>．自由使用平台所有課程資源</p>
+                    <p>．清楚的學習進度與歷程記錄</p>
+                    <p>．每月1堂tutor指導(session)</p>
+                    <a href="SignIn.html" class="subscribe-btn">立即訂閱</a>
+                    <p><small>月訂制 · 可隨時取消</small></p>
+                </div>
+                <!--plus進階方案-->
+                <div class="subscribePlan">
+                    <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan2.2Icon.png"
+                        alt="Noctra plus plan icon" loading="lazy">
+                    <h3>Plus 進階方案</h3>
+                    <p class="fees"><strong>NT$1,290 / 月</strong></p>
+                    <p><em>For learners who want more feedback</em></p>
+                    <p>在需要的時候，獲得清楚的指引</p>
+                    <p>適合希望獲得更多互動與回饋的你</p>
+                    <hr>
+                    </hr>
+                    <p>．自由使用平台所有課程資源</p>
+                    <p>．清楚的學習進度與歷程記錄</p>
+                    <p>．每月3堂tutor指導(sessions)</p>
+                    <a href="SignIn.html" class="subscribe-btn">立即訂閱</a>
+                    <p><small>月訂制 · 可隨時取消</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!--tutor招募介紹-->
+        <section class="recruit-intro">
+            <div class="recruitDiv">
+                <div class='recruitContainer'>
+                    <div class="recruitContent">
+                        <h2>Teach with Noctra</h2>
+                        <p>· Flexible collaboration<br>
+                            · Sessions conducted via external tools (e.g. Google Meet)</p>
+                        <p>Noctra以實際溝通情境中的英語運用為核心，
+                            尋找具備實務經驗、理解學習者需求的教師，
+                            與我們合作，提供專注、清楚、尊重學習節奏的英語指導。</p>
+                        <a href="mailto:hello@noctra.study" id="recruit-btn">加入Noctra團隊</a>
+                    </div>
+                    <div class="recruitImgFrame">
+                        <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/RecruitPic1.png"
+                            alt="Online English tutoring session" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--最後footer頁尾-->
+        <footer>
+            <div class="footerDiv">
+                <!-- 頁尾logo區塊 -->
+                <div class="footer-brand">
+                    <a class="footer-logo-link" href="#">
+                        <img class="footerLogo"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                            alt="Noctra logo">
+                    </a>
+                    <p class="footer-slogan">
+                        A calm place to grow your English.
+                    </p>
+                </div>
+                <!-- 各分頁連結 -->
+                <div class="footerLinks">
+                    <p><strong>平台導覽</strong></p>
+                    <a href="Roadmap.html">學習地圖</a>
+                    <a href="Course.html">課程內容</a>
+                    <a href="Tutor.html">真人教師</a>
+                </div>
+                <!-- 聯絡資訊 -->
+                <div class="footerContact">
+                    <p><strong>聯繫我們</strong></p>
+                    <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                    <p class="footerNote">
+                        <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                    </p>
+                </div>
+            </div>
+            <div class="footerBottom">
+                <small>© 2026 Noctra. All rights reserved.</small>
+            </div>
+        </footer>
+    </main>
+    <script>
+        //開頭動畫設定
+        window.addEventListener('load', function () {
+            document.body.style.overflow = "hidden";
+            //避免文件內容導致分頁在動畫過程中，出現垂直卷軸
+
+            const animeContainer = document.querySelector(".animeContainer");
+            const panel = document.getElementById("lettersPanel");
+            const letters = document.getElementsByClassName("letters");
+            const animeSlogan = document.querySelector('.animeSlogan');
+
+            let curIndex = 0;
+
+            const timer = setInterval(function () {
+
+                letters[curIndex].classList.add("loading");
+                curIndex++;
+
+                if (curIndex === letters.length) {
+
+                    clearInterval(timer);
+
+                    setTimeout(function () {
+                        animeSlogan.classList.add("show");
+                    }, 600); //原1000
+
+                    setTimeout(function () {
+                        animeContainer.style.opacity = "0";
+                    }, 1800); //原2500
+
+                    setTimeout(function () {
+
+                        document.querySelector(".animeContainer")
+                            .style.display = "none";
+
+                        document.querySelector("#pageContent")
+                            .style.opacity = "1";
+
+                        document.body.style.overflow = "auto";
+
+                    }, 2600); //原3200
+                }
+
+            }, 200); //原300
+        });
+
+        //置頂nav下拉變實心顏色效果設定
+        const header = document.getElementById("header");
+        const threshold = 20;
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > threshold) {
+                header.classList.add("is-solid");
+            } else {
+                header.classList.remove("is-solid");
+            }
+        });
+    </script>
+</body>
+
+</html>

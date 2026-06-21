@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 課程瀏覽｜依程度與進度探索英語課程</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-course.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li id="currentPage"><a href="Post-course.html">課程</a></li>
+                    <li><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--課程分類標籤區塊-->
+    <section class="courseLabel">
+        <div class="labelDiv">
+            <div class="labelWord">
+                <h1>課程瀏覽</h1>
+                <p>Pick up where you left off or explore new lessons.</p>
+            </div>
+            <!--分類按鈕-->
+            <hr id="topLine">
+            <!--課程進度按鈕-->
+            <div class="filterGroup">
+                <p class="filterTitle">課程進度</p>
+                <div class="labelButtonDiv progressGroup">
+                    <div class="progressButtons" id="allProgressButton">
+                        <p>All</p>
+                        <p>所有進度</p>
+                    </div>
+                    <div class="progressButtons" id="yetButton">
+                        <p>Pending</p>
+                        <p>未開始</p>
+                    </div>
+                    <div class="progressButtons" id="inProgressButton">
+                        <p>Active</p>
+                        <p>進行中</p>
+                    </div>
+                    <div class="progressButtons" id="completeButton">
+                        <p>Completed</p>
+                        <p>已完成</p>
+                    </div>
+                </div>
+            </div>
+            <!--課程等級分類按鈕-->
+            <div class="filterGroup">
+                <p class="filterTitle">課程等級</p>
+                <div class="labelButtonDiv levelGroup">
+                    <div class="labelButtons" id="allButton">
+                        <p>All</p>
+                        <p>課程總覽</p>
+                    </div>
+                    <div class="labelButtons" id="a1Button">
+                        <p>A1</p>
+                        <p>基礎互動</p>
+                    </div>
+                    <div class="labelButtons" id="a2Button">
+                        <p>A2</p>
+                        <p>日常溝通</p>
+                    </div>
+                    <div class="labelButtons" id="b1Button">
+                        <p>B1</p>
+                        <p>職場與社交</p>
+                    </div>
+                    <div class="labelButtons" id="b2Button">
+                        <p>B2</p>
+                        <p>專業溝通</p>
+                    </div>
+                    <div class="labelButtons" id="c1Button">
+                        <p>C1</p>
+                        <p>進階應用</p>
+                    </div>
+                    <div class="labelButtons" id="c2Button">
+                        <p>C2</p>
+                        <p>高階表達</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!--課程卡片區塊-->
+    <section class="courseIntro">
+        <div class="courseDiv" id="courseDiv">
+            <!--透過JS控制顯示內容-->
+            <!--在js裡寫出html架構-->
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/Post-course.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 學習中心｜你的英語學習主頁</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/learningCenter.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="currentPage"><a href="Post-learningCenter.html">主頁</a></li>
+                    <li><a href="Post-course.html">課程</a></li>
+                    <li><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--歡迎使用者背景區塊-->
+    <section class="hero-welcome">
+        <!--歡迎avatar-->
+        <div class="welcomeAvatar">
+            <div class="welcome-headItem">
+                <img id="welcomeHeadSlot" src="" alt=''>
+            </div>
+            <div class="welcome-bodyItem">
+                <img id="welcomeBodySlot" src="" alt=''>
+            </div>
+            <div class="welcome-bottomItem">
+                <img id="welcomeBottomSlot" src="" alt=''>
+            </div>
+            <img id="avatar-welcome"
+                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/baseAvatar1.png"
+                alt="Noctra companion avatar">
+        </div>
+        <!--歡迎小卡-->
+        <div class="welcomeCard">
+            <div class="welcomeWords">
+                <!--隨小時變化問候-->
+                <p><span id="currentHour"></span><span id="currentNameSlot"></span></p>
+                <!--隨登入者資訊，更換顯示名稱-->
+                <p>歡迎回來 Noctra</p>
+                <p>建議層級：<span id="levelRecommend">example</span></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="sub-words">
+        <p>用自己的步調學習英語</p>
+        <p>English, at your own pace.</p>
+    </div>
+
+    <!-- 供SEO的網頁h1 -->
+    <h1 class="sr-only">Noctra Learning Center</h1>
+
+    <!--Continue Learning 繼續學習區塊-->
+    <section class="continueLearning">
+        <div class="sectionTitles">
+            <h2 class="userTitles">接續上次的學習</h2>
+            <a class="historyLink" href="Post-history.html" id="learningHistory">查看您的學習歷程 →</a>
+        </div>
+        <!--情況A：沒有正在進行中的課程-->
+        <div class="noCurrentLesson">
+            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoCurrentLessonPhoto2.png"
+                alt="Picture showing no active lessons">
+            <p>目前沒有進行中的課程。</p>
+            <a class="noctraUser-btn" id="checkCourse-btn" href="Post-course.html">瀏覽課程 </a>
+        </div>
+        <!--情況B：有進行中的課程-->
+        <div class="currentLesson">
+            <div class="currentLesson-info">
+                <p>📖 課程名稱：<span id="currentLesson-title"></span></p>
+                <p>💡 課程重點：<span id="currentIntro"></span></p>
+                <p>🕒 上次看到：<span id="currentTime"></span></p>
+            </div>
+            <a class="noctraUser-btn" id="currentCourse-btn">
+                繼續課程
+            </a>
+    </section>
+
+    <!--Recommended Picks 課程推薦區塊-->
+    <section class="classRecommend">
+        <h2 class="userTitles">為您推薦的課程</h2>
+        <div class="classCardsArea">
+            <!--課程推薦卡片區塊-->
+            <div class="classCards">
+                <!-- 用js動態產出推薦卡片 -->
+            </div>
+            <hr>
+            <a class="courseLink" href="Post-course.html">探索更多課程 →</a>
+        </div>
+    </section>
+
+    <!--Your Companion 學習夥伴區塊-->
+    <section class="noctraCompanion">
+        <h2 class="userTitles">打造您的學習夥伴</h2>
+        <p class="avatarIntro">透過課程練習取得學習幣，解鎖角色外觀。</p>
+        <!--起始avatar畫面-->
+        <div class="avatarLook">
+            <div class="token-bar">
+                <p>Noctra 學習幣</p>
+                <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                    class="tokenImg" alt="Noctra learning token">
+                <p>:<span class="noctra-token">100</span></p>
+            </div>
+            <!--起始為預設腳色，後面對應物件變動，更新腳色造型-->
+            <div class="avatarCard">
+                <div class="preview-headItem">
+                    <img id="previewHeadSlot" src="" alt=''>
+                </div>
+                <div class="preview-bodyItem">
+                    <img id="previewBodySlot" src="" alt=''>
+                </div>
+                <div class="preview-bottomItem">
+                    <img id="previewBottomSlot" src="" alt=''>
+                </div>
+                <img id="avatar-final"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/baseAvatar1.png"
+                    alt="Customized Noctra companion avatar">
+            </div>
+            <button class="noctraUser-btn" id="avatarSetup-btn">自訂學習夥伴</button>
+        </div>
+        <!--avatar造型自訂-->
+        <div class="avatarSetup">
+            <div class="avatarUI">
+                <div class="avatarStage">
+                    <!--各個部位插件區-->
+                    <div class="head-part">
+                        <img id="headSlot" src="" alt=''>
+                    </div>
+                    <div class="body-part">
+                        <img id="bodySlot" src="" alt=''>
+                    </div>
+                    <div class="bottom-part">
+                        <img id="bottomSlot" src="" alt=''>
+                    </div>
+                    <img id="initialAvatar"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/baseAvatar1.png"
+                        alt="Noctra Avatar preview">
+                    <button class="arrow-btn" id="arrow-left"></button>
+                    <button class="arrow-btn" id="arrow-right"></button>
+                </div>
+                <button class="noctraUser-btn" id="saveAvatar">儲存設定</button>
+            </div>
+            <!--衣櫥區-->
+            <div class="wardrobe">
+                <div class='wardrobeTopBar'>
+                    <div class='wardrobeButtons'>
+                        <button class="wardrobeButton" id="headWardrobeButton">帽子</button>
+                        <button class="wardrobeButton" id="bodyWardrobeButton">上衣</button>
+                        <button class="wardrobeButton" id="bottomWardrobeButton">褲子</button>
+                    </div>
+                    <div class="token">
+                        <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                            class="tokenImg" alt="Noctra learning token">
+                        <p><span class="noctra-token">100</span></p>
+                    </div>
+                </div>
+                <hr>
+                <!--帽子物品-->
+                <div class="head-items">
+                    <div class="head-btn" data-index="0">
+                        <img class="itemsIcon" id="headNone"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/noneHead.png"
+                            alt="No head accessory">
+                        <p>無</p>
+                    </div>
+                    <div class="head-btn" data-index="1">
+                        <img class="itemsIcon" id="baseballCap"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-baseballcap.png"
+                            alt="Baseball cap accessory">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>30</span>
+                        </button>
+                    </div>
+                    <div class="head-btn" data-index="2">
+                        <img class="itemsIcon" id="beret"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-beret.png"
+                            alt="Beret accessory">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>30</span>
+                        </button>
+                    </div>
+                    <div class="head-btn" data-index="3">
+                        <img class="itemsIcon" id="bucket"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-bucket.png"
+                            alt="Bucket hat accessory">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>30</span>
+                        </button>
+                    </div>
+                </div>
+                <!--上衣物品-->
+                <div class="body-items">
+                    <div class="body-btn" data-index="0">
+                        <img class="itemsIcon" id="bodyNone"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/nonBody.png"
+                            alt="No top clothing">
+                        <p>無</p>
+                    </div>
+                    <div class="body-btn" data-index="1">
+                        <img class="itemsIcon" id="sweatShirt"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-sweatshirt.png"
+                            alt="Sweatshirt outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                    <div class="body-btn" data-index="2">
+                        <img class="itemsIcon" id="shirt"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-shirt.png"
+                            alt="Shirt outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                    <div class="body-btn" data-index="3">
+                        <img class="itemsIcon" id="polo"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-polo.png"
+                            alt="Polo shirt outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                </div>
+                <!--褲子物品-->
+                <div class="bottom-items">
+                    <div class="bottom-btn" data-index="0">
+                        <img class="itemsIcon" id="bottomNone"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/nonBody.png"
+                            alt="No bottom clothing">
+                        <p>無</p>
+                    </div>
+                    <div class="bottom-btn" data-index="1">
+                        <img class="itemsIcon" id="jeans"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-jeans.png"
+                            alt="Jeans outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                    <div class="bottom-btn" data-index="2">
+                        <img class="itemsIcon" id="chinos"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-chinos.png"
+                            alt="Chinos outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                    <div class="bottom-btn" data-index="3">
+                        <img class="itemsIcon" id="trousers"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/Avatar_Assets/icon-trousers.png"
+                            alt="Trousers outfit">
+                        <button class="buyButtons">
+                            <img class="buyToken"
+                                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraToken.png"
+                                alt=''>
+                            <span class='buyPrice'>50</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--訂閱方案介紹-->
+    <section class="subscribe-intro">
+        <h2>Noctra訂閱方案</h2>
+        <div class="subscribeDiv">
+            <!--core基礎方案-->
+            <div class="subscribePlan">
+                <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan1.2Icon.png"
+                    alt="Core subscription plan">
+                <h3>Core 基礎方案</h3>
+                <p class="fees"><strong>NT$590 / 月</strong></p>
+                <p><em>For steady, self-paced learning</em></p>
+                <p>以自己的節奏，穩定建立英語能力</p>
+                <p>適合穩定、自主學習的你</p>
+                <hr>
+                </hr>
+                <p>．自由使用平台所有課程資源</p>
+                <p>．清楚的學習進度與歷程記錄</p>
+                <p>．每月1堂tutor指導(session)</p>
+                <a class="subscribe-btn">立即訂閱</a>
+                <p><small>月訂制 · 可隨時取消</small></p>
+            </div>
+            <!--plus進階方案-->
+            <div class="subscribePlan">
+                <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan2.2Icon.png"
+                    alt="Plus subscription plan">
+                <h3>Plus 進階方案</h3>
+                <p class="fees"><strong>NT$1,290 / 月</strong></p>
+                <p><em>For learners who want more feedback</em></p>
+                <p>在需要的時候，獲得清楚的指引</p>
+                <p>適合希望獲得更多互動與回饋的你</p>
+                <hr>
+                </hr>
+                <p>．自由使用平台所有課程資源</p>
+                <p>．清楚的學習進度與歷程記錄</p>
+                <p>．每月3堂tutor指導(sessions)</p>
+                <a class="subscribe-btn">立即訂閱</a>
+                <p><small>月訂制 · 可隨時取消</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/learningCenter.js"></script>
+</body>
+
+</html>

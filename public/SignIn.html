@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 登入｜回到你的英語學習空間</title>
+    <link rel="stylesheet" href="CSS/Pre-member.css">
+    <link rel="stylesheet" href="CSS/SignIn.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--登入區塊-->
+    <div class="signInArea">
+        <!--頂端logo-->
+        <div class="logoArea">
+            <a href="index.html">
+                <img id="logoImg"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                    alt="Noctra logo">
+            </a>
+            <p class="logoWrd">登入<span>Noctra</span></p>
+            <div class="subWordArea">
+                <p class="logoSubWord">在屬於你的時段，安心學習</p>
+                <p class="logoSubWord">A quiet place to grow.</p>
+            </div>
+        </div>
+        <!--登入資訊-->
+        <div class="userInfo">
+            <label for="user-email"> 電子郵件地址
+                <input id="user-email" type="email" placeholder="輸入電子郵件地址">
+            </label>
+        </div>
+        <div class="userInfo">
+            <label for="user-password"> 密碼
+                <input id="user-password" type="password" placeholder="輸入密碼">
+            </label>
+        </div>
+        <p id="passwordHint">忘記密碼？</p>
+        <p id="errorMsg"></p>
+        <button id="signInButton">登入</button>
+        <hr>
+        <div class="signUp">
+            <p>還沒有帳戶？</p>
+            <a href="SignUp.html" id="signUpLink">立刻註冊</a>
+        </div>
+    </div>
+    <p class="legal">
+        Noctra © 2026 · Prototype Project
+    </p>
+    <script src="JS/SignIn.js"></script>
+</body>
+
+</html>

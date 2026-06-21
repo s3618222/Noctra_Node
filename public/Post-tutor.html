@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 教師預約｜尋找適合你的英語教師</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-tutor.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li><a href="Post-course.html">課程</a></li>
+                    <li id="currentPage"><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--教師分類標籤區塊-->
+    <section class="tutorClassification">
+        <div class="tutorTitle">
+            <div class="titleDiv">
+                <h1>尋找教師</h1>
+                <p>Meet tutors who match your level and learning style.</p>
+            </div>
+            <!--預約狀況查看區塊-->
+            <div class="myRequestDiv">
+                <button id="myRequestBtn">我的預約</button>
+                <div id="myRequestForm">
+                    <h2>預約狀態</h2>
+                    <p>目前剩餘預約次數：<span id="requestQuota"></span>
+                    <p>
+                        <hr>
+                    <h3>近期提交的預約</h3>
+                    <!--存放每筆預約申請資料的區塊-->
+                    <div id="requestList">
+                        <!--存放預約資料的容器，實際html架構可以查看js render的內容-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr id="topLine">
+        <!--分類按鈕-->
+        <div class="tutorTags">
+            <!--程度按鈕-->
+            <div class="tags" id="levelTag">
+                <button class="tagTitle" id="levelBtn">程度▼</button>
+                <div class="tagSpread" id="levelSpread">
+                    <button class="tagButtons level" id="basicLevel">基礎</button>
+                    <button class="tagButtons level" id="midLevel">中階</button>
+                    <button class="tagButtons level" id="advancedLevel">進階</button>
+                    <hr>
+                    <button class="tagButtons level" id="allLevel">全部</button>
+                </div>
+            </div>
+            <!--口音按鈕-->
+            <div class="tags" id="accentTag">
+                <button class="tagTitle" id="accentBtn">口音▼</button>
+                <div class="tagSpread" id="accentSpread">
+                    <!--double t是因為後面的教師卡片上已經有設了class accent，要避免兩者相影響-->
+                    <button class="tagButtons accentt" id="americanAccent">美國</button>
+                    <button class="tagButtons accentt" id="britishAccent">英國</button>
+                    <button class="tagButtons accentt" id="australianAccent">澳洲</button>
+                    <hr>
+                    <button class="tagButtons accentt" id="allAccent">全部</button>
+                </div>
+            </div>
+            <!--主題按鈕-->
+            <div class="tags" id="subjectTag">
+                <button class="tagTitle" id="subjectBtn">主題▼</button>
+                <div class="tagSpread" id="subjectSpread">
+                    <button class="tagButtons subject" id="dailySubject">生活會話</button>
+                    <button class="tagButtons subject" id="businessSubject">商用英語</button>
+                    <button class="tagButtons subject" id="travelSubject">旅行英語</button>
+                    <button class="tagButtons subject" id="casualSubject">休閒及興趣</button>
+                    <hr>
+                    <button class="tagButtons subject" id="allSubject">全部</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--教師卡片區塊-->
+    <section class="tutors" id="tutors">
+        <!--存放教師卡片的容器，每張卡片的html結構可以查看js的render內容-->
+    </section>
+
+    <!--課程預約表單區塊-->
+    <section class="requestForTutor">
+        <div class="directRequestForm" id="directRequestForm">
+            <div class="requestTutorInfo">
+                <img id="formTutorAvatar" class="tutorAvatar" src="" alt=''>
+                <p id="formTutorName" class="requestTutorName"></p>
+            </div>
+            <h2>預約申請</h2>
+            <!--預約欄位訊息-->
+            <div class="requestDetails">
+                <div class="dateChoice">
+                    <label for="lessonDate">．希望上課日期：</label>
+                    <input type="date" id="lessonDate">
+                </div>
+                <div class="timeChoice">
+                    <label for="lessonTime">．希望上課時間：</label>
+                    <select id="lessonTime">
+                        <option value="09:00" selected>09:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                </div>
+                <div class="noteDiv">
+                    <label for="needNote">．需求備註</label>
+                    <textarea id="needNote" placeholder="歡迎補充您的學習需求、想加強的方向，或時段安排上的偏好，讓教師更了解您的預約期待。"></textarea>
+                </div>
+                <div class="requestBtnDiv">
+                    <button class="requestBtns" id="makeRequestBtn">送出</button>
+                    <button class="requestBtns" id="cancelBtn">取消</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/Post-tutor.js"></script>
+</body>
+
+</html>

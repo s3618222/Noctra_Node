@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 能力定位測驗｜找到你的英語學習起點</title>
+    <link rel="stylesheet" href="CSS/Pre-member.css">
+    <link rel="stylesheet" href="CSS/PlacementTest.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--測驗卡片-->
+    <div class="testCard">
+        <img id="noctraLogo"
+            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+            alt="Noctra logo">
+        <!--測驗說明文字-->
+        <div class="explainDiv">
+            <div class='title'>
+                <h1>英語能力定位</h1>
+                <p id="subWord">在開始Noctra旅程前，讓我們先了解你的英語起點</p>
+            </div>
+            <div class="text">
+                <p id="introWord">透過幾個簡短題目，我們將協助你了解目前的能力水準，並推薦最合適的學習起點。全程約 3–5 分鐘，請放輕鬆作答即可。</p>
+            </div>
+            <button id=startBtn>開始作答</button>
+        </div>
+        <!--題目區-->
+        <div class="questionDiv">
+            <!--第一題-->
+            <div class="questions" id="q1">
+                <p class="questionTitles"><span>Q1</span> Choose the correct sentence.</p>
+                <img class="questionImg" id="q1Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q1photo.png"
+                    alt="Person refusing a cup of coffee">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q1" value="A">
+                        A. She don’t like coffee.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="B">
+                        B. She doesn’t likes coffee.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="C">
+                        C. She doesn't like coffee.
+                    </label>
+                    <label>
+                        <input type="radio" name="q1" value="D">
+                        D. She not like coffee.
+                    </label>
+                </div>
+                <p class="progress"> 1 of 10</p>
+            </div>
+            <!--第二題-->
+            <div class="questions" id="q2">
+                <p class="questionTitles"><span>Q2</span> He usually ______ to work by train.</p>
+                <img class="questionImg" id="q2Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q2photo.png"
+                    alt="Person commuting to work by train">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q2" value="A">
+                        A. go
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="B">
+                        B. goes
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="C">
+                        C. going
+                    </label>
+                    <label>
+                        <input type="radio" name="q2" value="D">
+                        D. went
+                    </label>
+                </div>
+                <p class="progress"> 2 of 10</p>
+            </div>
+            <!--第三題-->
+            <div class="questions" id="q3">
+                <p class="questionTitles"><span>Q3</span> Yesterday, we ______ a meeting with our client.</p>
+                <img class="questionImg" id="q3Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q3photo.png"
+                    alt="Staff having a meeting with a client">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q3" value="A">
+                        A. have
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="B">
+                        B. has
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="C">
+                        C. had
+                    </label>
+                    <label>
+                        <input type="radio" name="q3" value="D">
+                        D. having
+                    </label>
+                </div>
+                <p class="progress"> 3 of 10</p>
+            </div>
+            <!--第四題-->
+            <div class="questions" id="q4">
+                <p class="questionTitles"><span>Q4</span> You didn’t hear what someone said. What do you say?</p>
+                <img class="questionImg" id="q4Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q4photo.png"
+                    alt="Person asking someone to repeat what they said">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q4" value="A">
+                        A. Repeat.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="B">
+                        B. Say again.
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="C">
+                        C. Could you repeat that, please?
+                    </label>
+                    <label>
+                        <input type="radio" name="q4" value="D">
+                        D. What?
+                    </label>
+                </div>
+                <p class="progress"> 4 of 10</p>
+            </div>
+            <!--第五題-->
+            <div class="questions" id="q5">
+                <p class="questionTitles"><span>Q5</span> Which sentence is more professional?</p>
+                <img class="questionImg" id="q5Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q5photo.png"
+                    alt="Professional communication in a workplace setting">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q5" value="A">
+                        A. Send me the file now.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="B">
+                        B. Please send me the file.
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="C">
+                        C. Could you please send me the file when you have a moment?
+                    </label>
+                    <label>
+                        <input type="radio" name="q5" value="D">
+                        D. I want the file.
+                    </label>
+                </div>
+                <p class="progress"> 5 of 10</p>
+            </div>
+            <!--第六題-->
+            <div class="questions" id="q6">
+                <p class="questionTitles"><span>Q6</span>
+                    "Let’s reschedule the meeting to Friday at 3 PM." <br>What does "reschedule" mean?</p>
+                <img class="questionImg" id="q6Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q6photo.png"
+                    alt="Calendar showing a meeting schedule change">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q6" value="A">
+                        A. Cancel
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="B">
+                        B. Change the time
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="C">
+                        C. Start earlier
+                    </label>
+                    <label>
+                        <input type="radio" name="q6" value="D">
+                        D. End
+                    </label>
+                </div>
+                <p class="progress"> 6 of 10</p>
+            </div>
+            <!--第七題-->
+            <div class="questions" id="q7">
+                <p class="questionTitles"><span>Q7</span>
+                    "The report needs further clarification before approval." What does "clarification" most likely
+                    mean?</p>
+                <img class="questionImg" id="q7Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q7photo.png"
+                    alt="Person reviewing a report before approval">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q7" value="A">
+                        A. Explanation
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="B">
+                        B. Summary
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="C">
+                        C. Signature
+                    </label>
+                    <label>
+                        <input type="radio" name="q7" value="D">
+                        D. Translation
+                    </label>
+                </div>
+                <p class="progress"> 7 of 10</p>
+            </div>
+            <!--第八題-->
+            <div class="questions" id="q8">
+                <p class="questionTitles"><span>Q8</span>
+                    If I ______ more time, I would join the project.</p>
+                <img class="questionImg" id="q8Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q8photo.png"
+                    alt='Person busy with work tasks'>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q8" value="A">
+                        A. have
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="B">
+                        B. had
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="C">
+                        C. will have
+                    </label>
+                    <label>
+                        <input type="radio" name="q8" value="D">
+                        D. having
+                    </label>
+                </div>
+                <p class="progress"> 8 of 10</p>
+            </div>
+            <!--第九題-->
+            <div class="questions" id="q9">
+                <p class="questionTitles"><span>Q9</span> Which sentence shows confidence?</p>
+                <img class="questionImg" id="q9Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q9photo.png"
+                    alt="Person presenting a confident recommendation">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q9" value="A">
+                        A. I maybe think this is good.
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="B">
+                        B. I guess it’s okay.
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="C">
+                        C. I recommend moving forward with this plan.
+                    </label>
+                    <label>
+                        <input type="radio" name="q9" value="D">
+                        D. I’m not sure.
+                    </label>
+                </div>
+                <p class="progress"> 9 of 10</p>
+            </div>
+            <!--第十題-->
+            <div class="questions" id="q10">
+                <p class="questionTitles"><span>Q10</span> Which sentence is grammatically correct?</p>
+                <img class="questionImg" id="q10Img"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Q10photo.png"
+                    alt="Team finishing a difficult project together">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="q10" value="A">
+                        A. Despite of the delay, we finished on time.
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="B">
+                        B. Despite the delay, we finished on time.
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="C">
+                        C. In despite the delay, we finished on time.
+                    </label>
+                    <label>
+                        <input type="radio" name="q10" value="D">
+                        D. Although of the delay, we finished on time.
+                    </label>
+                </div>
+                <p class="progress"> 10 of 10</p>
+            </div>
+        </div>
+        <!--按鈕區塊-->
+        <div class="buttonsDiv">
+            <button class="buttons" id="previousBtn">上一頁</button>
+            <button class="buttons" id="nextBtn">下一頁</button>
+            <button class="buttons" id="finishBtn">完成作答</button>
+        </div>
+
+        <!--測驗結果區塊-->
+        <div class="results">
+            <h2>我們為你找到的學習起點</h2>
+            <div class="resultInfo">
+                <p>建議起始層級：<span id="startLevel"></span></p>
+                <p>作答參考：共 10 題，答對<span id="correctNumber"></span>題</p>
+                <div class="abilityInfo">
+                    <p class="titles">能力描述</p>
+                    <p id="levelDescription"></p>
+                    <p class="titles">下一步方向</p>
+                    <p id="direction"></p>
+                </div>
+            </div>
+            <hr>
+            <h3>從這些課程開始最順</h3>
+            <!--課程推薦卡片區塊-->
+            <div class="classCards">
+                <!--A1卡片-->
+                <div class="cards" id="A1Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a1-1%20cover.png"
+                            alt="English lesson about introducing yourself and small talk">
+                        <p><i>A1</i></p>
+                        <p class="cardTitle">Introducing Yourself & Small Talk</p>
+                        <p>學會基本自我介紹與寒暄，建立用英文開口的第一步。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a1-22%20cover.png"
+                            alt="English lesson about everyday needs and simple requests">
+                        <p><i>A1</i></p>
+                        <p class="cardTitle">Everyday Needs & Simple Requests</p>
+                        <p>在旅遊與生活情境中，用英文完成簡單需求表達。</p>
+                    </div>
+                </div>
+                <!--A2卡片-->
+                <div class="cards" id="A2Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a2-1ed%20cover.png"
+                            alt="English lesson about daily life and personal plans">
+                        <p><i>A2</i></p>
+                        <p class="cardTitle">Talking About Daily Life & Plans</p>
+                        <p>練習描述生活經驗、行程安排與個人需求。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/a2-2ed%20cover.png"
+                            alt="English lesson about handling everyday services and travel situations">
+                        <p><i>A2</i></p>
+                        <p class="cardTitle">Handling Everyday Services</p>
+                        <p>應對常見服務與旅遊情境，讓日常溝通更順暢。</p>
+                    </div>
+                </div>
+                <!--B1卡片-->
+                <div class="cards" id="B1Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b1-1ed%20cover.png"
+                            alt="Business English lesson about expressing opinions at work">
+                        <p><i>B1</i></p>
+                        <p class="cardTitle">Expressing Opinions at Work</p>
+                        <p>在會議與討論中，清楚表達意見與想法。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b1-2ed%20cover.png"
+                            alt="Workplace English lesson with conversations and short presentations">
+                        <p><i>B1</i></p>
+                        <p class="cardTitle">Workplace Conversations & Short Presentations</p>
+                        <p>處理日常職場溝通，並完成簡單的英文簡報。</p>
+                    </div>
+                </div>
+                <!--B2卡片-->
+                <div class="cards" id="B2Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b2-1ed%20cover.png"
+                            alt="Professional English presentation and explanation lesson">
+                        <p><i>B2</i></p>
+                        <p class="cardTitle">Professional Presentations & Explanations</p>
+                        <p>進行完整的專業說明，讓你的觀點更有說服力。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/b2-2ed%20cover.png"
+                            alt="Cross-cultural communication English lesson">
+                        <p><i>B2</i></p>
+                        <p class="cardTitle">Cross-Cultural Communication</p>
+                        <p>練習跨文化溝通，在雙語環境中自在互動。</p>
+                    </div>
+                </div>
+                <!--C1卡片-->
+                <div class="cards" id="C1Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c1-1ed%20cover.png"
+                            alt="Advanced English lesson about strategic discussions and decision-making">
+                        <p><i>C1</i></p>
+                        <p class="cardTitle">Strategic Discussions & Decision-Making</p>
+                        <p>在專業場合中進行策略性討論與觀點辯證。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c1-2ed%20cover.png"
+                            alt="Advanced English lesson about adjusting tone for different audiences">
+                        <p><i>C1</i></p>
+                        <p class="cardTitle">Adjusting Tone for Different Audiences</p>
+                        <p>依對象與情境調整語氣，精準傳達複雜想法。</p>
+                    </div>
+                </div>
+                <!--C2卡片-->
+                <div class="cards" id="C2Cards">
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c2-1ed%20cover.png"
+                            alt="High-level professional English communication lesson">
+                        <p><i>C2</i></p>
+                        <p class="cardTitle">Advanced Professional Communication</p>
+                        <p>在高階專業與國際場合中，進行深入而自然的交流。</p>
+                    </div>
+                    <div class="courseCards">
+                        <img class="courseImg"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/c2-22ED%20cover.png"
+                            alt="Advanced English lesson about nuance and cultural context">
+                        <p><i>C2</i></p>
+                        <p class="cardTitle">Nuance, Implicit Meaning & Cultural Context</p>
+                        <p>理解隱含語意與文化脈絡，讓表達更細膩精準。</p>
+                    </div>
+                </div>
+            </div>
+            <!--跳轉進入Noctra學習平台按鈕-->
+            <a class="buttons" id="startNoctra" href="Post-learningCenter.html">開始我的Noctra旅程</a>
+        </div>
+    </div>
+    <script src="JS/PlacementTest.js"></script>
+</body>
+
+</html>

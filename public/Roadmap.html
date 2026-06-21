@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra Roadmap｜CEFR 英語學習路徑與能力分級</title>
+    <link rel="stylesheet" href="CSS/Pre-member.css">
+    <link rel="stylesheet" href="CSS/Roadmap.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <header class="top-bar top-bar--transparent" id="header">
+        <div class='nav-wrap'>
+            <a class="logo-link" href="index.html">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="Roadmap.html">學習地圖</a></li>
+                    <li><a href="Course.html">課程內容</a></li>
+                    <li><a href="Tutor.html">真人教師</a></li>
+                    <!-- 手機版備用按鈕 -->
+                    <li class="mobile-auth mobile-auth-login">
+                        <a href="./SignIn.html">登入</a>
+                    </li>
+                    <li class="mobile-auth mobile-auth-signup">
+                        <a href="./SignUp.html">註冊</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="member-buttons">
+            <a href="SignIn.html" id="logIn">登入</a>
+            <a href="SignUp.html" id="signUp">註冊</a>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--背景大圖切換區塊-->
+    <section class="hero-roadmap" id="heroRoadmap">
+        <!-- 雙背景圖層：負責淡入淡出 -->
+        <div class="hero-bg-layer is-active" id="heroBgA"></div>
+        <div class="hero-bg-layer" id="heroBgB"></div>
+
+        <div class="hero-content">
+            <h1>Noctra Roadmap</h1>
+
+            <div class="imgContent" id="content1">
+                <p class="heroImg-slogan">Clear goals for every stage of your learning</p>
+                <p class="heroImg-sub">每一個學習階段，都對應明確的語言目標。</p>
+            </div>
+
+            <div class="imgContent" id="content2">
+                <p class="heroImg-slogan">English built around real situations</p>
+                <p class="heroImg-sub">課程內容圍繞真實生活與工作情境，讓英語真正用得上。</p>
+            </div>
+
+            <div class="imgContent" id="content3">
+                <p class="heroImg-slogan">A clearer pace, a calmer path.</p>
+                <p class="heroImg-sub">清楚呈現學習進度，用自己的步調穩定向前。</p>
+            </div>
+
+            <div class="hero-controls">
+                <button class="change-button" id="previousImg" aria-label="上一張圖片">
+                    <svg viewBox="0 0 24 24" class="arrow-icon">
+                        <path d="M15 6L9 12L15 18" />
+                    </svg>
+                </button>
+
+                <div class="hero-dots">
+                    <span class="hero-dot is-active"></span>
+                    <span class="hero-dot"></span>
+                    <span class="hero-dot"></span>
+                </div>
+
+                <button class="change-button" id="nextImg" aria-label="下一張圖片">
+                    <svg viewBox="0 0 24 24" class="arrow-icon">
+                        <path d="M9 6L15 12L9 18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!--課程分級介紹區塊-->
+    <section class="cerf-classification">
+        <h2>分級清楚的溝通能力目標</h2>
+        <p class="contentInfo">課程依循 CEFR（歐洲語言學習共同參考架構）進行能力分級設計，<br>
+            每一個學習階段都對應明確可完成的生活與工作溝通任務。</p>
+
+        <!--課程分級階梯圖-->
+        <div class="classification-ladder">
+            <div class="levelBlock">
+                <div class="block" id="block1">
+                    <div class="ladderStep" style="--level:1" id="a1Step">
+                        <p class="level">A1</p>
+                        <p class="levelContent eng">Basic Interaction</p>
+                        <p class="levelContent">建立基本互動能力</p>
+                    </div>
+                    <div class="ladderStep" style="--level:2" id="a2Step">
+                        <p class="level">A2</p>
+                        <p class="levelContent eng">Daily Communication</p>
+                        <p class="levelContent">能在日常情境中進行簡單溝通</p>
+                    </div>
+                </div>
+                <hr>
+                <p class="levelRole">Beginner</p>
+            </div>
+            <div class="levelBlock">
+                <div class="block" id="block2">
+                    <div class="ladderStep" style="--level:3" id="b1Step">
+                        <p class="level">B1</p>
+                        <p class="levelContent eng">Workplace & Social</p>
+                        <p class="levelContent">穩定應對工作與社交情境</p>
+                    </div>
+                    <div class="ladderStep" style="--level:4" id="b2Step">
+                        <p class="level">B2</p>
+                        <p class="levelContent eng">Professional Communication</p>
+                        <p class="levelContent">能在多數工作情境中清楚表達觀點</p>
+                    </div>
+                </div>
+                <hr>
+                <p class="levelRole">Intermediate</p>
+            </div>
+            <div class="levelBlock">
+                <div class="block" id="block3">
+                    <div class="ladderStep" style="--level:5" id="c1Step">
+                        <p class="level">C1</p>
+                        <p class="levelContent eng">Complex Situations</p>
+                        <p class="levelContent">能靈活處理複雜情境下的深入溝通 </p>
+                    </div>
+                    <div class="ladderStep" style="--level:6" id="c2Step">
+                        <p class="level">C2</p>
+                        <p class="levelContent eng">Expert Fluency</p>
+                        <p class="levelContent">能以接近母語者的程度進行細膩的溝通</p>
+                    </div>
+                </div>
+                <hr>
+                <p class="levelRole">Advanced</p>
+            </div>
+        </div>
+        <p class="wordWithImg">依能力分級規劃學習路徑，幫助你定位目前階段，並循序提升英語能力。</p>
+
+        <div class="stageViewport">
+            <div class="stageWindow">
+                <div class="stageCarousel">
+                    <div class='cards A1Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/A1-Carousel.png"
+                                alt="A1 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能進行基本自我介紹與日常寒暄</p>
+                            <p>• 能在旅遊、生活場景中完成簡單需求表達</p>
+                            <p>• 能理解並回應常見、慢速的英語指示</p>
+                        </div>
+                        <p class="stageTags">A1</p>
+                    </div>
+                    <div class='cards A2Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/A2-Carousel.png"
+                                alt="A2 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能描述生活經驗、行程與個人需求</p>
+                            <p>• 能在工作或生活中進行簡單問答與說明</p>
+                            <p>• 能應對常見服務、旅遊與生活溝通情境</p>
+                        </div>
+                        <p class='stageTags'>A2</p>
+                    </div>
+                    <div class='cards B1Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/B1-Carousel.png"
+                                alt="B1 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能在會議或討論中清楚表達意見</p>
+                            <p>• 能處理日常職場溝通與簡單簡報</p>
+                            <p>• 能理解並回應多數實際工作與生活對話</p>
+                        </div>
+                        <p class='stageTags'>B1</p>
+                    </div>
+                    <div class='cards B2Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/B2-Carousel.png"
+                                alt="B2 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能進行較完整的簡報與專業說明</p>
+                            <p>• 能參與跨文化的雙語溝通</p>
+                            <p>• 能清楚表達觀點、回應問題並進行討論</p>
+                        </div>
+                        <p class='stageTags'>B2</p>
+                    </div>
+                    <div class='cards C1Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/C1-Carousel.png"
+                                alt="C1 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能在專業場合進行策略性討論</p>
+                            <p>• 能清楚表達複雜觀點與立場</p>
+                            <p>• 能根據不同對象調整語氣與表達方式</p>
+                        </div>
+                        <p class='stageTags'>C1</p>
+                    </div>
+                    <div class='cards C2Card'>
+                        <div class="stageImg">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/C2-Carousel.png"
+                                alt="C2 application context">
+                        </div>
+                        <div class="stageText">
+                            <p>• 能在高階專業或國際情境中進行深入交流</p>
+                            <p>• 能理解並運用隱含語意與文化語境</p>
+                            <p>• 能在任何情境下自如表達與回應</p>
+                        </div>
+                        <p class='stageTags'>C2</p>
+                    </div>
+                </div>
+            </div>
+            <button class="stageNavBtn" id="nextStage">＞</button>
+            <button class="stageNavBtn" id="previousStage">＜</button>
+
+        </div>
+    </section>
+
+    <!--課程設計邏輯說明區塊 -->
+    <section class="classLogic">
+        <h2>以真實情境為核心的課程設計</h2>
+        <p class="contentInfo">課程內容聚焦日常生活與工作中常遇到的溝通情境，<br>每一個學習單元都對應具體的溝通需求。
+        </p>
+        <div class="classLogic-wrap">
+            <img id="classLogicImg1"
+                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/ContextUser1.png"
+                alt='Learning English with Noctra in daily settings' loading="lazy">
+            <div class="logicPhoto">
+                <img id="classLogicImg2"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/ContextUser4.png"
+                    alt="Using a laptop to learn English on Noctra" loading="lazy">
+                <img id="classLogicImg3"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/ContextUser33.png"
+                    alt='using English in real-life scenario' loading="lazy">
+            </div>
+            <p class="logicContent">在熟悉的生活節奏中練習，讓你在需要的時候，能自然開口並自信應對。</p>
+        </div>
+    </section>
+
+    <!--學習歷程視覺化介紹區塊-->
+    <section class="visualIntro">
+        <h2>可視化的學習進度與節奏管理</h2>
+        <p class="contentInfo">將學習進度清楚可視化，幫助你隨時掌握目前的位置與下一步方向。<br>
+            不需趕進度，也不用被課程推著走，依自己的步調穩定前進。</p>
+        <div class="visualImgDiv">
+            <div>
+                <img class="visualImg"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/VisualImg3.png"
+                    alt="Noctra learning progress dashboard" loading="lazy">
+                <p class="contentInfo">清楚查看所在級別、課程進度與已完成內容，讓學習歷程一目了然。</p>
+            </div>
+            <div>
+                <p class="contentInfo">完成課程任務後，你的虛擬學習夥伴也會留下小小的成長紀錄。</p>
+                <img class="visualImg2"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/AvatarSystemImg2.png"
+                    alt='Noctra avatar reward system' loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="index.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Roadmap.html">學習地圖</a>
+                <a href="Course.html">課程內容</a>
+                <a href="Tutor.html">真人教師</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script>
+        const header = document.getElementById("header");
+        const threshold = 20;
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > threshold) {
+                header.classList.add("is-solid");
+            } else {
+                header.classList.remove("is-solid");
+            }
+        });
+
+        // hero輪播圖切換
+        const heroBgA = document.getElementById("heroBgA");
+        const heroBgB = document.getElementById("heroBgB");
+        let showingA = true;
+
+        // hero區域輪播圖片庫
+        const heroImgSrc = {
+            0: "https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/roadMapHero1.png",
+            1: "https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/roadMapHero2.png",
+            2: "https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/roadMapHero3.png"
+        };
+
+        let currentIndex = 0; // 先設定起始預設的背景圖
+
+        // 預載圖片，避免切換時出現白色空白
+        Object.values(heroImgSrc).forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // 起始先放入第一張背景圖
+        heroBgA.style.backgroundImage = `url("${heroImgSrc[currentIndex]}")`;
+
+        // hero區說明文字
+        const contents = document.querySelectorAll(".imgContent");
+
+        // 中間點點
+        const dots = document.querySelectorAll(".hero-dot");
+
+        // hero區域輪播圖切換按鈕
+        const nextImgBtn = document.getElementById("nextImg");
+        const previousImgBtn = document.getElementById("previousImg");
+
+        // 背景底圖交替
+        function crossfadeHeroBg(index) {
+            const current = showingA ? heroBgA : heroBgB;
+            const next = showingA ? heroBgB : heroBgA;
+
+            // 將下一張背景圖放入隱藏中的圖層
+            next.style.backgroundImage = `url("${heroImgSrc[index]}")`;
+
+            // 下一張淡入，目前圖片淡出
+            next.classList.add("is-active");
+            current.classList.remove("is-active");
+
+            // true 變 false，false 變 true，做狀態切換
+            showingA = !showingA;
+        }
+
+        // 切換不同文字區塊與點點狀態
+        function showWords() {
+            contents.forEach((el) => {
+                el.style.display = "none";
+            });
+
+            dots.forEach((dot) => {
+                dot.classList.remove("is-active");
+            });
+
+            contents[currentIndex].style.display = "block";
+            dots[currentIndex].classList.add("is-active");
+        }
+
+        showWords(); // 起始先呼叫一次函式，讓預設的首圖對應文字區塊可以顯示在畫面上
+
+        // 切換背景圖片：下一張
+        function nextImg() {
+            currentIndex += 1;
+
+            if (currentIndex > 2) {
+                // 如果圖片已是最後一張，切回第一張圖
+                currentIndex = 0;
+            }
+
+            crossfadeHeroBg(currentIndex);
+            showWords();
+        }
+
+        nextImgBtn.addEventListener("click", nextImg);
+
+        // 切換背景圖片：上一張
+        function previousImg() {
+            currentIndex -= 1;
+
+            if (currentIndex < 0) {
+                // 如果圖片已是第一張，切回最後一張圖
+                currentIndex = 2;
+            }
+
+            crossfadeHeroBg(currentIndex);
+            showWords();
+        }
+
+        previousImgBtn.addEventListener("click", previousImg);
+
+        // 課程情境卡片輪播
+        let stageIndex = 0;
+
+        const stageCarousel = document.querySelector(".stageCarousel");
+        const stageCards = document.querySelectorAll(".cards");
+
+        function showStage() {
+            const cardWidth = stageCards[0].offsetWidth;
+            const gap = 24; //圖卡之間間格為24
+            const moveX = stageIndex * (cardWidth + gap);
+            //水平移動距離即等於卡片寬度加彼此gap間距
+
+            stageCarousel.style.transform = `translateX(-${moveX}px)`;
+        }
+
+        showStage();
+
+        const nextStageButton = document.getElementById("nextStage");
+
+        // 輪播的index重置規則必須要跟著每次畫面中顯示的卡片更新
+        function getVisibleCardCount() {
+            if (window.innerWidth <= 768) {
+                return 1;
+            } //視窗寬度768，每次只顯示一張時
+            if (window.innerWidth <= 1100) {
+                return 2; //視窗寬度1100，每次顯示兩張
+            }
+
+            return 3; //每次顯示三張
+        }
+
+        function nextStage() {
+            stageIndex += 1;
+
+            // 每次當圖卡滑到底時，index就重新計算
+            if (stageIndex > stageCards.length - getVisibleCardCount()) {
+                stageIndex = 0;
+            }
+
+            showStage();
+        }
+
+        nextStageButton.addEventListener("click", nextStage);
+
+        const previousStageButton = document.getElementById("previousStage");
+
+        function previousStage() {
+            stageIndex -= 1;
+
+            if (stageIndex < 0) {
+                stageIndex = stageCards.length - getVisibleCardCount();
+            }
+
+            showStage();
+        }
+
+        previousStageButton.addEventListener("click", previousStage);
+
+        //resize事件是當瀏覽器視窗尺寸有變動時，就會進行促發，這樣就可以在變動瀏覽器寬度時，呼叫函式去查看現在的情境輪播圖是三張、二張還是單張播放
+        window.addEventListener("resize", showStage);
+    </script>
+</body>
+
+</html>

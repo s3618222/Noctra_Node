@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 教師介紹｜Emily Chen</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Emily.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li><a href="Post-course.html">課程</a></li>
+                    <li id="currentPage"><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--教師頭像 Hero-section區塊-->
+    <section class="hero-welcome">
+        <div class="tutorHero">
+            <img id="tutorHeroHead" src="" alt="Emily Chen tutor portrait">
+            <p id="tutorHeroName"></p>
+            <div class="infoTags">
+                <div class="accent">
+                    <img class="infoIcon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/indieTutorPage/accentIcon2.png"
+                        alt=''>
+                    <p id="accentText"></p>
+                </div>
+                <div class="teachingLessons">
+                    <img class="infoIcon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/indieTutorPage/teachingIcon2.png"
+                        alt=''>
+                    <p>已教授 <span id="lessonsTaught"></span> 堂課 (★<span id="tutorRate"></span>)</p>
+                </div>
+                <div class="levels">
+                    <img class="infoIcon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/indieTutorPage/learningLevelIcon2.png"
+                        alt=''>
+                    <p>教學適用層級 - <span id="teachingLevel"></span></p>
+                </div>
+            </div>
+        </div>
+        <!-- 教師背景生活照 -->
+        <div class='photoContainer'>
+            <img class="tutorLifePhoto"
+                src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/indieTutorPage/noctra_tutor_lifestyle_photo2.jpg"
+                alt="tutor life photo">
+        </div>
+    </section>
+
+    <!--教師自我介紹區塊-->
+    <section class="tutorSelfIntro">
+        <!--返回教師查詢分頁連結-->
+        <a class="backToTutorsBtn desktop" href="Post-tutor.html">← 返回教師列表</a>
+
+        <div class='outerContainer'>
+            <!--教師預約表單 -->
+            <div class="directRequestForm" id="directRequestForm">
+                <div class="requestTutorInfo">
+                    <img id="tutorPhoto" class="tutorPhoto" src="" alt="tutor profile photo">
+                    <p id="formTutorName" class="requestTutorName">Emily Chen</p>
+                </div>
+                <!--預約欄位訊息-->
+                <div class="requestDetails">
+                    <div class="dateChoice">
+                        <label for="lessonDate">．希望上課日期：</label>
+                        <input type="date" id="lessonDate">
+                    </div>
+                    <div class="timeChoice">
+                        <label for="lessonTime">．希望上課時間：</label>
+                        <select id="lessonTime">
+                            <option value="09:00" selected>09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                        </select>
+                    </div>
+                    <div class="noteDiv">
+                        <label for="needNote">．需求備註</label>
+                        <textarea id="needNote" placeholder="歡迎補充您的學習需求、想加強的方向，或時段安排上的偏好，讓教師更了解您的預約期待。"></textarea>
+                    </div>
+                    <p class="remainingText">目前剩餘預約次數：<span id="remainingQuota"></span></p>
+                    <div class="requestBtnDiv">
+                        <button class="requestBtns" id="makeRequestBtn">預約申請</button>
+                        <button class="requestBtns" id="cancelBtn">取消申請</button>
+                    </div>
+                </div>
+            </div>
+            <!--教師資訊-->
+            <div class="introContainer">
+                <div class="introDiv" id="aboutMyself">
+                    <h2>關於我</h2>
+                    <p>我是 Emily，是一位全職英文教師，主要幫助學員在真實情境中能更自在地使用英文。教學生涯中，我接觸過不同背景的學員，從剛開始練習開口的初學者，到需要準備會議、簡報與職場溝通的學習者都有。
+
+                        我一直覺得，學英文不只是背單字或文法而已，更重要的是能不能把自己的想法清楚表達出來，並且在不同情境中自然、自信地開口回應。
+
+                        在課堂中，我會希望讓你感受到這是一個可以安心練習的空間，不需要急著追求完美，而是一步一步建立信心，慢慢找到最適合自己的英文表達方式。無論你是想提升日常對話能力，還是希望在工作中更自然地使用英文，都歡迎與我一起討論，訂定符合你需求的成果目標。
+                    </p>
+                </div>
+                <div class="introDiv" id="teachingStyle">
+                    <h2>教學風格</h2>
+                    <p>我的教學強調有架構的學習模式，且過程中會依照學員的目標和目前學習程度做調整。如果你希望加強口說，我會透過實際情境帶你練習，讓表達更自然。
+
+                        如果你的目標是進一步提升工作上的英文溝通能力，我會特別重視內容的清楚度與語氣表達。我們可以一起練習怎麼整理想法、有條理地表達意見，以及寫出清楚、得體的英文信件。
+
+                        我相信學習不一定要很有壓力，穩定而持續的進步，比一次要求自己完美到位更重要。所以在上課時，我會提供明確但不會讓人有負擔的引導與修正，讓你在理解自己的問題後，慢慢把英文用得更自然、更有自信。
+                    </p>
+                </div>
+                <div class="introDiv" id="experiences">
+                    <h2>經歷</h2>
+                    <ul class="experience-list">
+                        <li>曾任職於語言培訓機構，擔任英文講師，負責成人學員的一對一與小班教學</li>
+                        <li>擁有企業內訓經驗，協助上班族提升會議表達與簡報英文能力</li>
+                        <li>長期提供線上英文教學，累積超過 300+ 堂課的教學經驗</li>
+                        <li>曾協助學員準備英文簡報與跨國會議溝通，提升實際職場應用能力</li>
+                        <li>具備跨文化溝通經驗，熟悉不同學習背景學員的學習需求與節奏</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 手機介面下返回教師列按鈕 -->
+        <a class="backToTutorsBtn mobile" href="Post-tutor.html">← 返回教師列表</a>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/Post-tutor-Emily.js"></script>
+</body>
+
+</html>
