@@ -1,3 +1,4 @@
+const API_BASE_URL = "http://localhost:3000"; //初始本地端API網址
 const nameInput = document.getElementById("user-name");
 const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");
@@ -58,7 +59,7 @@ signUpBtn.addEventListener("click", async () => {
     }
 
     //將使用者的註冊資訊送給後端，查看信箱有沒有重複註冊
-    const response = await fetch("/api/register", {
+    const response = await fetch(`${API_BASE_URL}/api/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -73,7 +74,7 @@ signUpBtn.addEventListener("click", async () => {
     //將後端回傳的資訊轉為js物件
     const data = await response.json();
 
-    if(!data.success) {
+    if (!data.success) {
         errorMsg.textContent = data.message;
         return; //如果該信箱已被註冊過，就停止往下跑
     }
@@ -82,7 +83,7 @@ signUpBtn.addEventListener("click", async () => {
     localStorage.setItem("currentNoctraUser", JSON.stringify({
         name: data.user.name,
         email: data.user.email
-        })
+    })
     );
 
     alert('已成功註冊會員，接下來將跳轉英語能力定位測驗分頁~')

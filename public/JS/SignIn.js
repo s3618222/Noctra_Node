@@ -1,3 +1,4 @@
+const API_BASE_URL = "http://localhost:3000"; //初始本地端API網址
 const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");
 const signInBtn = document.getElementById("signInButton");
@@ -43,7 +44,7 @@ signInBtn.addEventListener("click", async () => {
     }
 
     //將使用者輸入的信箱、密碼資訊，傳給後端進行比對，respnse即等同送出資料後，後端再回傳過來的訊息
-    const response = await fetch('/api/login', {
+    const response = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
