@@ -1,3 +1,5 @@
+const cors = require("cors"); //安裝cors套件
+
 // 導入express，建立後端伺服器
 const express = require('express');
 
@@ -13,6 +15,11 @@ const PORT = process.env.PORT || 3000; //要部署在render上執行，所以不
 
 //讓express能讀取前端送來的JSON資料
 app.use(express.json());
+
+//使用cors套件，允許讓處於不同網域的前端來呼叫後端
+app.use(cors({
+    origin: "https://s3618222.github.io"
+}));
 
 //開放public資料夾，讓瀏覽器可以讀取Noctra的網頁內容
 app.use(express.static(path.join(__dirname, "docs")));
