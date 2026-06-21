@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000"; //初始本地端API網址
+const API_BASE_URL = "https://noctra-api-s7tb.onrender.com"; //部署在RENDER上的後端伺服器網址
 const nameInput = document.getElementById("user-name");
 const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");

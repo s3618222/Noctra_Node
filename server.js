@@ -18,6 +18,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 
+app.get("/", (req, res) => { //首頁API測試路由
+    res.send("Noctra API is running");
+});
+
 //登入API
 app.post('/api/login', (req, res) => {
     try {
