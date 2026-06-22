@@ -1,4 +1,8 @@
-const API_BASE_URL = "https://noctra-api-s7tb.onrender.com"; //佈署在RENDER上的後端伺服器網址
+const API_BASE_URL = location.hostname === "localhost" || location.hostname === "127.0.0.1"
+    ? "http://localhost:3000"
+    : "https://noctra-api-s7tb.onrender.com";
+//根據目前網址判斷，API是本機的localhost還是要fetch到佈署在render上的雲端網址
+
 const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");
 const signInBtn = document.getElementById("signInButton");
