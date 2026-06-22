@@ -3,7 +3,10 @@
     "id": 1,
     "name": "Bill",
     "email": "s3618222@gmail.com",
-    "password": "123"
+    "password": "123",
+    "phone": "0955072533",
+    "gender": "男",
+    "birthday": "1993-06-13"
   },
   {
     "id": 1782034441247,
@@ -15,7 +18,10 @@
     "id": 1782040993532,
     "name": "陳念慈",
     "email": "s36182222@gmail.com",
-    "password": "123"
+    "password": "123",
+    "phone": "",
+    "gender": "",
+    "birthday": ""
   },
   {
     "id": 1782133740483,

@@ -131,6 +131,78 @@ app.post("/api/register", (req, res) => {
     }
 });
 
+//取得會員資料API
+app.get("/api/member/profile", (req, res) => {
+    const { email } = req.query;
+
+    const userData = fs.readFileSync(path.join(__dirname, "data", "users.json"), "utf-8");
+    const users = JSON.parse(userData);
+
+    const foundUser = users.find((user) => user.email === email);
+
+    if (!foundUser) {
+        return res.json({
+            success: false,
+            message: "找不到此會員",
+        });
+    }
+
+    //將找到的會員資訊回傳給前端
+    res.json({
+        success: true,
+        user: {
+            name: foundUser.name,
+            email: foundUser.email,
+            phone: foundUser.phone || "",
+            gender: foundUser.gender || "",
+            birthday: foundUser.birthday || "",
+        },
+    });
+});
+
+//會員資料更新API
+app.patch('/api/member/profile', (req, res) => {
+    const { email, name, phone, gender, birthday } = req.body; //取得前端送來的會員更新資料
+
+    const userData = fs.readFileSync(path.join(__dirname, "data", "users.json"), "utf-8");
+    const users = JSON.parse(userData);
+
+    const foundUser = users.find((user) => {
+        return user.email === email; //比對找出資料庫中，是否有吻合相同email的會員資料
+    });
+
+    if (!foundUser) {
+        return res.json({
+            success: false
+        });
+    }
+
+    //找到吻合email的會員後，就更新該會員的相關資料
+    foundUser.name = name;
+    foundUser.phone = phone;
+    foundUser.gender = gender;
+    foundUser.birthday = birthday;
+
+    //將更新完的會員資料再重新寫回JSON
+    fs.writeFileSync(
+        path.join(__dirname, "data", "users.json"),
+        JSON.stringify(users, null, 2),
+        "utf-8"
+    );
+
+
+    //回傳前端成功更新訊息，並提供對應更新後的會員姓名與信箱資料
+    res.json({
+        success: true,
+        message: "會員資料更新成功",
+        user: {
+            name: foundUser.name,
+            email: foundUser.email
+        }
+    });
+});
+
+
 //啟動伺服器
 app.listen(PORT, () => {
     console.log(`Noctra is running at http://localhost:${PORT}`);
