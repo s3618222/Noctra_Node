@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 會員資訊｜帳戶資料設定</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-profile.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li><a href="Post-course.html">課程</a></li>
+                    <li><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a>訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <!--會員資訊區-->
+    <section class="noctra-member">
+        <div class="container">
+            <!-- 資訊表單 -->
+            <div class='member-profile'>
+                <!-- 基本資料區塊 -->
+                <div class='basic-title'>
+                    <h1>會員基本資料</h1>
+                    <button class='btn edit-btn' id='edit-btn'>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        編輯資料
+                    </button>
+                    <button class='btn save-btn' id='save-btn'>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        儲存變更
+                    </button>
+                </div>
+                <!-- 資料欄位區 -->
+                <div class='basic-info'>
+                    <div class='slot'>
+                        <label for="name">會員名稱</label>
+                        <input type='text' id="name" disabled>
+                    </div>
+                    <div class='slot'>
+                        <label for="email">電子郵件</label>
+                        <input type='email' id="email" disabled>
+                    </div>
+                    <div class='slot'>
+                        <label for="phone">手機</label>
+                        <input type='tel' id="phone" placeholder="-" disabled>
+                    </div>
+                    <div class='slot'>
+                        <label for="gender">性別</label>
+                        <select id="gender" disabled>
+                            <option value="">-</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class='slot'>
+                        <label for="birthday">生日</label>
+                        <input type='date' id="birthday" disabled>
+                    </div>
+                </div>
+                <!-- 密碼修改區 -->
+                <div class="basic-password">
+                    <button class='btn password-btn' id='password-btn'>
+                        修改密碼
+                    </button>
+                    <div class="password-container">
+                        <div class='field'>
+                            <label for="cur-password">舊密碼</label>
+                            <input type='password' id="cur-password" placeholder="請輸入目前密碼">
+                        </div>
+                        <div class='field'>
+                            <label for="new-password">新密碼</label>
+                            <input type='password' id="new-password" placeholder="請輸入新密碼">
+                        </div>
+                        <div class='field'>
+                            <label for="confirm-password">確認密碼</label>
+                            <input type='password' id="confirm-password" placeholder="再次確認密碼">
+                        </div>
+                        <!-- 密碼錯誤提示 -->
+                        <div class="errorMsg">
+                            <span id="errorText">example</span>
+                        </div>
+                        <!--確認修改、取消按鈕 -->
+                        <div class="btns">
+                            <button class='btn confirm-btn' id='confirm-btn'>
+                                確認
+                            </button>
+                            <button class='btn cancel-btn' id='cancel-btn'>
+                                取消
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/Post-profile.js"></script>
+</body>
+
+</html>

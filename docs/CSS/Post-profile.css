@@ -1,0 +1,519 @@
+/* ====== Noctra Design starts ====== */
+html {
+    font-size: 16px;
+}
+
+section.noctra-member {
+    background-color: #ffffff;
+    padding-block: 60px;
+
+    min-height: calc(100vh - 72px);
+    background: #f3f1ec;
+}
+
+div.container {
+    /* 1080約為1920螢幕下的60%寬度 */
+    width: min(1080px, 86vw);
+    margin-inline: auto;
+}
+
+/* 會員資訊表單 */
+.member-profile {
+    /* 寬度等同父層 */
+    width: 100%;
+    padding-inline: 32px;
+    border-radius: 28px;
+
+    padding: 42px 48px 46px;
+
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(31, 42, 68, 0.1);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(18px);
+}
+
+.basic-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    margin-bottom: 32px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #1f2a44;
+}
+
+/* 按鈕樣式 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 8px 20px;
+    border-radius: 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(180, 193, 212, 0.9);
+    background-color: #c9d3df;
+    color: #0b1224;
+
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        color 0.18s ease, transform 0.16s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover {
+    background: #b9c6d6;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+}
+
+/* 儲存變更、修改密碼按鈕調整 */
+.btn.save-btn,
+.btn.password-btn {
+    background-color: #1f2a44;
+    color: #ffffff;
+    border-color: #1f2a44;
+}
+
+.save-btn:hover,
+.password-btn:hover {
+    background: #314158;
+    border-color: #314158;
+    color: #ffffff;
+}
+
+.btn.save-btn {
+    display: none;
+}
+
+.btn.password-btn {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+/* 基本資料區 */
+.basic-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 46px;
+    row-gap: 26px;
+}
+
+.slot {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+    border-bottom: 1px solid rgba(31, 42, 68, 0.12);
+    padding-bottom: 8px;
+
+    /* 各欄位資料間的間距 */
+    margin-bottom: 28px;
+}
+
+.slot label,
+.password-container label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.08em;
+    margin-right: 20px;
+
+    display: inline-block;
+    text-align: left;
+    width: 4.5em;
+}
+
+/* 覆蓋掉chrome對手機input的自動填入背景色 */
+#phone:-webkit-autofill,
+#phone:-webkit-autofill:hover,
+#phone:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px rgba(248, 250, 252, 0.9) inset;
+    -webkit-text-fill-color: #1f2a44;
+    border-color: rgba(180, 193, 212, 0.9);
+}
+
+/* 輸入欄位預設模式 */
+.slot input,
+.slot select {
+    width: 100%;
+
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 14px;
+
+    padding: 8px 12px;
+
+    font-size: 20px;
+    font-weight: 500;
+    color: #1f2a44;
+
+    outline: none;
+    pointer-events: none;
+}
+
+/* 讓 disabled狀態不要像不能讀 */
+.slot input:disabled,
+.slot select:disabled {
+    opacity: 1;
+}
+
+/* ===== 編輯模式下的欄位樣式 ===== */
+.slot input.editing,
+.slot select.editing {
+    border-color: rgba(180, 193, 212, 0.9);
+    background: rgba(248, 250, 252, 0.9);
+    pointer-events: auto;
+}
+
+.slot input.editing:focus,
+.slot select.editing:focus {
+    border-color: #7f97b8;
+    box-shadow: 0 0 0 4px rgba(127, 151, 184, 0.16);
+}
+
+/* 密碼修改區 */
+.basic-password {
+    padding-top: 34px;
+}
+
+.btn.password-btn {
+    margin-bottom: 28px;
+}
+
+/* 預設隱藏，點擊修改密碼按鈕後block顯示 */
+.password-container {
+    display: none;
+    padding: 32px 32px 28px;
+    border-radius: 24px;
+
+    background: rgba(243, 241, 236, 0.62);
+    border: 1px solid rgba(31, 42, 68, 0.08);
+}
+
+.password-container .field {
+    width: 100%;
+    border-bottom: 1px solid rgba(31, 42, 68, 0.1);
+    padding-bottom: 12px;
+
+    margin-bottom: 28px;
+}
+
+.password-container input {
+    width: 40%;
+    text-align: left;
+    padding-left: 8px;
+
+    border: 1px solid rgba(180, 193, 212, 0.85);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.86);
+
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 16px;
+    color: #1f2a44;
+    outline: none;
+}
+
+.password-container input:focus {
+    border-color: #7f97b8;
+    box-shadow: 0 0 0 4px rgba(127, 151, 184, 0.16);
+}
+
+.password-container input::placeholder {
+    color: rgba(100, 116, 139, 0.7);
+}
+
+/* 密碼設定錯誤提醒文字 */
+.errorMsg {
+    display: none;
+    min-height: 24px;
+    margin: 6px 0 22px;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: #d95c5c;
+}
+
+/* 密碼區按鈕列 */
+.password-container .btns {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+/* ============= 會員資訊頁 RWD設定 ============= */
+@media screen and (max-width: 1280px) {
+    section.noctra-member {
+        padding-block: 52px 72px;
+    }
+
+    .noctra-member .container {
+        width: min(960px, 88vw);
+    }
+
+    .member-profile {
+        padding: 36px 40px 42px;
+        border-radius: 26px;
+    }
+
+    .basic-title {
+        margin-bottom: 28px;
+    }
+
+    .basic-title h1 {
+        font-size: 30px;
+    }
+
+    .btn {
+        min-height: 42px;
+        padding: 8px 18px;
+        font-size: 18px;
+    }
+
+    .basic-info {
+        column-gap: 36px;
+        row-gap: 22px;
+    }
+
+    .slot {
+        margin-bottom: 22px;
+    }
+
+    .slot input,
+    .slot select {
+        font-size: 18px;
+    }
+
+    .basic-password {
+        padding-top: 28px;
+    }
+
+    .password-container {
+        padding: 28px 28px 26px;
+    }
+
+    .password-container input {
+        width: 48%;
+        font-size: 18px;
+    }
+}
+
+/*  平板768px 資料呈現改單欄 */
+@media screen and (max-width: 768px) {
+    section.noctra-member {
+        padding-block: 48px 68px;
+    }
+
+    .noctra-member .container {
+        width: min(680px, calc(100% - 40px));
+    }
+
+    .member-profile {
+        padding: 34px 32px 36px;
+        border-radius: 24px;
+    }
+
+    .basic-title {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .basic-title h1 {
+        font-size: 28px;
+    }
+
+    .edit-btn,
+    .save-btn {
+        align-self: flex-end;
+    }
+
+    .btn {
+        min-height: 42px;
+        padding: 8px 18px;
+    }
+
+    .basic-info {
+        grid-template-columns: 1fr;
+        row-gap: 0;
+    }
+
+    .slot {
+        margin-bottom: 24px;
+        padding-bottom: 8px;
+    }
+
+    .slot label,
+    .password-container label {
+        font-size: 16px;
+    }
+
+    .slot input,
+    .slot select {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    .basic-password {
+        padding-top: 24px;
+    }
+
+    .btn.password-btn {
+        margin-top: 6px;
+        margin-bottom: 24px;
+    }
+
+    .password-container {
+        padding: 26px 24px 24px;
+        border-radius: 22px;
+    }
+
+    /* 密碼區欄位改flex column呈現 */
+    .password-container .field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+    }
+
+    .password-container input {
+        width: 100%;
+        font-size: 17px;
+    }
+
+    .password-container .btns {
+        gap: 40px;
+    }
+}
+
+/* 手機下介面 */
+@media screen and (max-width: 480px) {
+    section.noctra-member {
+        padding-block: 36px 52px;
+    }
+
+    .noctra-member .container {
+        width: calc(100% - 24px);
+    }
+
+    .member-profile {
+        padding: 28px 20px 32px;
+        border-radius: 22px;
+        box-shadow: 0 18px 48px rgba(15, 23, 42, 0.1);
+    }
+
+    .basic-title {
+        gap: 24px;
+        margin-bottom: 26px;
+    }
+
+    .basic-title h1 {
+        width: 100%;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .edit-btn,
+    .save-btn {
+        align-self: center;
+    }
+
+    .btn {
+        min-height: 40px;
+        padding: 8px 16px;
+        font-size: 16px;
+        border-radius: 18px;
+    }
+
+    .basic-info {
+        gap: 0;
+    }
+
+    .slot {
+        gap: 6px;
+        margin-bottom: 22px;
+        padding-bottom: 10px;
+    }
+
+    .slot label,
+    .password-container label {
+        font-size: 15px;
+        letter-spacing: 0.06em;
+    }
+
+    .slot input,
+    .slot select {
+        font-size: 16px;
+        padding: 7px 8px;
+    }
+
+    .slot input.editing,
+    .slot select.editing {
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
+
+    .basic-password {
+        padding-top: 18px;
+    }
+
+    .btn.password-btn {
+        margin-top: 4px;
+        margin-bottom: 20px;
+    }
+
+    .password-container {
+        padding: 22px 16px 22px;
+        border-radius: 20px;
+    }
+
+    .password-container .field {
+        gap: 8px;
+        margin-bottom: 22px;
+        padding-bottom: 16px;
+    }
+
+    .password-container input {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
+
+    .errorMsg {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .password-container .btns {
+        gap: 14px;
+    }
+
+    .confirm-btn,
+    .cancel-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
