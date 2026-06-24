@@ -186,10 +186,16 @@ makeRequestBtn.addEventListener("click", () => {
         return;
     }
 
-    //預約剩餘次數是否足夠判斷
+    //預約剩餘次數是否足夠判斷，額度不足時，跳轉至擴充額度分頁
     if (noctraQuota <= 0) {
-        alert("目前預約次數已滿");
-        return
+        const userConfirmed = confirm(
+            "目前預約額度已使用完畢。\n\n若想繼續預約教師，可選擇擴充方案，增加預約額度。\n\n是否立即前往方案頁面？");
+
+        if (userConfirmed) {
+            window.location.href = "Post-plan.html#quota"; //確認後，跳轉額度擴充頁
+        }
+
+        return;
     }
 
     // confirm 視窗
