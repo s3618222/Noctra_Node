@@ -203,6 +203,48 @@ app.patch('/api/member/profile', (req, res) => {
 });
 
 
+//會員密碼修改API
+app.patch('/api/member/password', (req, res) => {
+    const { email, oldPassword, newPassword } = req.body;
+    //取得從前端送來的會員信箱、原密碼、新密碼資訊
+
+    //讀取會員資料清單
+    const userData = fs.readFileSync(path.join(__dirname, "data", "users.json"), "utf-8");
+
+    const users = JSON.parse(userData);
+
+    //用前端傳來的會員信箱，找出目標會員資訊
+    const foundUser = users.find((user) => {
+        return user.email === email;
+    });
+
+    if (!foundUser) {
+        return res.json({
+            success: false,
+            message: "找無此會員資料",
+        });
+    }
+
+    //會員提供的舊密碼與會員資料庫內紀錄的密碼不符時
+    if (foundUser.password !== oldPassword) {
+        return res.json({
+            success: false,
+            message: "目前密碼不正確，請重新輸入",
+        })
+    }
+
+    //以上皆通過沒問題，才修改密碼，並重新寫回會員資料庫中
+    foundUser.password = newPassword;
+    fs.writeFileSync(path.join(__dirname, "data", "users.json"), JSON.stringify(users, null, 2));
+
+    //回傳修改結果給前端
+    res.json({
+        success: true,
+        message: "密碼修改成功"
+    });
+});
+
+
 //啟動伺服器
 app.listen(PORT, () => {
     console.log(`Noctra is running at http://localhost:${PORT}`);

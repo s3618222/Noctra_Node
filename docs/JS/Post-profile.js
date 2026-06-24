@@ -158,3 +158,98 @@ saveBtn.addEventListener("click", async function () {
         alert("伺服器連線失敗，請稍後再試");
     }
 });
+
+// 密碼修改區
+const passwordBtn = document.getElementById("password-btn"); //修改密碼按鈕
+const passwordContainer = document.querySelector(".password-container"); //密碼欄位區塊
+const curPassword = document.getElementById("cur-password"); //輸入目前密碼
+const newPassword = document.getElementById("new-password"); //輸入新密碼
+const confirmPassword = document.getElementById("confirm-password"); //確認新密碼
+const confirmBtn = document.getElementById("confirm-btn"); //確認修改按鈕
+const cancelBtn = document.getElementById("cancel-btn"); //取消按鈕
+const errorMsg = document.querySelector(".errorMsg"); //錯誤提示區
+const errorText = document.getElementById("errorText"); //錯誤提示文字
+
+//清除密碼欄位函式，並同時清空、關閉錯誤提示
+function clearFields() {
+    curPassword.value = "";
+    newPassword.value = "";
+    confirmPassword.value = "";
+
+    errorText.textContent = ""; //錯誤文字清空
+    errorMsg.style.display = "none"; //錯誤提示區塊關閉
+}
+
+// 顯示錯誤訊息函式
+function showPasswordError(message) {
+    errorText.textContent = message;
+    errorMsg.style.display = "block";
+}
+
+//點擊修改按鈕後，先清除原先密碼欄位上的內容，再打開密碼修改區，然後修改按鈕消失
+passwordBtn.addEventListener("click", () => {
+    clearFields();
+    passwordContainer.style.display = "block";
+    passwordBtn.style.display = "none";
+});
+
+// 點擊取消按鈕，關閉密碼區
+cancelBtn.addEventListener("click", () => {
+    passwordContainer.style.display = "none";
+    passwordBtn.style.display = "inline-flex"; //密碼修改按鈕重新顯示
+    clearFields(); //清空欄位
+});
+
+// 點擊確認按鈕
+confirmBtn.addEventListener("click", async function () {
+    //確認前先清空一次錯誤提示區塊
+    errorText.textContent = "";
+    errorMsg.style.display = "none";
+
+    //各密碼欄位的輸入值
+    const oldPasswordValue = curPassword.value;
+    const newPasswordValue = newPassword.value;
+    const confirmPasswordValue = confirmPassword.value;
+
+    //確認每個密碼欄位都有填寫
+    if (!oldPasswordValue || !newPasswordValue || !confirmPasswordValue) {
+        showPasswordError("請完整填寫各密碼欄位");
+        return;
+    }
+
+    //確認新密碼輸入一致
+    if (newPasswordValue !== confirmPasswordValue) {
+        showPasswordError("新密碼與確認密碼不一致");
+        return;
+    }
+
+    //上述條件皆通過後，將更新後的密碼資訊回傳給後端
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/member/password`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: currentNoctraUser.email, //回傳信箱，供後端對照該筆資料是哪一位會員
+                oldPassword: oldPasswordValue, //接著要對照會員提供的舊密碼是否正確
+                newPassword: newPasswordValue
+            })
+        });
+
+        const result = await res.json();
+        if (!result.success) {
+            showPasswordError(result.message || "密碼修改失敗");
+            return;
+        }
+
+        //成功修改密碼，跳出提醒，並關閉密碼欄位區，重新顯示修改按鈕
+        alert("密碼已修改成功");
+        passwordContainer.style.display = "none";
+        passwordBtn.style.display = "inline-flex";
+        clearFields(); //清除密碼欄位
+    } catch (error) {
+        console.error(error);
+        showPasswordError("伺服器連線失敗，請稍後再試");
+    }
+});
