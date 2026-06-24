@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra 會員方案｜選擇適合你的學習節奏</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-plan.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+</head>
+
+<body>
+    <!--網頁導覽按鈕bar-->
+    <header class="top-bar" id="header">
+        <div class="nav-wrap">
+            <a href="Post-learningCenter.html" class="logo-link">
+                <img id="logo" class="logo"
+                    src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo%20for%20Test.png"
+                    alt="Noctra logo">
+            </a>
+            <nav>
+                <ul>
+                    <!-- 手機介面下，準備秀出的user-menu連結 -->
+                    <li class="mobile-user-menu">
+                        <ul>
+                            <li>
+                                <a href="Post-profile.html">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                                        alt="Account settings icon">
+                                    <span>帳戶資訊</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                                        alt="Subscription plan icon">
+                                    <span>我的訂閱</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mobile-logout">
+                                    <img class="menu-icon"
+                                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                                        alt="Sign out icon">
+                                    <span>登出</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Post-learningCenter.html">主頁</a></li>
+                    <li><a href="Post-course.html">課程</a></li>
+                    <li><a href="Post-tutor.html">教師</a></li>
+                    <li><a href="Post-history.html">學習歷程</a></li>
+                    <!-- 手機漢堡選單下，才顯示 -->
+                    <li class="mobile-subscribe"><a href="#">訂閱方案</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--訂閱、使用者帳號資訊按鈕-->
+        <div class="member-buttons">
+            <a id="subscribe" href="#">訂閱方案</a>
+            <!--使用者選單-->
+            <div class="user-menu">
+                <button id="user-info">
+                    <img id="user-icon"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/NoctraUserLogo2.png"
+                        alt="User account menu">
+                </button>
+                <div class="user-dropdown">
+                    <a href="Post-profile.html" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-account.png"
+                            alt="Account settings icon">
+                        <span>帳戶資訊</span>
+                    </a>
+                    <a class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-subscribe.png"
+                            alt="Subscription plan icon">
+                        <span>我的訂閱</span>
+                    </a>
+                    <a id="logout" class="dropdownSelect">
+                        <img class="menu-icon"
+                            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/menuIcon-signout.png"
+                            alt="Sign out icon">
+                        <span>登出</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 手機用漢堡選單 -->
+            <input type="checkbox" id="menu-control">
+            <label for="menu-control" class="hb">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+    <!--方案內容區-->
+    <section class='noctra-plan'>
+        <div class='container'>
+            <!--方案頁內容容器 -->
+            <div class="plans">
+                <div class="plan-title">
+                    <h1>Noctra 會員方案</h1>
+                    <!--初始顯示方案slogan -->
+                    <p class="slogan membership" id="membership">選擇適合你的學習節奏，解鎖更多課程與學習功能</p>
+                    <!--擴充額度slogan -->
+                    <p class="slogan quota" id="quota">彈性增加預約額度，讓真人教師陪伴你的每一步</p>
+                </div>
+                <div class="button-list">
+                    <button class='btn plan-btn checked' id='plan-btn'>訂閱方案</button>
+                    <button class='btn quota-btn' id="quota-btn">擴充額度</button>
+                </div>
+                <!--方案卡片區 -->
+                <div class='plans-wrap'>
+                    <!--訂閱方案 -->
+                    <div class="card-list membership-list show">
+                        <div class="card core-plan">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan1.2Icon.png"
+                                alt="Core subscription plan">
+                            <div class="card-title">
+                                <p class='card-name'>Core 基礎方案</p>
+                                <p class="fees"><strong>NT$590 / 月</strong></p>
+                            </div>
+                            <div class="card-content">
+                                <p><em>For steady, self-paced learning</em></p>
+                                <p>以自己的節奏，穩定建立英語能力</p>
+                                <p>適合穩定、自主學習的你</p>
+                                <p>．自由使用平台所有課程</p>
+                                <p>．清楚的學習進度與歷程</p>
+                                <p>．每月1堂tutor指導(session)</p>
+                            </div>
+                            <div class="card-cta">
+                                <a class="cta-btn">立即訂閱</a>
+                                <p><small>月訂制 · 可隨時取消</small></p>
+                            </div>
+                        </div>
+                        <div class="card plus-plan">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Plan2.2Icon.png"
+                                alt="Plus subscription plan">
+                            <div class="card-title">
+                                <p class='card-name'>Plus 進階方案</p>
+                                <p class="fees"><strong>NT$1,290 / 月</strong></p>
+                            </div>
+                            <div class="card-content">
+                                <p><em>For learners who want more feedback</em></p>
+                                <p>在需要的時候，獲得清楚的指引</p>
+                                <p>適合希望獲得更多互動與回饋的你</p>
+                                <p>．自由使用平台所有課程</p>
+                                <p>．清楚的學習進度與歷程</p>
+                                <p>．每月3堂tutor指導(sessions)</p>
+                            </div>
+                            <div class="card-cta">
+                                <a class="cta-btn">立即訂閱</a>
+                                <p><small>月訂制 · 可隨時取消</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--擴充方案 -->
+                    <div class="card-list quota-list">
+                        <div class="card flex3">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/flex3_icon.png"
+                                alt="flex3 limit extension plan">
+                            <div class="card-title">
+                                <p class='card-name'>Flex 3 加購方案</p>
+                                <p class="fees"><strong>NT$1,390</strong></p>
+                            </div>
+                            <div class="card-content">
+                                <p><em>For extra support when needed</em></p>
+                                <p>在需要時，給自己更多練習機會</p>
+                                <p>適合短期衝刺的你</p>
+                                <p>．額外增加3堂tutor指導sessions</p>
+                                <p>．可自由安排使用時間</p>
+                                <p>．適用所有教師預約服務</p>
+                            </div>
+                            <div class="card-cta">
+                                <a class="cta-btn">補充額度</a>
+                                <p><small>額外購買之額度須於3個月內使用完畢</small></p>
+                            </div>
+                        </div>
+                        <div class="card plus-plan">
+                            <img src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/flex5_icon.png"
+                                alt="flex5 limit extension plan">
+                            <div class="card-title">
+                                <p class='card-name'>Flex 5 加購方案</p>
+                                <p class="fees"><strong>NT$2,090</strong></p>
+                            </div>
+                            <div class="card-content">
+                                <p><em>For steady progress and flexibility</em></p>
+                                <p>更彈性的安排，更穩定的進步</p>
+                                <p>適合長期學習的你</p>
+                                <p>．額外增加5堂tutor指導sessions</p>
+                                <p>．可自由安排使用時間</p>
+                                <p>．適用所有教師預約服務</p>
+                            </div>
+                            <div class="card-cta">
+                                <a class="cta-btn">補充額度</a>
+                                <p><small>額外購買之額度須於3個月內使用完畢</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--最後footer頁尾-->
+    <footer>
+        <div class="footerDiv">
+            <!-- 頁尾logo區塊 -->
+            <div class="footer-brand">
+                <a class="footer-logo-link" href="Post-learningCenter.html">
+                    <img class="footerLogo"
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+                        alt="Noctra logo">
+                </a>
+                <p class="footer-slogan">
+                    A calm place to grow your English.
+                </p>
+            </div>
+            <!-- 各分頁連結 -->
+            <div class="footerLinks">
+                <p><strong>平台導覽</strong></p>
+                <a href="Post-learningCenter.html">學習主頁</a>
+                <a href="Post-course.html">課程瀏覽</a>
+                <a href="Post-tutor.html">教師預約</a>
+                <a href="Post-history.html">學習歷程</a>
+            </div>
+            <!-- 聯絡資訊 -->
+            <div class="footerContact">
+                <p><strong>聯繫我們</strong></p>
+                <a href="mailto:hello@noctra.study">hello@noctra.study</a>
+                <p class="footerNote">
+                    <small>歡迎合作洽詢或平台相關問題聯繫。</small>
+                </p>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <small>© 2026 Noctra. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="JS/Post-plan.js"></script>
+</body>
+
+</html>
