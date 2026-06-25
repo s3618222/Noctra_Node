@@ -559,3 +559,27 @@ footer {
 
 
 }
+
+/* 手機介面下，footer字級縮小 */
+@media screen and (max-width: 480px) {
+
+    /* ===== Footer ===== */
+    footer {
+        padding-top: 48px;
+    }
+
+    .footerLogo {
+        width: 170px;
+    }
+
+    .footer-slogan,
+    .footerLinks a,
+    .footerContact a {
+        font-size: 16px;
+    }
+
+    .footerLinks p,
+    .footerContact p {
+        font-size: 20px;
+    }
+}

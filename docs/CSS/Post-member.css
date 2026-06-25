@@ -877,4 +877,26 @@ footer {
     .nav-wrap nav ul li a {
         width: 40%;
     }
+
+
+    /* ===== Footer 字級縮小 ==== */
+    footer {
+        padding-top: 48px;
+    }
+
+    .footerLogo {
+        width: 170px;
+    }
+
+    .footer-slogan,
+    .footerLinks a,
+    .footerContact a {
+        font-size: 16px;
+    }
+
+    .footerLinks p,
+    .footerContact p {
+        font-size: 20px;
+    }
+
 }
