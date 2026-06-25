@@ -548,9 +548,14 @@ h1 {
 }
 
 /* 讓三位學員卡片的起始狀態變暗，製造出hover後的落差 */
-.feedbackImgFrame {
+.feedbackCard {
     filter: brightness(.70) contrast(1.02) saturate(.92);
-    opacity: 0.5;
+    opacity: .5;
+
+    transition:
+        filter .5s ease,
+        opacity .5s ease,
+        transform .5s ease;
 }
 
 .feedbackFrame3 {
@@ -579,11 +584,11 @@ h1 {
 }
 
 /* 被hover的學員段落亮起,其餘暗下來 */
-.feedbackDiv:hover .feedbackImgFrame {
+.feedbackDiv:hover .feedbackCard {
     filter: brightness(.78) contrast(.98) saturate(.85);
 }
 
-.feedbackDiv .feedbackImgFrame:hover {
+.feedbackImgFrame:hover .feedbackCard {
     filter: brightness(1.06) contrast(1.06) saturate(1.03);
     opacity: 1;
 }
