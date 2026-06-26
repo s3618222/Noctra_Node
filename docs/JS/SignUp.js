@@ -90,6 +90,9 @@ signUpBtn.addEventListener("click", async () => {
     })
     );
 
+    //將openingAnime設定為false，讓後續做完定位測驗，要進入學習中心頁面時會執行開場動畫
+    localStorage.setItem("playOpeningAnime", JSON.stringify(false));
+
     alert('已成功註冊會員，接下來將跳轉英語能力定位測驗分頁~')
 
     //建立帳號後，直接跳轉到定位測驗分頁

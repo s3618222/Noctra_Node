@@ -18,18 +18,27 @@ const opening = document.querySelector(".opening"); //動畫區
 const pageContent = document.getElementById("pageContent"); //學習中心主頁面內容
 
 window.addEventListener("load", function () {
-    setTimeout(() => {
-        opening.classList.add("hide");
-        // pageContent.classList.add("show");
-    }, 2850); //開場動畫2750時結束，設定2850使動畫區淡出，然後頁面內容淡入
+    const playOpening = JSON.parse(localStorage.getItem("playOpeningAnime")) || false;
 
-    setTimeout(() => {
-        pageContent.classList.add("show");
-    }, 2950);
-
-    setTimeout(() => {
+    //如果已經播放過開場動畫，就直接去除動畫區塊，秀出分頁內容，不重複播放
+    if (playOpening) {
         opening.remove();
-    }, 3200); //時間軸至3200時，去除掉動畫區
+        pageContent.classList.add("show");
+    } else {
+        setTimeout(() => {
+            opening.classList.add("hide");
+        }, 2850); //開場動畫2750時結束，設定2850使動畫區淡出
+
+        setTimeout(() => {
+            pageContent.classList.add("show");
+        }, 2950); //頁面內容接著淡入
+
+        setTimeout(() => {
+            opening.remove();
+            localStorage.setItem("playOpeningAnime", JSON.stringify(true)); //播放完後，記錄已播放過
+        }, 3200); //時間軸至3200時，去除掉動畫區
+    }
+
 });
 
 

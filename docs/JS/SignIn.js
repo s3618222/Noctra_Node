@@ -72,6 +72,9 @@ signInBtn.addEventListener("click", async () => {
     })
     );
 
+    //將openingAnime設定為false，讓每次登入進學習中心頁面時會執行開場動畫
+    localStorage.setItem("playOpeningAnime", JSON.stringify(false));
+
     //接著跳轉至學習中心首頁
     window.location.href = "Post-learningCenter.html";
 });
