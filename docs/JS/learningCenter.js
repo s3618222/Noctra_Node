@@ -12,6 +12,27 @@ window.addEventListener("scroll", () => {
     //scrollY是指距離距離頂端(scrollY=0)的距離
 });
 
+
+//開場動畫設定
+const opening = document.querySelector(".opening"); //動畫區
+const pageContent = document.getElementById("pageContent"); //學習中心主頁面內容
+
+window.addEventListener("load", function () {
+    setTimeout(() => {
+        opening.classList.add("hide");
+        // pageContent.classList.add("show");
+    }, 2850); //開場動畫2750時結束，設定2850使動畫區淡出，然後頁面內容淡入
+
+    setTimeout(() => {
+        pageContent.classList.add("show");
+    }, 2950);
+
+    setTimeout(() => {
+        opening.remove();
+    }, 3200); //時間軸至3200時，去除掉動畫區
+});
+
+
 const currentHour = document.getElementById("currentHour"); //hero區塊，greeting
 
 //依照目前時間點，給不同的greeting
