@@ -286,8 +286,9 @@
     border: 0;
 }
 
-/* 活動廣告區 */
+/* 活動廣告區，預設隱藏 */
 div.noctra-campaign {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;

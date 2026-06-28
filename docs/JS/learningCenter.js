@@ -12,6 +12,14 @@ window.addEventListener("scroll", () => {
     //scrollY是指距離距離頂端(scrollY=0)的距離
 });
 
+//廣告設定
+const popEvent = document.querySelector('.noctra-campaign'); //廣告彈窗
+const closeEventBtn = document.getElementById('close-ad-btn'); //廣告關閉按鈕
+
+closeEventBtn.addEventListener('click', function () {
+    popEvent.style.display = "none";
+});
+
 
 //開場動畫設定
 const opening = document.querySelector(".opening"); //動畫區
@@ -22,6 +30,10 @@ const playOpening = JSON.parse(localStorage.getItem("playOpeningAnime")) || fals
 if (playOpening) {
     opening.remove();
     pageContent.style.opacity = "1";
+
+    setTimeout(() => {
+        popEvent.style.display = "block";
+    }, 2000);
 } else {
     window.addEventListener("load", function () {
         opening.classList.add("show"); //沒播放過，才打開轉場動畫
@@ -39,17 +51,11 @@ if (playOpening) {
             localStorage.setItem("playOpeningAnime", JSON.stringify(true));
         }, 3200); //時間軸至3200時，去除掉動畫區
 
+        setTimeout(() => {
+            popEvent.style.display = "block";
+        }, 4200);
     });
 }
-
-
-//廣告設定
-const popEvent = document.querySelector('.noctra-campaign'); //廣告彈窗
-const closeEventBtn = document.getElementById('close-ad-btn'); //廣告關閉按鈕
-
-closeEventBtn.addEventListener('click', function () {
-    popEvent.style.display = "none";
-});
 
 
 const currentHour = document.getElementById("currentHour"); //hero區塊，greeting
