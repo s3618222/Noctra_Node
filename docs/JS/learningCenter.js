@@ -42,6 +42,14 @@ window.addEventListener("load", function () {
 
 });
 
+//廣告設定
+const popEvent = document.querySelector('.noctra-campaign'); //廣告彈窗
+const closeEventBtn = document.getElementById('close-ad-btn'); //廣告關閉按鈕
+
+closeEventBtn.addEventListener('click', function () {
+    popEvent.style.display = "none";
+});
+
 
 const currentHour = document.getElementById("currentHour"); //hero區塊，greeting
 

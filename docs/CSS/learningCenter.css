@@ -283,6 +283,131 @@
     border: 0;
 }
 
+/* 活動廣告區 */
+div.noctra-campaign {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: min(520px, 90vw);
+
+    overflow: visible;
+    border-radius: 20px;
+
+    text-align: center;
+    z-index: 10001;
+}
+
+.noctra-campaign .pic {
+    width: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    background-color: #0b1224;
+}
+
+/* 廣告圖 */
+.noctra-campaign .pic img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* 廣告內文 */
+.event-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
+
+    transform: translateX(-55%) translateY(-80%);
+}
+
+/* 廣告關閉按鈕 */
+.noctra-campaign .close-btn {
+    position: absolute;
+    right: -20px;
+    top: -24px;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(11, 18, 36, 0.72);
+    color: #ffffff;
+
+    font-size: 28px;
+    line-height: 1;
+    box-shadow: 0 10px 24px rgba(11, 18, 36, 0.24);
+
+    transition: background-color 0.18s ease, transform 0.16s ease;
+}
+
+.noctra-campaign .close-btn:hover {
+    background: rgba(11, 18, 36, 0.92);
+    transform: translateY(-1px);
+}
+
+.noctra-campaign .close-btn:active {
+    transform: translateY(0);
+}
+
+/* 跳轉廣告活動頁CTA按鈕 */
+.event-btn {
+    position: absolute;
+    left: 50%;
+    bottom: -22px;
+
+    transform: translateX(-50%);
+
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 8px 20px;
+    border-radius: 20px;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(180, 193, 212, 0.9);
+    background-color: #c9d3df;
+    color: #0b1224;
+
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        color 0.18s ease, transform 0.16s ease, box-shadow 0.18s ease;
+}
+
+.event-btn:hover {
+    background: #b9c6d6;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.event-btn:active {
+    transform: translateX(-50%) translateY(-1px);
+}
+
 /* 主要內容區塊，卡片外觀設計 */
 .continueLearning,
 .classRecommend {
@@ -1141,6 +1266,32 @@
 
 
 /* ======= 學習中心 RWD CSS設定 ======== */
+@media screen and (max-width: 1280px) {
+    .noctra-campaign {
+        width: min(470px, 82vw);
+    }
+
+    .event-text {
+        font-size: 22px;
+        transform: translateX(-55%) translateY(-80%);
+    }
+
+    .event-btn {
+        bottom: -20px;
+        min-height: 42px;
+        padding: 8px 18px;
+        font-size: 18px;
+    }
+
+    .noctra-campaign .close-btn {
+        right: -18px;
+        top: -22px;
+        width: 30px;
+        height: 30px;
+        font-size: 26px;
+    }
+}
+
 @media screen and (max-width: 1080px) {
 
     .continueLearning,
@@ -1317,6 +1468,41 @@
 }
 
 @media screen and (max-width: 768px) {
+
+    /* 廣告彈窗調整 */
+    .noctra-campaign {
+        width: min(400px, 88vw);
+        border-radius: 18px;
+    }
+
+    .event-text {
+        font-size: 20px;
+        line-height: 1.45;
+
+        transform: translateX(-55%) translateY(-80%);
+    }
+
+    .event-btn {
+
+        bottom: -18px;
+
+        min-height: 40px;
+        padding: 8px 18px;
+
+        font-size: 17px;
+    }
+
+    .noctra-campaign .close-btn {
+
+        width: 28px;
+        height: 28px;
+
+        right: -14px;
+        top: -18px;
+
+        font-size: 22px;
+    }
+
     .hero-welcome {
         height: auto;
         min-height: 420px;
@@ -1454,6 +1640,44 @@
 
 /* ===== 480px：手機 ===== */
 @media screen and (max-width: 480px) {
+
+    /* 廣告彈窗調整 */
+    .noctra-campaign {
+        width: min(340px, 92vw);
+        border-radius: 16px;
+    }
+
+    .event-text {
+        width: 78%;
+
+        font-size: 17px;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+
+        /* 保持與桌機相同構圖 */
+        transform: translateX(-55%) translateY(-80%);
+    }
+
+    .event-btn {
+        bottom: -16px;
+
+        min-height: 38px;
+        padding: 7px 16px;
+
+        font-size: 16px;
+        border-radius: 999px;
+    }
+
+    .noctra-campaign .close-btn {
+        width: 26px;
+        height: 26px;
+
+        right: -10px;
+        top: -14px;
+
+        font-size: 20px;
+    }
+
     .hero-welcome {
         min-height: 390px;
         padding: 34px 18px 30px;
