@@ -370,7 +370,7 @@ const tutors = [
     },
     {
         id: "tutor-11",
-        name: "Emily Carter",
+        name: "Louis Thomas",
         photo: "https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/indieTutorPage/tutor11_David%20Thompson.png",
         accentText: "英國口音",
         rate: "98%",
