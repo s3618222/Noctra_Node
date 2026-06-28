@@ -38,37 +38,47 @@ function showCampaignAd() {
 //開場動畫設定
 const opening = document.querySelector(".opening"); //動畫區
 const pageContent = document.getElementById("pageContent"); //學習中心主頁面內容
-const playOpening = JSON.parse(localStorage.getItem("playOpeningAnime")) || false;
 
-//如果已經播放過開場動畫，就直接去除動畫區塊，秀出分頁內容，不重複播放
-if (playOpening) {
+let hasPlayedOpening = false;
+
+try {
+    hasPlayedOpening =
+        JSON.parse(localStorage.getItem("playOpeningAnime")) === true;
+} catch (error) {
+    hasPlayedOpening = false;
+}
+
+// 如果已經播放過：動畫一開始已經被 CSS 隱藏，接下來只負責移除 DOM
+if (hasPlayedOpening) {
     opening.remove();
-    pageContent.style.opacity = "1";
+    pageContent.classList.add("show");
 
     setTimeout(() => {
         showCampaignAd();
     }, 2000);
 } else {
-    window.addEventListener("load", function () {
-        opening.classList.add("show"); //沒播放過，才打開轉場動畫
+    // 第一次播放：CSS 已經讓 opening 一開始就顯示，不需再等 load 加 show
 
-        setTimeout(() => {
-            opening.classList.add("hide");
-        }, 2850); //開場動畫2750時結束，設定2850使動畫區淡出
+    setTimeout(() => {
+        opening.classList.add("hide");
+    }, 2850);
 
-        setTimeout(() => {
-            pageContent.classList.add("show");
-        }, 2950); //頁面內容接著淡入
+    setTimeout(() => {
+        pageContent.classList.add("show");
+    }, 2950);
 
-        setTimeout(() => {
-            opening.remove();
-            localStorage.setItem("playOpeningAnime", JSON.stringify(true));
-        }, 3200); //時間軸至3200時，去除掉動畫區
+    setTimeout(() => {
+        opening.remove();
 
-        setTimeout(() => {
-            showCampaignAd();
-        }, 4200);
-    });
+        localStorage.setItem("playOpeningAnime", JSON.stringify(true));
+
+        document.documentElement.classList.remove("opening-needed");
+        document.documentElement.classList.add("opening-played");
+    }, 3300);
+
+    setTimeout(() => {
+        showCampaignAd();
+    }, 4200);
 }
 
 
