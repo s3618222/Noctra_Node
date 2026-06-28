@@ -1,0 +1,764 @@
+/* ======活動頁CSS設定====== */
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #0b1224;
+}
+
+/* 置頂logo */
+.event-logo-link {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    z-index: 10;
+}
+
+/* 外圍區塊控制背景色、上下間距 */
+section.noctra-event {
+    padding-bottom: 40px;
+    min-height: 100vh;
+    padding: 40px 0 72px;
+}
+
+/* 內層容器控制總寬、左右間距 */
+div.container {
+    /* 1920螢幕下設定70%寬度 */
+    width: min(1120px, 70vw);
+    margin-inline: auto;
+}
+
+/* 活動頁內容 */
+/* 標題區 */
+.title-wrap {
+    text-align: center;
+    margin-inline: auto;
+}
+
+/* 頁面標題與獎勵標題容器共同設定 */
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.moon,
+.trophy {
+    color: yellow;
+    font-size: 28px;
+    filter: drop-shadow(0 0 12px rgba(216, 194, 138, 0.28));
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    color: #f8fafc;
+
+    letter-spacing: 0.1em;
+    word-spacing: 0.3em;
+}
+
+.subLine {
+    font-size: 20px;
+    color: rgba(235, 231, 223, 0.82);
+    margin: 0;
+    padding: 0;
+}
+
+/* 規則說明區 */
+.rules {
+    /*   width: fit-content; */
+    width: min(440px, 100%);
+    margin: 30px auto 32px;
+    padding: 18px 32px;
+    text-align: justify;
+
+    border: 1px solid rgba(180, 193, 212, 0.22);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f3f1ec;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.rules p {
+    margin: 0;
+    color: #f3f1ec;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.rules strong {
+    color: #d8c28a;
+    letter-spacing: 0.08em;
+}
+
+.rule-mobile {
+    display: none;
+}
+
+/* 遊戲活動區 */
+.scene {
+    position: relative;
+    width: min(960px, 100%);
+    aspect-ratio: 16 / 9;
+    margin: 36px auto;
+    overflow: hidden;
+    border: 1px solid rgba(235, 231, 223, 0.14);
+    border-radius: 30px;
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.35);
+    background: #0b1224;
+}
+
+/* 場景圖片 */
+.scene img {
+    position: absolute;
+    /* 撐滿父層場景容器 */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    user-select: none;
+}
+
+/* 起始畫面顯示暗版城市圖 */
+.scene .darkCity {
+    opacity: 1;
+}
+
+.scene .lightCity {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+/* 字母看板設定 */
+.billboard-list {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.billboard {
+    width: 120px;
+    height: 72px;
+    border: 2px solid rgba(235, 231, 223, 0.56);
+    border-radius: 14px;
+    background: rgba(7, 16, 31, 0.45);
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    color: transparent;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    transition: transform 0.25s ease, border-color 0.25s ease,
+        background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.billboard:hover {
+    transform: translateY(-4px);
+}
+
+/* 偽元素提示字母 */
+.billboard::before {
+    content: attr(data-letter);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    color: rgba(235, 231, 223, 0.14);
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* 字母看板正確放置時的class狀態 */
+.billboard.is-lit {
+    color: #ffffff;
+
+    border-color: #d8c28a;
+    background: rgba(31, 42, 68, 0.92);
+    box-shadow: 0 0 42px rgba(180, 193, 212, 0.34), 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+/* 正確放置字母後，原本的偽元素提示字母就可以隱藏 */
+.billboard.is-lit::before {
+    display: none;
+}
+
+/* 看板被拖拉物件懸浮在上方時的hover效果 */
+.billboard.is-over {
+    transform: translateY(-6px);
+    border-color: #f7d88a;
+    background-color: rgba(216, 194, 138, 0.14);
+}
+
+/* 放置錯誤時的提示狀態 */
+.billboard.is-wrong {
+    border-color: #ff8a8a;
+    animation: shake 0.25s;
+}
+
+/* 錯誤時，來回晃動 */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(-6px);
+    }
+
+    60% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 操作字母設定 */
+.letter-list {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 28px auto 0;
+}
+
+.letter {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: #ebe7df;
+    color: #0b1224;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    /* 滑鼠樣式改成抓握 */
+    cursor: grab;
+
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+
+.letter:hover {
+    /*   outline: 3px solid #f7d88a; */
+    transform: translateY(-6px);
+    filter: brightness(1.4);
+    box-shadow: 0 24px 46px rgba(0, 0, 0, 0.34);
+}
+
+/* 抓取狀態下，字母做縮放改變 */
+.letter:active {
+    cursor: grabbing;
+    transform: scale(0.94);
+}
+
+/* 配對完後的字母透明度調低 */
+.letter.is-matched {
+    opacity: 0.24;
+    pointer-events: none;
+}
+
+/* ===以點擊方式===遊玩時，設定的點選常駐狀態 */
+.letter.is-selected {
+    outline: 3px solid #d8c28a;
+    transform: translateY(-6px);
+}
+
+/* 優惠券設定，預設隱藏 */
+.coupon {
+    display: none;
+    width: min(560px, 100%);
+
+    margin-block: 32px;
+    margin-inline: auto;
+
+    padding-block: 20px;
+    text-align: center;
+
+    border: 1px solid rgba(180, 193, 212, 0.26);
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08)),
+        rgba(11, 18, 36, 0.88);
+    backdrop-filter: blur(16px);
+
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+}
+
+.coupon .title {
+    margin-bottom: 18px;
+}
+
+.coupon p {
+    margin: 0 0 10px;
+    color: rgba(243, 241, 236, 0.86);
+    font-size: 20px;
+}
+
+.coupon p:first-of-type {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.trophy {
+    color: yellow;
+    font-size: 24px;
+}
+
+/* 優惠碼 */
+.coupon strong {
+    color: #d8c28a;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+/* 優惠兌換按鈕 */
+.btn {
+    margin-top: 16px;
+
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    gap: 8px;
+
+    min-height: 44px;
+    padding: 8px 20px;
+    border-radius: 20px;
+
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(180, 193, 212, 0.9);
+    background-color: #c9d3df;
+    color: #0b1224;
+
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        color 0.18s ease, transform 0.16s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover {
+    background: #b9c6d6;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+}
+
+/* ============ 宣傳活動頁 RWD設定 ============ */
+@media (max-width: 1280px) {
+
+    /* 活動頁 logo */
+    .event-logo-link {
+        top: 18px;
+        left: 24px;
+    }
+
+    /* 避免畫面太窄，1280寬度下，加大內容區寬度 */
+    div.container {
+        width: min(1040px, 84vw);
+    }
+
+    section.noctra-event {
+        padding: 36px 0 64px;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: 0.08em;
+        word-spacing: 0.22em;
+    }
+
+    .subLine {
+        font-size: 18px;
+    }
+
+    .moon,
+    .trophy {
+        font-size: 24px;
+    }
+
+    .rules,
+    .coupon {
+        margin-block: 26px 30px;
+    }
+
+    .rules {
+        padding: 16px 28px;
+    }
+
+    .rules p {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* 遊戲場景稍微縮小 */
+    .scene {
+        width: min(900px, 100%);
+        margin: 32px auto;
+        border-radius: 28px;
+    }
+
+    .billboard-list {
+        gap: 10px;
+        top: 15%;
+    }
+
+    .billboard {
+        width: 104px;
+        height: 64px;
+        border-radius: 14px;
+        font-size: 32px;
+    }
+
+    /* 操作字母跟看板同步縮小 */
+    .letter-list {
+        gap: 16px;
+        margin-top: 26px;
+    }
+
+    .letter {
+        width: 66px;
+        height: 66px;
+        border-radius: 18px;
+        font-size: 32px;
+    }
+
+    .coupon {
+        width: min(520px, 100%);
+        padding-block: 18px;
+    }
+
+    .coupon p,
+    .coupon p:first-of-type {
+        font-size: 18px;
+    }
+
+    .coupon strong {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 17px;
+        min-height: 42px;
+        padding: 8px 18px;
+    }
+}
+
+/* 平板開始，改以點選方式進行遊戲 */
+@media (max-width: 768px) {
+    section.noctra-event {
+        padding: 32px 0 56px;
+    }
+
+    .event-logo-link {
+        top: 16px;
+        left: 20px;
+    }
+
+    .event-logo-link .logo {
+        width: 150px;
+    }
+
+    div.container {
+        width: min(680px, 90vw);
+    }
+
+    .title {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 1.35;
+        letter-spacing: 0.06em;
+        word-spacing: 0.12em;
+    }
+
+    .subLine {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .moon,
+    .trophy {
+        font-size: 22px;
+    }
+
+    .rules,
+    .coupon {
+        width: min(560px, 100%);
+        margin-block: 24px 28px;
+    }
+
+    .rules {
+        padding: 16px 22px;
+    }
+
+    .rules p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .rule-desktop {
+        display: none;
+    }
+
+    .rule-mobile {
+        display: block;
+    }
+
+    .scene {
+        width: 100%;
+        margin: 28px auto;
+        border-radius: 24px;
+    }
+
+    .billboard-list {
+        gap: 8px;
+        top: 14%;
+        padding-inline: 12px;
+    }
+
+    .billboard {
+        width: clamp(72px, 12vw, 88px);
+        height: clamp(48px, 8vw, 56px);
+        border-radius: 12px;
+        font-size: clamp(24px, 4.2vw, 28px);
+    }
+
+    .billboard:hover {
+        transform: none;
+    }
+
+    .letter-list {
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .letter {
+        width: 56px;
+        height: 56px;
+
+        border-radius: 16px;
+        font-size: 30px;
+        cursor: pointer;
+        /* 以點選方式遊玩時，cursor改回pointer，避免誤會 */
+    }
+
+    .letter:hover {
+        transform: none;
+        filter: none;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+    }
+
+    .letter:active {
+        cursor: pointer;
+        transform: scale(0.96);
+    }
+
+    .letter.is-selected {
+        transform: translateY(-4px);
+        outline-offset: 4px;
+    }
+
+    .coupon {
+        padding: 18px 22px 22px;
+    }
+
+    .coupon .title {
+        margin-bottom: 14px;
+    }
+
+    .coupon p,
+    .coupon p:first-of-type {
+        font-size: 17px;
+    }
+
+    .coupon strong {
+        font-size: 26px;
+    }
+
+    .btn {
+        min-height: 42px;
+        font-size: 16px;
+        padding: 8px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    section.noctra-event {
+        padding: 28px 0 48px;
+    }
+
+    .event-logo-link {
+        top: 14px;
+        left: 16px;
+    }
+
+    .event-logo-link .logo {
+        width: 128px;
+    }
+
+    div.container {
+        width: min(420px, 92vw);
+    }
+
+    .title {
+        gap: 8px;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 1.35;
+        letter-spacing: 0.04em;
+        word-spacing: 0.08em;
+    }
+
+    .subLine {
+        font-size: 15px;
+    }
+
+    .moon,
+    .trophy {
+        font-size: 20px;
+    }
+
+    .rules,
+    .coupon {
+        width: 100%;
+        margin-block: 22px 24px;
+    }
+
+    .rules {
+        padding: 16px 18px;
+        border-radius: 20px;
+    }
+
+    .rules p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .scene {
+        width: 100%;
+        margin: 24px auto;
+        border-radius: 20px;
+    }
+
+    .billboard-list {
+        gap: 6px;
+        top: 13%;
+        padding-inline: 8px;
+    }
+
+    /* 避免在小畫面中形狀變形，比例強制設定1比1 */
+    .billboard {
+        width: clamp(44px, 13vw, 56px);
+        aspect-ratio: 1 / 1;
+        height: auto;
+
+        border-radius: 12px;
+        font-size: clamp(19px, 5vw, 24px);
+    }
+
+    .letter-list {
+        gap: 8px;
+        margin-top: 22px;
+        justify-content: center;
+    }
+
+    .letter {
+        width: clamp(44px, 12.5vw, 56px);
+        aspect-ratio: 1 / 1;
+        height: auto;
+
+        border-radius: 14px;
+        font-size: clamp(19px, 5vw, 24px);
+    }
+
+    .letter.is-selected {
+        transform: translateY(-3px);
+        outline-width: 2px;
+        outline-offset: 3px;
+    }
+
+    .coupon {
+        padding: 18px 18px 22px;
+        border-radius: 22px;
+    }
+
+    .coupon .title {
+        margin-bottom: 12px;
+    }
+
+    .coupon p,
+    .coupon p:first-of-type {
+        font-size: 16px;
+    }
+
+    .coupon strong {
+        font-size: 24px;
+        letter-spacing: 0.12em;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 220px;
+        justify-content: center;
+
+        min-height: 42px;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 999px;
+    }
+}

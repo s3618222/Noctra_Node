@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctra Light Up Challenge｜點亮城市，解鎖學習獎勵</title>
+    <link rel="stylesheet" href="CSS/Post-member.css">
+    <link rel="stylesheet" href="CSS/Post-campaign.css">
+    <link rel="icon" type="image/png" href="PIC/Favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <!--置頂跳轉首頁logo -->
+    <a href="Post-learningCenter.html" class="event-logo-link">
+        <img id="logo" class="logo"
+            src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/Noctra-logo-footerVersion3.png"
+            alt="Noctra logo">
+    </a>
+    <section class='noctra-event'>
+        <div class='container'>
+            <div class='event-content'>
+                <!-- 活動標題 -->
+                <div class='title-wrap'>
+                    <div class='title'>
+                        <i class="moon fa-solid fa-star-and-crescent"></i>
+                        <h1>Noctra Light Up Challenge</h1>
+                    </div>
+                    <p class="subLine">用 Noctra 點亮每個專注學習的夜晚</p>
+                </div>
+                <!-- 規則介紹 -->
+                <div class='rules'>
+                    <h2>How to Play</h2>
+                    <p class='rule-desktop'>將下方散落的字母拖曳至對應的看板位置。成功點亮完整 <strong>NOCTRA</strong> 後，即可解鎖專屬優惠碼。</p>
+                    <p class="rule-mobile">將下方散落的字母，以點選方式，點擊配對至正確的看板。成功點亮完整 <strong>NOCTRA</strong> 後，即可解鎖專屬優惠碼。</p>
+                </div>
+                <!-- 優惠券顯示區 -->
+                <div class='coupon'>
+                    <div class='title'>
+                        <i class="trophy fa-solid fa-trophy"></i>
+                        <h2 class="coupon-label">Challenge Reward</h2>
+                    </div>
+                    <p>你已成功點亮 Noctra！</p>
+                    <p>優惠碼：<strong>NOCTRA1</strong></p>
+                    <a class='btn' href="Post-mySubscription.html">前往兌換優惠</a>
+                </div>
+                <!-- 遊戲場景 -->
+                <div class='scene'>
+                    <!-- 起始暗版畫面 -->
+                    <img class='darkCity'
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/eventImg_Dark.jpg"
+                        alt="Dark night city">
+                    <!-- 完成亮版畫面 -->
+                    <img class='lightCity'
+                        src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/eventImg_Light.jpg"
+                        alt="City after Noctra lights up">
+
+                    <!-- 字母看板 -->
+                    <div class="billboard-list">
+                        <div class="billboard" data-letter="N"></div>
+                        <div class="billboard" data-letter="O"></div>
+                        <div class="billboard" data-letter="C"></div>
+                        <div class="billboard" data-letter="T"></div>
+                        <div class="billboard" data-letter="R"></div>
+                        <div class="billboard" data-letter="A"></div>
+                    </div>
+                </div>
+                <!-- 操作字母選項 -->
+                <div class="letter-list">
+                    <div class="letter" draggable="true" data-letter="T">T</div>
+                    <div class="letter" draggable="true" data-letter="N">N</div>
+                    <div class="letter" draggable="true" data-letter="A">A</div>
+                    <div class="letter" draggable="true" data-letter="O">O</div>
+                    <div class="letter" draggable="true" data-letter="R">R</div>
+                    <div class="letter" draggable="true" data-letter="C">C</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="JS/Post-campaign.js"></script>
+</body>
+
+</html>
