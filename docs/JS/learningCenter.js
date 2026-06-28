@@ -16,16 +16,16 @@ window.addEventListener("scroll", () => {
 //開場動畫設定
 const opening = document.querySelector(".opening"); //動畫區
 const pageContent = document.getElementById("pageContent"); //學習中心主頁面內容
+const playOpening = JSON.parse(localStorage.getItem("playOpeningAnime")) || false;
 
-window.addEventListener("load", function () {
-    const playOpening = JSON.parse(localStorage.getItem("playOpeningAnime")) || false;
+//如果已經播放過開場動畫，就直接去除動畫區塊，秀出分頁內容，不重複播放
+if (playOpening) {
+    opening.remove();
+    pageContent.style.opacity = "1";
+} else {
+    window.addEventListener("load", function () {
+        opening.classList.add("show"); //沒播放過，才打開轉場動畫
 
-    //如果已經播放過開場動畫，就直接去除動畫區塊，秀出分頁內容，不重複播放
-    if (playOpening) {
-        opening.remove();
-        // pageContent.classList.add("show");
-        pageContent.style.opacity = "1";
-    } else {
         setTimeout(() => {
             opening.classList.add("hide");
         }, 2850); //開場動畫2750時結束，設定2850使動畫區淡出
@@ -36,11 +36,12 @@ window.addEventListener("load", function () {
 
         setTimeout(() => {
             opening.remove();
-            localStorage.setItem("playOpeningAnime", JSON.stringify(true)); //播放完後，記錄已播放過
+            localStorage.setItem("playOpeningAnime", JSON.stringify(true));
         }, 3200); //時間軸至3200時，去除掉動畫區
-    }
 
-});
+    });
+}
+
 
 //廣告設定
 const popEvent = document.querySelector('.noctra-campaign'); //廣告彈窗

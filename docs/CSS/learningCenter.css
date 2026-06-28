@@ -10,10 +10,14 @@
     position: fixed;
     inset: 0;
     /* 動畫佔滿版 */
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.opening.show {
+    display: flex;
 }
 
 /* 由JS控制，加入hide class後，隱藏動畫區 */
@@ -23,9 +27,8 @@
     pointer-events: none;
 }
 
-/* 頁面主要內容預設先隱藏 */
 #pageContent {
-    opacity: 0;
+    opacity: 1;
 }
 
 #pageContent.show {
