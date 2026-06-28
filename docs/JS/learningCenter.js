@@ -23,7 +23,8 @@ window.addEventListener("load", function () {
     //如果已經播放過開場動畫，就直接去除動畫區塊，秀出分頁內容，不重複播放
     if (playOpening) {
         opening.remove();
-        pageContent.classList.add("show");
+        // pageContent.classList.add("show");
+        pageContent.style.opacity = "1";
     } else {
         setTimeout(() => {
             opening.classList.add("hide");
