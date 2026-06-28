@@ -106,6 +106,17 @@ body {
     z-index: 0;
 }
 
+/* 如果背景影片沒有正常播放時，就改播放備用的圖片作為靜態背景圖 */
+.hero-sec.video-fallback {
+    background-image: url("https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/HeroSection-Background2.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-sec.video-fallback .hero-video {
+    display: none;
+}
+
 /* 影片遮罩 */
 .hero-sec::before {
     content: "";

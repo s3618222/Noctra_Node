@@ -65,7 +65,8 @@
         </header>
         <!--背景大圖與品牌slogan-->
         <section class="hero-sec">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto"
+                poster="https://raw.githubusercontent.com/s3618222/Noctra_Assets/refs/heads/main/images/HeroSection-Background2.png">
                 <source
                     src="https://raw.githubusercontent.com/s3618222/Noctra_Assets/main/images/HeaderVideoUpdated.mp4"
                     type="video/mp4" />
@@ -416,6 +417,28 @@
                 header.classList.remove("is-solid");
             }
         });
+
+        // Hero背景區影片手機播放補強
+        const heroVideo = document.getElementById("heroVideo");
+
+        if (heroVideo) {
+            heroVideo.muted = true;
+            heroVideo.defaultMuted = true;
+            heroVideo.playsInline = true;
+
+            function playHeroVideo() {
+                const playPromise = heroVideo.play();
+                //如果HERO背景影片沒有正常播放，就改呈現poster的備用背景圖片
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        heroVideo.closest(".hero-sec").classList.add("video-fallback");
+                    });
+                }
+            }
+
+            window.addEventListener("load", playHeroVideo);
+            window.addEventListener("pageshow", playHeroVideo);
+        }
     </script>
 </body>
 
