@@ -20,6 +20,20 @@ closeEventBtn.addEventListener('click', function () {
     popEvent.style.display = "none";
 });
 
+// 讀取使用者目前擁有的優惠券
+const ownedCoupon = JSON.parse(localStorage.getItem("ownedCoupon")) || [];
+
+// 檢查是否已經擁有 Light Up Challenge 活動優惠券
+const hasLightUpCoupon = ownedCoupon.some((coupon) => {
+    return coupon.code === "NOCTRA1";
+});
+
+// 顯示廣告函式
+function showCampaignAd() {
+    if (hasLightUpCoupon) return;
+
+    popEvent.style.display = "block";
+}
 
 //開場動畫設定
 const opening = document.querySelector(".opening"); //動畫區
@@ -32,7 +46,7 @@ if (playOpening) {
     pageContent.style.opacity = "1";
 
     setTimeout(() => {
-        popEvent.style.display = "block";
+        showCampaignAd();
     }, 2000);
 } else {
     window.addEventListener("load", function () {
@@ -52,7 +66,7 @@ if (playOpening) {
         }, 3200); //時間軸至3200時，去除掉動畫區
 
         setTimeout(() => {
-            popEvent.style.display = "block";
+            showCampaignAd();
         }, 4200);
     });
 }
