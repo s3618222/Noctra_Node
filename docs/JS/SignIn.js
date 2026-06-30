@@ -6,6 +6,7 @@ const API_BASE_URL = location.hostname === "localhost" || location.hostname === 
 const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");
 const signInBtn = document.getElementById("signInButton");
+const loader = document.querySelector(".loader"); //等待動畫
 const errorMsg = document.getElementById("errorMsg");
 
 // // 建立 Noctra的會員總名單
@@ -32,6 +33,7 @@ const errorMsg = document.getElementById("errorMsg");
 //登入訊息 簡易Validation
 signInBtn.addEventListener("click", async () => {
     errorMsg.textContent = ""; //清空錯誤訊息，避免前次訊息殘留
+    loader.classList.remove("show"); //隱藏loading動畫，避免前次loading狀態殘留
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
@@ -47,34 +49,54 @@ signInBtn.addEventListener("click", async () => {
         return;
     }
 
-    //將使用者輸入的信箱、密碼資訊，傳給後端進行比對，respnse即等同送出資料後，後端再回傳過來的訊息
-    const response = await fetch(`${API_BASE_URL}/api/login`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    });
+    //通過上述驗證後，才進入等待狀態
+    signInBtn.disabled = true; //登入按鈕改不可操作
+    signInBtn.textContent = "登入中...";
+    loader.classList.add("show"); //秀出等待動畫
 
-    const data = await response.json(); //將後端回傳的JSON字串轉為JS物件
-    if (!data.success) {
-        errorMsg.textContent = data.message;
-        return;
+    try {
+        //將使用者輸入的信箱、密碼資訊，傳給後端進行比對，respnse即等同送出資料後，後端再回傳過來的訊息
+        const response = await fetch(`${API_BASE_URL}/api/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json(); //將後端回傳的JSON字串轉為JS物件
+        if (!data.success) {
+            errorMsg.textContent = data.message;
+            //登入失敗時，恢復按鈕與loading狀態
+            signInBtn.disabled = false;
+            signInBtn.textContent = "登入";
+            loader.classList.remove("show");
+            return;
+        }
+
+        //登入成功時，就更新、覆寫目前使用者帳號資訊，然後登入成功就會跳轉頁面了，所以不用再把按鈕狀態改回
+        localStorage.setItem("currentNoctraUser", JSON.stringify({
+            name: data.user.name,
+            email: data.user.email
+        })
+        );
+
+        //將openingAnime設定為false，讓每次登入進學習中心頁面時會執行開場動畫
+        localStorage.setItem("playOpeningAnime", JSON.stringify(false));
+
+        //接著跳轉至學習中心首頁
+        window.location.href = "Post-learningCenter.html";
+    } catch (error) {
+        console.error(error);
+        errorMsg.textContent = "目前無法連線到伺服器，請稍後再試。";
+        //連線失敗時，恢復按鈕與loading狀態
+        signInBtn.disabled = false;
+        signInBtn.textContent = "登入";
+        loader.classList.remove("show");
     }
 
-    //登入成功時，就更新、覆寫目前使用者帳號資訊
-    localStorage.setItem("currentNoctraUser", JSON.stringify({
-        name: data.user.name,
-        email: data.user.email
-    })
-    );
 
-    //將openingAnime設定為false，讓每次登入進學習中心頁面時會執行開場動畫
-    localStorage.setItem("playOpeningAnime", JSON.stringify(false));
-
-    //接著跳轉至學習中心首頁
-    window.location.href = "Post-learningCenter.html";
 });

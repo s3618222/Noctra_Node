@@ -218,7 +218,8 @@ hr {
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-#signUpButton:hover {
+/* 避免 disabled 時 hover 還有上浮效果 */
+#signUpButton:not(:disabled):hover {
     transform: translateY(-1px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     filter: brightness(1.08);
@@ -235,8 +236,44 @@ hr {
     margin-bottom: 20px;
 }
 
+/* 跳轉等待動畫 */
+/* loading 預設先隱藏 */
+.loader {
+    display: none;
 
+    width: 120px;
+    height: 14px;
+    margin: 14px auto 8px;
 
+    border-radius: 999px;
+    color: rgba(180, 193, 212, 0.95);
+    border: 1.5px solid currentColor;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.loader.show {
+    display: block;
+}
+
+/* 內部填滿動畫 */
+.loader::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+
+    animation: loadingBar 1.6s ease-in-out infinite;
+}
+
+@keyframes loadingBar {
+    100% {
+        inset: 0;
+    }
+}
 
 /* ===========註冊分頁RWD CSS========== */
 /* ===== Desktop RWD ===== */

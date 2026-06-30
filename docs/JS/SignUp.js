@@ -8,6 +8,7 @@ const emailInput = document.getElementById("user-email");
 const passwordInput = document.getElementById("user-password");
 const password2Input = document.getElementById("user-password2");
 const signUpBtn = document.getElementById("signUpButton");
+const loader = document.querySelector(".loader"); //等待動畫
 const errorMsg = document.getElementById("errorMsg");
 
 // //先建立Noctra的總會員清單
@@ -34,6 +35,7 @@ const errorMsg = document.getElementById("errorMsg");
 signUpBtn.addEventListener("click", async () => {
     // 先清空訊息
     errorMsg.textContent = "";
+    loader.classList.remove("show"); //重新隱藏loading動畫，避免前次loading狀態殘留
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
@@ -62,41 +64,61 @@ signUpBtn.addEventListener("click", async () => {
         return;
     }
 
-    //將使用者的註冊資訊送給後端，查看信箱有沒有重複註冊
-    const response = await fetch(`${API_BASE_URL}/api/register`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password
+    //通過前端驗證後，才進入等待狀態
+    signUpBtn.disabled = true;
+    signUpBtn.textContent = "建立中...";
+    loader.classList.add("show");
+
+    try {
+        //將使用者的註冊資訊送給後端，查看信箱有沒有重複註冊
+        const response = await fetch(`${API_BASE_URL}/api/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            })
+        });
+
+        //將後端回傳的資訊轉為js物件
+        const data = await response.json();
+
+        if (!data.success) {
+            errorMsg.textContent = data.message;
+            //註冊失敗結果顯示時，恢復按鈕與loading狀態
+            signUpBtn.disabled = false;
+            signUpBtn.textContent = "建立帳戶";
+            loader.classList.remove("show");
+            return; //如果該信箱已被註冊過，就停止往下跑
+        }
+
+        //通過以上檢查、成功註冊後，將後端回傳的新會員資料再存入、銜接回localStorage，作為目前登入者資訊，然後註冊成功就會跳轉頁面了，所以不用再把按鈕狀態改回
+        localStorage.setItem("currentNoctraUser", JSON.stringify({
+            name: data.user.name,
+            email: data.user.email
         })
-    });
+        );
 
-    //將後端回傳的資訊轉為js物件
-    const data = await response.json();
+        //將openingAnime設定為false，讓後續做完定位測驗，要進入學習中心頁面時會執行開場動畫
+        localStorage.setItem("playOpeningAnime", JSON.stringify(false));
 
-    if (!data.success) {
-        errorMsg.textContent = data.message;
-        return; //如果該信箱已被註冊過，就停止往下跑
+        alert('已成功註冊會員，接下來將跳轉英語能力定位測驗分頁~')
+
+        //建立帳號後，直接跳轉到定位測驗分頁
+        window.location.href = "PlacementTest.html";
+    } catch (error) {
+        console.error(error);
+        errorMsg.textContent = "目前無法連線到伺服器，請稍後再試。";
+
+        //連線失敗時，恢復按鈕與loading狀態
+        signUpBtn.disabled = false;
+        signUpBtn.textContent = "建立帳戶";
+        loader.classList.remove("show");
     }
 
-    //通過以上檢查、成功註冊後，將後端回傳的新會員資料再存入、銜接回localStorage，作為目前登入者資訊
-    localStorage.setItem("currentNoctraUser", JSON.stringify({
-        name: data.user.name,
-        email: data.user.email
-    })
-    );
-
-    //將openingAnime設定為false，讓後續做完定位測驗，要進入學習中心頁面時會執行開場動畫
-    localStorage.setItem("playOpeningAnime", JSON.stringify(false));
-
-    alert('已成功註冊會員，接下來將跳轉英語能力定位測驗分頁~')
-
-    //建立帳號後，直接跳轉到定位測驗分頁
-    window.location.href = "PlacementTest.html";
 
 });
 
