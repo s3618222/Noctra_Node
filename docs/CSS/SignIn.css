@@ -399,6 +399,9 @@ hr {
     #signInButton {
         font-size: 18px;
         padding: 12px;
+
+        width: 100%;
+        max-width: 200px;
     }
 
     .signUp {
@@ -409,11 +412,5 @@ hr {
     .legal {
         font-size: 12px;
         margin-bottom: 12px;
-    }
-}
-
-@media (max-width: 375px) {
-    #signInButton {
-        width: 65%;
     }
 }
