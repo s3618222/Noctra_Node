@@ -1242,17 +1242,26 @@ h1 {
         cursor: default;
     }
 
-    .feedbackImgFrame {
+    .feedbackImgFrame,
+    .feedbackCard,
+    .feedbackImg,
+    .feedback-info {
         opacity: 1;
         filter: none;
+    }
+
+    .feedbackCard:hover {
+        transform: none;
     }
 
     .feedbackDiv:hover .feedbackImgFrame {
         filter: none;
     }
 
-    .feedbackCard:hover {
-        transform: none;
+    .feedbackDiv:hover .feedbackImgFrame,
+    .feedbackDiv .feedbackImgFrame:hover {
+        opacity: 1;
+        filter: none;
     }
 
     .feedbackFrame2 .feedbackCard {
