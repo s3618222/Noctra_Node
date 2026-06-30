@@ -2,7 +2,7 @@ const currentNoctraUser = JSON.parse(localStorage.getItem("currentNoctraUser"));
 
 //未登入下的防呆機制，跳轉回登入頁面
 if (!currentNoctraUser) {
-    window.location.href = "sign-in.html";
+    window.location.href = "SignIn.html";
 }
 
 //登出帳號
