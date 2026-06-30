@@ -828,6 +828,11 @@ makeRequestBtn.addEventListener("click", () => {
     setTutorCards(); //更新、重新render一次畫面
     directRequestForm.classList.remove("show"); //送出申請後，關閉預約表單
     renderRequestList(); //送出申請後，即時更新預約區塊中的預約資訊
+
+    //清空表單欄位，避免下一次預約時殘留舊的輸入資料
+    lessonDate.value = "";
+    lessonTime.value = "09:00";
+    needNote.value = "";
 });
 
 //我的預約區塊顯示
